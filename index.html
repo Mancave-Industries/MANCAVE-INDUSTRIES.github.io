@@ -134,8 +134,9 @@ section{padding-block:clamp(56px,9vw,110px)}
 .card .row{margin-top:auto;padding-top:12px;border-top:2px solid var(--kraft-ink);display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 10px}
 .card .price{font:900 1.7rem/1 var(--stencil)}
 .card .price small{font:700 .75rem/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:#6b5a48;margin-left:6px}
-.card .buy{color:var(--red);text-underline-offset:3px}
-.card .buy:hover,.card .buy:focus-visible{color:var(--kraft-ink)}
+.card .buy{background:var(--red);color:#fff;text-decoration:none;padding:10px 14px 8px;box-shadow:3px 3px 0 var(--kraft-ink)}
+.card .buy:hover,.card .buy:focus-visible{background:var(--kraft-ink)}
+.card .buy:focus-visible{outline:3px solid var(--uv);outline-offset:3px}
 .stamp{position:absolute;top:12px;right:12px;background:var(--red);color:#fff;padding:7px 10px 6px;transform:rotate(4deg);box-shadow:3px 3px 0 var(--wall)}
 .sub{display:grid;gap:6px;margin:clamp(30px,5vw,48px) 0 18px}
 .sub p{color:var(--smoke)}
@@ -282,17 +283,17 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-deluxe.webp" alt="Tall 500ml Deluxe Mangrenade with white Mancave Industries stencil" loading="lazy">
         <div class="body"><h3>Black Harp</h3><p>500ml can, white Mancave Industries stencil over black, flecked with colour.</p>
-          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Black%20Harp">Email to reserve</a></div></div>
+          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="https://buy.stripe.com/7sY14of4f8kueSY6DY3ks02">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-janedoe.webp" alt="Teal can candle with Mancave Industries grenade stencil beside its kraft tube" loading="lazy">
         <div class="body"><h3>Jane Doe</h3><p>Teal and coral can tagged with the grenade stencil. Grey wax.</p>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Jane%20Doe">Email to reserve</a></div></div>
+          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/4gM14o9JVcAKaCI5zU3ks00">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-copilot.webp" alt="Orange can candle with black grenade stencil next to an open kraft tube" loading="lazy">
         <div class="body"><h3>Co-Pilot</h3><p>Bright orange can with a crisp black lit-grenade stencil.</p>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Co-Pilot">Email to reserve</a></div></div>
+          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/6oUeVe7BNgR03ag6DY3ks01">Buy now</a></div></div>
       </article>
     </div>
     <div class="sub"><h3>One-offs</h3><p>The one in the photo is the one you get.</p></div>
@@ -300,25 +301,25 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-orange.webp" alt="Orange and black sprayed can candle with Mancave Industries stencil, next to its kraft tube" loading="lazy">
         <div class="body"><h3>Blast Orange</h3><p>Black stencil over a hot orange can, white-flecked. Orange wax.</p>
-          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Blast%20Orange">Email to reserve</a></div></div>
+          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="https://buy.stripe.com/dRm5kE8FRbwGcKQ2nI3ks03">Buy now</a></div></div>
       </article>
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-blackred.webp" alt="Black and red sprayed can candle next to its stamped kraft tube" loading="lazy">
         <div class="body"><h3>Scorched</h3><p>Coral base burned back with black drips. Orange wax.</p>
-          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Scorched">Email to reserve</a></div></div>
+          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="https://buy.stripe.com/9B6bJ25tF58i128bYi3ks04">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-blue.webp" alt="Blue and rust sprayed can candle with a grenade stencil, shown sitting in its open tube" loading="lazy">
         <div class="body"><h3>Rust &amp; Sky</h3><p>Sky-blue can, rust-red fade, grenade stencil front and centre.</p>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Rust%20%26%20Sky">Email to reserve</a></div></div>
+          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/bJedRacW78ku5iofau3ks05">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-purple.webp" alt="Purple-to-blue fade can candle with a black grenade stencil, beside its kraft tube" loading="lazy">
         <div class="body"><h3>Night Shift</h3><p>Purple-to-teal fade with a crisp black grenade.</p>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Night%20Shift">Email to reserve</a></div></div>
+          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/7sYbJ27BN8kuaCIbYi3ks06">Buy now</a></div></div>
       </article>
     </div>
-    <div class="facts label"><span><b>Stock</b>42 in the shed</span><span><b>UK post</b>£7.50</span><span><b>Collect</b>at the market stall</span><span><b>Packed</b>in a stamped kraft tube</span></div>
+    <div class="facts label"><span><b>Stock</b>42 in the shed</span><span><b>UK post</b>£7.50</span><span><b>Collect</b>at the market stall: email first</span><span><b>Packed</b>in a stamped kraft tube</span></div>
     <figure class="strip"><img src="assets/uv-row.webp" width="1600" height="1200" alt="A long shelf of Mangrenades under blacklight, each can glowing a different colour" loading="lazy"><figcaption><span class="label">Under blacklight</span><span>The paint is UV-reactive. Same cans, lights off.</span></figcaption></figure>
   </div>
 </section>
