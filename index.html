@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mancave Industries | Mangrenades, handmade in Hersham</title>
-<meta name="description" content="Mangrenades: beer-can candles stencilled, sprayed and poured by hand in a shed in Hersham. They glow under blacklight. Plus original artwork and the Game Shed.">
+<meta name="description" content="Mangrenades: candles poured into rescued cans, stencilled and sprayed by hand in a shed in Hersham. They glow under blacklight. Plus original artwork and the Game Shed.">
 <meta name="theme-color" content="#11100f">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mancave Industries">
@@ -137,6 +137,9 @@ section{padding-block:clamp(56px,9vw,110px)}
 .card .buy{color:var(--red);text-underline-offset:3px}
 .card .buy:hover,.card .buy:focus-visible{color:var(--kraft-ink)}
 .stamp{position:absolute;top:12px;right:12px;background:var(--red);color:#fff;padding:7px 10px 6px;transform:rotate(4deg);box-shadow:3px 3px 0 var(--wall)}
+.sub{display:grid;gap:6px;margin:clamp(30px,5vw,48px) 0 18px}
+.sub p{color:var(--smoke)}
+.tiers + .sub{margin-top:0}
 .facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:30px;color:var(--smoke)}
 .facts b{color:var(--kraft);font-weight:700;margin-right:6px}
 
@@ -245,7 +248,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <div class="seal-hero" role="img" aria-label="Mancave Industries seal with the Mangrenade at its centre"><span class="seal"></span></div>
     <div class="kicker label"><span class="g" aria-hidden="true"></span> Handmade in Hersham <span class="g" aria-hidden="true"></span></div>
     <h1>Mancaves just got <span class="r">lit</span></h1>
-    <p class="lede">Mangrenades: rescued beer cans, stencilled and sprayed in the shed, then poured with wax and a cotton wick. Kill the lights and they glow.</p>
+    <p class="lede">Mangrenades: rescued cans, stencilled and sprayed in the shed, then poured with wax and a cotton wick. Kill the lights and they glow.</p>
     <div class="ctas">
       <a class="btn primary" href="#shop"><span class="g" aria-hidden="true"></span> Shop the drop</a>
       <a class="btn ghost" href="#commissions">Send us your can</a>
@@ -267,19 +270,33 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <div class="head">
       <div class="label"><span class="g" aria-hidden="true"></span> The drop</div>
       <h2>Live rounds</h2>
-      <p>Every can is a one-off. The one in the photo is the one you get.</p>
+      <p>Pick a regular by the can it started as, or take a one-off.</p>
     </div>
     <div class="tiers">
       <div class="tier"><div class="label">Standard · 330ml</div><div class="price">£20</div><p>Stencilled and sprayed can, hand-poured wax, cotton wick.</p></div>
       <div class="tier deluxe"><div class="label">Deluxe</div><div class="price">£30</div><p>Mancavemanmade with extra attention. Big 500ml cans and our standout pieces.</p></div>
       <div class="tier"><div class="label">Boxed</div><div class="price">+£5</div><p>Stamped kraft gift tube with the grenade stencil.</p></div>
     </div>
+    <div class="sub"><h3>Regulars</h3><p>The photo shows the type. Each one is sprayed by hand, so yours will differ.</p></div>
     <div class="grid">
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-deluxe.webp" alt="Tall 500ml Deluxe Mangrenade with white Mancave Industries stencil" loading="lazy">
         <div class="body"><h3>Black Harp</h3><p>500ml can, white Mancave Industries stencil over black, flecked with colour.</p>
           <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Black%20Harp">Email to reserve</a></div></div>
       </article>
+      <article class="card">
+        <img src="assets/p-janedoe.webp" alt="Teal can candle with Mancave Industries grenade stencil beside its kraft tube" loading="lazy">
+        <div class="body"><h3>Jane Doe</h3><p>Teal and coral can tagged with the grenade stencil. Grey wax.</p>
+          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Jane%20Doe">Email to reserve</a></div></div>
+      </article>
+      <article class="card">
+        <img src="assets/p-copilot.webp" alt="Orange can candle with black grenade stencil next to an open kraft tube" loading="lazy">
+        <div class="body"><h3>Co-Pilot</h3><p>Bright orange can with a crisp black lit-grenade stencil.</p>
+          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Co-Pilot">Email to reserve</a></div></div>
+      </article>
+    </div>
+    <div class="sub"><h3>One-offs</h3><p>The one in the photo is the one you get.</p></div>
+    <div class="grid">
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-orange.webp" alt="Orange and black sprayed can candle with Mancave Industries stencil, next to its kraft tube" loading="lazy">
         <div class="body"><h3>Blast Orange</h3><p>Black stencil over a hot orange can, white-flecked. Orange wax.</p>
@@ -289,16 +306,6 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
         <img src="assets/p-blackred.webp" alt="Black and red sprayed can candle next to its stamped kraft tube" loading="lazy">
         <div class="body"><h3>Scorched</h3><p>Coral base burned back with black drips. Orange wax.</p>
           <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Scorched">Email to reserve</a></div></div>
-      </article>
-      <article class="card">
-        <img src="assets/p-hazy.webp" alt="Teal can candle with Mancave Industries grenade stencil beside its kraft tube" loading="lazy">
-        <div class="body"><h3>Hazy Grenade</h3><p>Teal and coral can tagged with the grenade stencil. Grey wax.</p>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Hazy%20Grenade">Email to reserve</a></div></div>
-      </article>
-      <article class="card">
-        <img src="assets/p-wingman.webp" alt="Orange can candle with black grenade stencil next to an open kraft tube" loading="lazy">
-        <div class="body"><h3>Wingman</h3><p>Bright orange can with a crisp black lit-grenade stencil.</p>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Wingman">Email to reserve</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-blue.webp" alt="Blue and rust sprayed can candle with a grenade stencil, shown sitting in its open tube" loading="lazy">
@@ -311,7 +318,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
           <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="mailto:mancaveman@icloud.com?subject=Reserve%3A%20Night%20Shift">Email to reserve</a></div></div>
       </article>
     </div>
-    <div class="facts label"><span><b>Stock</b>42 one-offs</span><span><b>UK post</b>£7.50</span><span><b>Collect</b>at the market stall</span><span><b>Packed</b>in a stamped kraft tube</span></div>
+    <div class="facts label"><span><b>Stock</b>42 in the shed</span><span><b>UK post</b>£7.50</span><span><b>Collect</b>at the market stall</span><span><b>Packed</b>in a stamped kraft tube</span></div>
     <figure class="strip"><img src="assets/uv-row.webp" width="1600" height="1200" alt="A long shelf of Mangrenades under blacklight, each can glowing a different colour" loading="lazy"><figcaption><span class="label">Under blacklight</span><span>The paint is UV-reactive. Same cans, lights off.</span></figcaption></figure>
   </div>
 </section>
@@ -377,9 +384,9 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <button class="btn primary uv-switch" id="uv-switch" type="button" aria-pressed="false"><span class="g" aria-hidden="true"></span><span id="uv-switch-text">Hit the UV</span></button>
     </div>
     <div class="uvset">
-      <figure class="wide"><button class="flip" id="flip-trip" type="button" aria-label="Oasis triptych: switch between daylight and blacklight"><img src="assets/o-trip-day.webp" width="1540" height="957" alt="Oasis triptych in daylight: a stencilled portrait over the Oasis logo across three canvases" loading="lazy"><img class="uv" src="assets/o-trip-uv.webp" width="1540" height="957" alt="" loading="lazy"></button><figcaption><h3>Oasis triptych</h3><span class="label">Spray paint and stencil on three canvases · Enquire</span></figcaption></figure>
-      <figure><button class="flip" id="flip-adi" type="button" aria-label="Adidas canvas: switch between daylight and blacklight"><img src="assets/o-adi-day.webp" width="626" height="640" alt="Canvas in daylight: two stencilled portraits over an Adidas trefoil, with the Mancave Industries seal" loading="lazy"><img class="uv" src="assets/o-adi-uv.webp" width="626" height="640" alt="" loading="lazy"></button><figcaption><h3>Adidas canvas</h3><span class="label">Spray paint and stencil on canvas · Enquire</span></figcaption></figure>
-      <figure><button class="flip" id="flip-oas" type="button" aria-label="Oasis canvas: switch between daylight and blacklight"><img src="assets/o-oas-day.webp" width="605" height="640" alt="Canvas in daylight: two stencilled portraits over Oasis and Adidas lettering, with the Mancave Industries seal" loading="lazy"><img class="uv" src="assets/o-oas-uv.webp" width="605" height="640" alt="" loading="lazy"></button><figcaption><h3>Oasis canvas</h3><span class="label">Spray paint and stencil on canvas · Enquire</span></figcaption></figure>
+      <figure class="wide"><button class="flip" id="flip-trip" type="button" aria-label="Triptych: switch between daylight and blacklight"><img src="assets/o-trip-day.webp" width="1540" height="957" alt="Triptych in daylight: a stencilled portrait over block lettering across three canvases" loading="lazy"><img class="uv" src="assets/o-trip-uv.webp" width="1540" height="957" alt="" loading="lazy"></button><figcaption><h3>Untitled (triptych)</h3><span class="label">Spray paint and stencil on three canvases · Enquire</span></figcaption></figure>
+      <figure><button class="flip" id="flip-adi" type="button" aria-label="Untitled I: switch between daylight and blacklight"><img src="assets/o-adi-day.webp" width="626" height="640" alt="Canvas in daylight: two stencilled portraits, with the Mancave Industries seal" loading="lazy"><img class="uv" src="assets/o-adi-uv.webp" width="626" height="640" alt="" loading="lazy"></button><figcaption><h3>Untitled I</h3><span class="label">Spray paint and stencil on canvas · Enquire</span></figcaption></figure>
+      <figure><button class="flip" id="flip-oas" type="button" aria-label="Untitled II: switch between daylight and blacklight"><img src="assets/o-oas-day.webp" width="605" height="640" alt="Canvas in daylight: two stencilled portraits over layered lettering, with the Mancave Industries seal" loading="lazy"><img class="uv" src="assets/o-oas-uv.webp" width="605" height="640" alt="" loading="lazy"></button><figcaption><h3>Untitled II</h3><span class="label">Spray paint and stencil on canvas · Enquire</span></figcaption></figure>
     </div>
     <figure class="strip lead tall"><img src="assets/uv-wall.webp" width="1600" height="1200" alt="The shed wall under blacklight, hung with stencilled canvases" loading="lazy"><figcaption><span class="label">The shed wall</span><span>Blacked out, one UV bulb.</span></figcaption></figure>
     <div class="gallery">
@@ -408,6 +415,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <span>Mancave Industries (MCI) · Handmade in Hersham, Surrey</span>
       <a href="mailto:mancaveman@icloud.com">mancaveman@icloud.com</a>
       <span>© Mancave Industries</span>
+      <span>Not affiliated with or endorsed by any brewery or drinks brand.</span>
     </div>
     <div class="sign">Mancaves<br>just got lit</div>
   </footer>
