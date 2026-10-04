@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Order received | Mancave Industries</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#11100f">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: the same shed wall as the shop, one centred column: seal, stencilled thanks, what happens next. */
+:root{
+  color-scheme:dark;
+  --wall:#11100f; --red:#d9262c; --uv:#ff2e88; --chalk:#f3eee6; --smoke:#a8a097; --kraft:#c29a66;
+  --stencil:"Big Shoulders Stencil Display","Black Ops One","Arial Black",Impact,sans-serif;
+  --label:"Barlow Condensed","Arial Narrow",sans-serif;
+  --text:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--wall);color:var(--chalk);font:400 1.05rem/1.6 var(--text);
+  background-image:radial-gradient(60vmax 40vmax at 85% 8%,rgba(255,46,136,.10),transparent 60%),radial-gradient(50vmax 40vmax at 5% 60%,rgba(217,38,44,.08),transparent 60%);
+  padding-inline:clamp(16px,4vw,48px);padding-block:clamp(32px,8vw,80px)}
+main{display:grid;gap:22px;justify-items:center;text-align:center;max-width:560px}
+.seal{width:min(56vw,240px);aspect-ratio:1;background:var(--chalk);-webkit-mask:url("assets/seal-mask.png") center/contain no-repeat;mask:url("assets/seal-mask.png") center/contain no-repeat}
+.label{font:700 .82rem/1 var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--uv)}
+h1{font:900 clamp(2.8rem,11vw,5rem)/.88 var(--stencil);text-transform:uppercase;margin:0;text-wrap:balance}
+h1 span{color:var(--red)}
+p{margin:0;color:var(--smoke)}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;color:var(--chalk)}
+a{color:inherit}
+.btn{display:inline-flex;padding:15px 24px 13px;text-decoration:none;font:700 1rem/1 var(--label);letter-spacing:.18em;text-transform:uppercase;border:2px solid var(--red);background:var(--red);color:#fff;box-shadow:6px 6px 0 var(--uv)}
+.btn.ghost{background:none;box-shadow:none;color:var(--chalk)}
+.btn:focus-visible{outline:3px solid var(--uv);outline-offset:4px}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:6px}
+</style>
+</head>
+<body>
+<main>
+  <div class="seal" role="img" aria-label="Mancave Industries seal"></div>
+  <div class="label">Order received</div>
+  <h1>Consider it <span>lit</span></h1>
+  <p>Payment's gone through and your receipt is in your inbox.</p>
+  <ul>
+    <li><strong>Posting:</strong> it gets packed in Hersham and sent to the address you gave.</li>
+    <li><strong>Collecting:</strong> bring your receipt to the market stall.</li>
+  </ul>
+  <p>Anything wrong with the order? Email <a href="mailto:mancaveman@icloud.com">mancaveman@icloud.com</a>.</p>
+  <div class="ctas">
+    <a class="btn" href="/">Back to the shop</a>
+    <a class="btn ghost" href="/Gameshed/">Play the Game Shed</a>
+  </div>
+</main>
+</body>
+</html>
