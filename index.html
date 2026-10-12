@@ -213,6 +213,12 @@ section{padding-block:clamp(56px,9vw,110px)}
 @media (prefers-reduced-motion:reduce){.flip .uv{transition:none}}
 @media (max-width:620px){.uvset{grid-template-columns:1fr}}
 
+.wall{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2.5vw,26px)}
+.wall figure{margin:0;display:grid;gap:10px;align-content:start;min-width:0}
+.wall img{width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 22px 44px -20px #000}
+.wall h3{font-size:1.5rem}
+.wall .label{color:var(--smoke);font-size:.72rem}
+@media (max-width:860px){.wall{grid-template-columns:repeat(2,1fr)}}
 /* maker */
 .maker{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:center}
 .maker img{width:100%;aspect-ratio:1;object-fit:cover}
@@ -394,7 +400,18 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <figure><img src="assets/art-flag.webp" alt="Mancave Industries Flag: stars and stripes stencilled with repeated Mancave Industries lettering" loading="lazy"><figcaption><h3>Mancave Industries Flag</h3><span class="label">Spray paint and stencil on board · Enquire</span></figcaption></figure>
       <figure><img src="assets/art-greed.webp" alt="Greed: framed mixed-media piece with a masked figure surrounded by banknotes" loading="lazy"><figcaption><h3>Greed</h3><span class="label">Mixed media and resin, framed · Enquire</span></figcaption></figure>
     </div>
-  </div>
+      <div class="sub"><h3>More from the wall</h3><p>All shot under blacklight. Email to ask about any of them.</p></div>
+    <div class="wall">
+      <figure><img src="assets/a-bat-pink.webp" width="900" height="1200" alt="Neon pink caped figure in a green speckled night, under blacklight" loading="lazy"><figcaption><h3>Pink Knight</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
+      <figure><img src="assets/a-bat-pastel.webp" width="900" height="1200" alt="Black caped figure over a pastel spray haze, under blacklight" loading="lazy"><figcaption><h3>Pastel Knight</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
+      <figure><img src="assets/a-trefoil.webp" width="900" height="1200" alt="Trefoil stencil ringed with Mancave Industries lettering, under blacklight" loading="lazy"><figcaption><h3>Trefoil</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
+      <figure><img src="assets/a-brothers.webp" width="900" height="1200" alt="Two stencilled portraits over layered lettering and the seal, under blacklight" loading="lazy"><figcaption><h3>Brothers</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
+      <figure><img src="assets/a-mirror.webp" width="900" height="1200" alt="Block lettering stencilled upright and reflected, under blacklight" loading="lazy"><figcaption><h3>Mirror</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
+      <figure><img src="assets/a-trooper.webp" width="900" height="1200" alt="Trooper helmet over hot orange, crossed with Mancave Industries tape, under blacklight" loading="lazy"><figcaption><h3>Trooper</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
+      <figure><img src="assets/a-collision.webp" width="900" height="1200" alt="Layered stencils, helmet and seal on violet, under blacklight" loading="lazy"><figcaption><h3>Collision</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
+      <figure><img src="assets/a-darkside.webp" width="900" height="1200" alt="Helmeted figure through neon green and pink layers, under blacklight" loading="lazy"><figcaption><h3>Dark Side</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
+    </div>
+</div>
 </section>
 
 <section id="maker">
