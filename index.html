@@ -234,6 +234,15 @@ section{padding-block:clamp(56px,9vw,110px)}
 .expect li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start}
 .expect .g{color:var(--red);font-size:1.15rem}
 @media (max-width:620px){.event{grid-template-columns:1fr}.event .when{justify-self:start;grid-auto-flow:column;align-items:baseline;gap:10px}.event .when .day{font-size:3rem}}
+.crew{display:grid;grid-template-columns:repeat(2,minmax(0,380px));gap:clamp(18px,4vw,44px)}
+.crew figure{margin:0;display:grid;gap:12px}
+.crew figure:nth-child(1){transform:rotate(-1.5deg)}
+.crew figure:nth-child(2){transform:rotate(1.5deg)}
+.crew img{width:100%;aspect-ratio:1;object-fit:cover;box-shadow:0 26px 50px -20px #000}
+.crew h3{font-size:2.2rem}
+.crew figure:nth-child(1) .label{color:#f2c230}
+.crew figure:nth-child(2) .label{color:var(--uv)}
+@media (max-width:620px){.crew{grid-template-columns:1fr}}
 /* maker */
 .maker{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:center}
 .maker img{width:100%;aspect-ratio:1;object-fit:cover}
@@ -263,7 +272,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <li><a href="#events">Events</a></li>
       <li><a href="#commissions">Commissions</a></li>
       <li><a href="#art">Originals</a></li>
-      <li><a href="#maker">The maker</a></li>
+      <li><a href="#crew">The crew</a></li>
       <li><a href="/Gameshed/">Game Shed</a></li>
     </ul>
   </nav>
@@ -455,6 +464,19 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <h2>Built in the shed</h2>
       <p>Mancave Industries is Mark's shed: a spray booth, a wax pot, a UV light and a lot of empty cans. It's where the Mangrenades get made, the artwork gets layered up, and the Game Shed puzzles get built.</p>
       <div><a class="btn ghost" href="/Gameshed/">Play the Game Shed</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="crew">
+  <div class="wrap">
+    <div class="head">
+      <div class="label"><span class="g" aria-hidden="true"></span> The shed</div>
+      <h2>Meet the crew</h2>
+    </div>
+    <div class="crew">
+      <figure><img src="assets/crew-tk.webp" width="800" height="800" alt="TK, arms crossed, in front of the Mancave Industries seal splashed with yellow paint" loading="lazy"><figcaption><h3>TK</h3><span class="label">Mancave legend</span></figcaption></figure>
+      <figure><img src="assets/crew-lila.webp" width="800" height="800" alt="Lila in front of the seal, with MAN crossed out and GIRL sprayed over it in pink" loading="lazy"><figcaption><h3>Lila</h3><span class="label">Girlcave queen</span></figcaption></figure>
     </div>
   </div>
 </section>
