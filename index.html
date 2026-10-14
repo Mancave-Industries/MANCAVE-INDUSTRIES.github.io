@@ -219,6 +219,21 @@ section{padding-block:clamp(56px,9vw,110px)}
 .wall h3{font-size:1.5rem}
 .wall .label{color:var(--smoke);font-size:.72rem}
 @media (max-width:860px){.wall{grid-template-columns:repeat(2,1fr)}}
+/* events */
+.strip-ann{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;text-align:center;text-decoration:none;color:var(--wall);background:var(--uv);padding:10px 14px 8px;margin-top:10px;font-size:.78rem}
+.strip-ann:hover,.strip-ann:focus-visible{background:var(--chalk)}
+.event{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,4vw,44px);align-items:start;border:2px solid var(--red);padding:clamp(18px,3.5vw,36px);margin-bottom:clamp(36px,6vw,64px);background:rgba(17,16,15,.6)}
+.event .when{display:grid;justify-items:center;gap:6px;background:var(--red);color:#fff;padding:16px 18px 14px;min-width:110px;transform:rotate(-2deg);box-shadow:6px 6px 0 var(--uv)}
+.event .when .day{font:900 4.4rem/.8 var(--stencil)}
+.event .what{display:grid;gap:12px;min-width:0}
+.event .tag{color:var(--uv)}
+.event h3{font-size:clamp(1.8rem,4.5vw,2.8rem)}
+.event .where{color:var(--kraft);font-weight:600}
+.event .what>p{color:var(--smoke)}
+.expect{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}
+.expect li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start}
+.expect .g{color:var(--red);font-size:1.15rem}
+@media (max-width:620px){.event{grid-template-columns:1fr}.event .when{justify-self:start;grid-auto-flow:column;align-items:baseline;gap:10px}.event .when .day{font-size:3rem}}
 /* maker */
 .maker{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:center}
 .maker img{width:100%;aspect-ratio:1;object-fit:cover}
@@ -240,10 +255,12 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 </head>
 <body>
 <div class="wrap">
+  <a class="strip-ann label" href="#events"><span class="g" aria-hidden="true"></span> Sat 28 Nov · Festival of Light, Walton-on-Thames · Come and see them lit</a>
   <nav class="nav" aria-label="Main">
     <a class="brand" href="#top" aria-label="Mancave Industries home"><span class="seal seal-nav" aria-hidden="true"></span><span class="brand-name">Mancave Industries</span></a>
     <ul class="label">
       <li><a href="#shop">Shop</a></li>
+      <li><a href="#events">Events</a></li>
       <li><a href="#commissions">Commissions</a></li>
       <li><a href="#art">Originals</a></li>
       <li><a href="#maker">The maker</a></li>
@@ -332,13 +349,29 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 
 <div class="rule" aria-hidden="true"><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span></div>
 
-<section id="posters">
+<section id="events">
   <div class="wrap">
     <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> Now showing</div>
-      <h2>Mancaves just got lit</h2>
-      <p>Find us at the Festival of Light.</p>
+      <div class="label"><span class="g" aria-hidden="true"></span> Events</div>
+      <h2>Come and see them lit</h2>
+      <p>Photos only get you so far. Where to find Mancave Industries in person.</p>
     </div>
+    <article class="event">
+      <div class="when"><span class="label">Sat</span><span class="day">28</span><span class="label">Nov 2026</span></div>
+      <div class="what">
+        <div class="label tag">First outing</div>
+        <h3>Walton's Christmas Festival of Light</h3>
+        <p class="where">11am to 7pm · High Street &amp; The Heart, Walton-on-Thames KT12 1GH</p>
+        <p>Our first stall, and the first chance to see the Mangrenades in person. The town's lantern parade, Christmas market and live music run all day.</p>
+        <ul class="expect">
+          <li><span class="g" aria-hidden="true"></span><span>The full Mangrenade range, lit, plus one-offs you won't find online</span></li>
+          <li><span class="g" aria-hidden="true"></span><span>Original canvases from the shed wall</span></li>
+          <li><span class="g" aria-hidden="true"></span><span>Bring a can: we'll take commissions on the day</span></li>
+          <li><span class="g" aria-hidden="true"></span><span>Card, phone or cash</span></li>
+        </ul>
+        <div class="ctas"><a class="btn ghost" href="https://lovewalton.co.uk/event/waltons-christmas-festival-of-light-2026/" target="_blank" rel="noopener">Festival details</a></div>
+      </div>
+    </article>
     <div class="posters">
       <figure><img src="assets/poster-jaws.webp" alt="Mangrenade poster: a lit can candle rising through water under a floating can" loading="lazy"></figure>
       <figure><img src="assets/poster-glow.webp" alt="Mangrenade poster: a glowing can candle dripping green wax" loading="lazy"></figure>
