@@ -12,6 +12,8 @@ const OUT = process.argv[2] || path.join(__dirname, 'out');
 fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.jpg': 'image/jpeg' };
 const results = [];
+// BASE_URL=https://... runs the suite against a deployed site instead of the local folder
+const BASE = () => process.env.BASE_URL || `http://localhost:${server.address().port}`;
 // serve the same headers Cloudflare Pages will (public/_headers), so the CSP is exercised
 const HEADERS = Object.fromEntries(fs.readFileSync(path.join(ROOT, '_headers'), 'utf8').split('\n').filter((l) => /^\s+\S+:/.test(l)).map((l) => { const i = l.indexOf(':'); return [l.slice(0, i).trim(), l.slice(i + 1).trim()]; }));
 const log = (ok, name, detail = '') => { results.push({ ok, name, detail }); console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail ? '  — ' + detail : ''}`); };
@@ -71,7 +73,7 @@ async function runCase(browser, fixture, layerCounts, opts = {}) {
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
-  await page.goto(`http://localhost:${server.address().port}/stencil-lab/`);
+  await page.goto(`${BASE()}/stencil-lab/`);
   if (fixture === 'sample') await page.click('#sample');
   else await page.setInputFiles('#file', path.join(FIX, fixture));
   await waitDone(page);
@@ -157,11 +159,11 @@ async function runCase(browser, fixture, layerCounts, opts = {}) {
   try {
     // shelf page loads
     const p = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-    await p.goto(`http://localhost:${server.address().port}/`);
+    await p.goto(`${BASE()}/`);
     log((await p.textContent('h1')).includes('App Shelf') && (await p.locator('a[href="stencil-lab/"]').count()) === 1, 'App Shelf page lists Stencil Lab');
     await p.screenshot({ path: path.join(OUT, 'shelf.png') });
     const m = await browser.newPage({ viewport: { width: 390, height: 844 } });
-    await m.goto(`http://localhost:${server.address().port}/stencil-lab/`);
+    await m.goto(`${BASE()}/stencil-lab/`);
     const sw = await m.evaluate(() => document.documentElement.scrollWidth);
     log(sw <= 390, 'phone width: no horizontal scroll', `scrollWidth ${sw}`);
     // bad file type
