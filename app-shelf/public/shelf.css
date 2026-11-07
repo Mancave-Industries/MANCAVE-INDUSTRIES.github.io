@@ -26,7 +26,7 @@ h1,h2,h3,.stencil{font-family:var(--stencil);font-weight:900;text-transform:uppe
 .topbar{border-bottom:2px solid var(--chalk);background:var(--ink)}
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:12px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand img{width:40px;height:40px;filter:grayscale(1) contrast(1.2)}
+.brand img{width:40px;height:40px;border-radius:50%}
 .brand b{font:900 1.35rem/1 var(--stencil);text-transform:uppercase;letter-spacing:.03em}
 .brand small{display:block;font:700 .72rem/1 var(--label);letter-spacing:.24em;color:var(--smoke);margin-top:4px}
 .topnav{display:flex;gap:18px;flex-wrap:wrap}

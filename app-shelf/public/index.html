@@ -6,6 +6,10 @@
 <title>MCI App Shelf</title>
 <meta name="description" content="Tools built in the Mancave Industries shed. Start with STENCIL LAB: turn artwork into layered, Cricut-ready stencils.">
 <meta name="theme-color" content="#0d0d0d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MCI App Shelf">
+<meta property="og:description" content="Tools from the Mancave Industries shed, starting with Stencil Lab.">
+<meta property="og:image" content="https://apps.mancaveindustries.store/assets/og.jpg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +18,10 @@
 <link rel="stylesheet" href="shelf.css">
 <style>
 .hero{padding-block:clamp(40px,8vw,96px) clamp(28px,5vw,56px);display:grid;gap:18px}
+.hero{grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:clamp(24px,5vw,64px)}
+.hero > :not(.logo){grid-column:1}
+.hero .logo{grid-column:2;grid-row:1 / span 3;width:clamp(200px,26vw,320px);height:auto;border-radius:50%;box-shadow:0 0 0 2px var(--steel),0 0 60px rgba(255,255,255,.06)}
+@media (max-width:700px){.hero{grid-template-columns:1fr}.hero .logo{grid-column:1;grid-row:auto;width:min(60vw,240px)}}
 .hero h1{font-size:clamp(3.4rem,11vw,8rem)}
 .hero p{max-width:56ch;color:var(--smoke);font-size:1.15rem;margin:0}
 .hero .label{color:var(--smoke)}
@@ -33,12 +41,13 @@
 </head>
 <body>
 <header class="topbar"><div class="wrap">
-  <a class="brand" href="./"><img src="assets/favicon.png" alt="" width="40" height="40"><span><b>MCI App Shelf</b><small>Mancave Industries</small></span></a>
+  <a class="brand" href="./"><img src="assets/app-shelf-badge.webp" alt="" width="40" height="40"><span><b>MCI App Shelf</b><small>Mancave Industries</small></span></a>
   <nav class="topnav" aria-label="Mancave Industries"><a href="https://mancaveindustries.store/">Shop</a><a href="https://mancaveindustries.store/Gameshed/">Game Shed</a></nav>
 </div></header>
 <div class="hazard" aria-hidden="true"></div>
 <main class="wrap">
   <section class="hero">
+    <img class="logo" src="assets/app-shelf-logo.webp" alt="Mancave Industries App Shelf" width="640" height="640">
     <span class="label">Tools from the shed</span>
     <h1>App Shelf</h1>
     <p>The kit we use to make things in the Mancave, tidied up so you can use it too. Everything runs in your browser. Your artwork never leaves your device.</p>

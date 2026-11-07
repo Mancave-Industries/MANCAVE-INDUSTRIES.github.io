@@ -10,7 +10,7 @@ const ROOT = path.join(__dirname, '..', 'public');
 const FIX = path.join(__dirname, 'fixtures');
 const OUT = process.argv[2] || path.join(__dirname, 'out');
 fs.mkdirSync(OUT, { recursive: true });
-const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.svg': 'image/svg+xml' };
+const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.jpg': 'image/jpeg' };
 const results = [];
 // serve the same headers Cloudflare Pages will (public/_headers), so the CSP is exercised
 const HEADERS = Object.fromEntries(fs.readFileSync(path.join(ROOT, '_headers'), 'utf8').split('\n').filter((l) => /^\s+\S+:/.test(l)).map((l) => { const i = l.indexOf(':'); return [l.slice(0, i).trim(), l.slice(i + 1).trim()]; }));
