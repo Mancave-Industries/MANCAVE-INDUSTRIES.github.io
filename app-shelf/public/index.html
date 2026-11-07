@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MCI App Shelf</title>
+<meta name="description" content="Tools built in the Mancave Industries shed. Start with STENCIL LAB: turn artwork into layered, Cricut-ready stencils.">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@900&family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&display=swap">
+<link rel="stylesheet" href="shelf.css">
+<style>
+.hero{padding-block:clamp(40px,8vw,96px) clamp(28px,5vw,56px);display:grid;gap:18px}
+.hero h1{font-size:clamp(3.4rem,11vw,8rem)}
+.hero p{max-width:56ch;color:var(--smoke);font-size:1.15rem;margin:0}
+.hero .label{color:var(--smoke)}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;padding-bottom:72px}
+.app{position:relative;display:grid;gap:14px;align-content:start;border:2px solid var(--chalk);padding:22px;text-decoration:none;background:var(--ink-2);min-height:300px}
+.app:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--steel)}
+.app:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+.app h2{font-size:2.6rem}
+.app p{margin:0;color:var(--smoke)}
+.app .tag{position:absolute;top:-12px;right:16px;background:var(--chalk);color:var(--ink);padding:5px 9px 4px}
+.app.soon{border-style:dashed;border-color:var(--steel);background:transparent;color:var(--smoke);pointer-events:none}
+.app.soon .tag{background:var(--steel);color:var(--chalk)}
+.icon{width:72px;height:72px}
+.meta{display:flex;gap:10px;flex-wrap:wrap}
+.meta span{border:1px solid var(--steel);padding:5px 8px 4px;color:var(--chalk)}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="./"><img src="assets/favicon.png" alt="" width="40" height="40"><span><b>MCI App Shelf</b><small>Mancave Industries</small></span></a>
+  <nav class="topnav" aria-label="Mancave Industries"><a href="https://mancaveindustries.store/">Shop</a><a href="https://mancaveindustries.store/Gameshed/">Game Shed</a></nav>
+</div></header>
+<div class="hazard" aria-hidden="true"></div>
+<main class="wrap">
+  <section class="hero">
+    <span class="label">Tools from the shed</span>
+    <h1>App Shelf</h1>
+    <p>The kit we use to make things in the Mancave, tidied up so you can use it too. Everything runs in your browser. Your artwork never leaves your device.</p>
+  </section>
+  <section class="shelf" aria-label="Apps">
+    <a class="app" href="stencil-lab/">
+      <span class="tag label">Live</span>
+      <svg class="icon" viewBox="0 0 72 72" aria-hidden="true"><rect x="3" y="3" width="66" height="66" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="36" cy="36" r="17" fill="none" stroke="currentColor" stroke-width="10" stroke-dasharray="48.4 5" stroke-dashoffset="-2.5" transform="rotate(-90 36 36)"/></svg>
+      <h2>Stencil Lab</h2>
+      <p>Turn a JPG, PNG or SVG into one to five stencil layers. It finds the bits that would fall out, bridges them, and exports sized SVGs for Cricut Design Space.</p>
+      <div class="meta label"><span>1–5 layers</span><span>Cricut SVG</span><span>ZIP</span></div>
+    </a>
+    <div class="app soon" aria-disabled="true">
+      <span class="tag label">On the bench</span>
+      <h2>Next tool</h2>
+      <p>More apps land here as they leave the shed.</p>
+    </div>
+  </section>
+</main>
+<footer class="foot"><div class="wrap">Mancave Industries, Hersham. Built in the shed.</div></footer>
+</body>
+</html>
