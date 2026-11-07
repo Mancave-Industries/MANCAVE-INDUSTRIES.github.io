@@ -1,4 +1,5 @@
 # Deploys the MCI App Shelf (app-shelf/public) to Cloudflare Pages project "mci-app-shelf".
+# Fails with a clear message if the CLOUDFLARE_API_TOKEN repository secret is missing.
 # Branch pushes become preview deployments (<branch>.mci-app-shelf.pages.dev).
 # Only main is the Pages production branch; the custom domain is attached separately, after approval.
 # Does not touch the shop site (GitHub Pages) or the Game Shed.
@@ -40,8 +41,8 @@ jobs:
           T: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           if [ -z "$T" ]; then
-            echo "::warning::Repository secret CLOUDFLARE_API_TOKEN is not set, so nothing was deployed."
-            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "::error::Repository secret CLOUDFLARE_API_TOKEN is not set (Settings > Secrets and variables > Actions > Repository secrets). Nothing was deployed."
+            exit 1
           else
             echo "ok=true" >> "$GITHUB_OUTPUT"
           fi
