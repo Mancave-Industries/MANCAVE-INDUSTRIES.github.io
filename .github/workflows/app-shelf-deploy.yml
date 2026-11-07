@@ -1,0 +1,64 @@
+# Deploys the MCI App Shelf (app-shelf/public) to Cloudflare Pages project "mci-app-shelf".
+# Branch pushes become preview deployments (<branch>.mci-app-shelf.pages.dev).
+# Only main is the Pages production branch; the custom domain is attached separately, after approval.
+# Does not touch the shop site (GitHub Pages) or the Game Shed.
+name: App Shelf deploy
+
+on:
+  push:
+    paths:
+      - "app-shelf/**"
+      - ".github/workflows/app-shelf-deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: app-shelf-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT_ID: 34c51add54418c2a9d8c38b9be2420e8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Engine tests
+        run: node --test app-shelf/tests/core.test.js
+
+      - name: Check the Cloudflare token is set
+        id: token
+        env:
+          T: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$T" ]; then
+            echo "::warning::Repository secret CLOUDFLARE_API_TOKEN is not set, so nothing was deployed."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy to Cloudflare Pages
+        if: steps.token.outputs.ok == 'true'
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "3.114.0"
+          command: pages deploy app-shelf/public --project-name=mci-app-shelf --branch=${{ github.ref_name }} --commit-hash=${{ github.sha }}
+
+      - name: Show the URL
+        if: steps.token.outputs.ok == 'true'
+        run: |
+          echo "Deployment: ${{ steps.deploy.outputs.deployment-url }}"
+          echo "Branch alias: ${{ steps.deploy.outputs.pages-deployment-alias-url }}"
+          echo "### Deployed: ${{ steps.deploy.outputs.pages-deployment-alias-url || steps.deploy.outputs.deployment-url }}" >> "$GITHUB_STEP_SUMMARY"
