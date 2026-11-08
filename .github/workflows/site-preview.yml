@@ -1,6 +1,7 @@
 # Preview of the shop site (mancaveindustries.store) on Cloudflare Pages, for checking
 # homepage changes before they are merged. The live site is still GitHub Pages; this
-# never touches it. Previews are marked noindex, and their App Shelf links point at the
+# never touches it. This workflow never runs for main, so the project only gets preview
+# deployments (<branch>.mci-site-preview.pages.dev). Previews are marked noindex, and their App Shelf links point at the
 # matching App Shelf preview instead of apps.mancaveindustries.store.
 name: Site preview
 
@@ -56,4 +57,5 @@ jobs:
           command: pages deploy _preview --project-name=mci-site-preview --branch=${{ github.ref_name }} --commit-hash=${{ github.sha }}
 
       - name: Show the URL
-        run: echo "### Site preview: ${{ steps.deploy.outputs.pages-deployment-alias-url || steps.deploy.outputs.deployment-url }}" >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          echo "### Site preview: ${{ steps.deploy.outputs.pages-deployment-alias-url || steps.deploy.outputs.deployment-url }}" >> "$GITHUB_STEP_SUMMARY"
