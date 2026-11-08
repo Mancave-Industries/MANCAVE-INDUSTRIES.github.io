@@ -1,0 +1,59 @@
+# Preview of the shop site (mancaveindustries.store) on Cloudflare Pages, for checking
+# homepage changes before they are merged. The live site is still GitHub Pages; this
+# never touches it. Previews are marked noindex, and their App Shelf links point at the
+# matching App Shelf preview instead of apps.mancaveindustries.store.
+name: Site preview
+
+on:
+  push:
+    branches-ignore: [main]
+    paths:
+      - "index.html"
+      - "thanks.html"
+      - "assets/**"
+      - ".github/workflows/site-preview.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT_ID: 34c51add54418c2a9d8c38b9be2420e8
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build preview folder
+        run: |
+          set -e
+          alias=$(printf '%s' "${GITHUB_REF_NAME}" | tr 'A-Z' 'a-z' | sed 's/[^a-z0-9]/-/g' | cut -c1-28 | sed 's/-*$//')
+          mkdir -p _preview
+          cp index.html thanks.html _preview/
+          cp -r assets _preview/assets
+          sed -i "s#https://apps.mancaveindustries.store/#https://${alias}.mci-app-shelf.pages.dev/#g" _preview/index.html
+          printf '/*\n  X-Robots-Tag: noindex, nofollow\n' > _preview/_headers
+          echo "App Shelf links point at https://${alias}.mci-app-shelf.pages.dev/"
+
+      - name: Check the Cloudflare token is set
+        env:
+          T: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$T" ]; then echo "::error::Repository secret CLOUDFLARE_API_TOKEN is not set."; exit 1; fi
+
+      - name: Deploy preview
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "3.114.0"
+          command: pages deploy _preview --project-name=mci-site-preview --branch=${{ github.ref_name }} --commit-hash=${{ github.sha }}
+
+      - name: Show the URL
+        run: echo "### Site preview: ${{ steps.deploy.outputs.pages-deployment-alias-url || steps.deploy.outputs.deployment-url }}" >> "$GITHUB_STEP_SUMMARY"
