@@ -234,6 +234,17 @@ section{padding-block:clamp(56px,9vw,110px)}
 .expect li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start}
 .expect .g{color:var(--red);font-size:1.15rem}
 @media (max-width:620px){.event{grid-template-columns:1fr}.event .when{justify-self:start;grid-auto-flow:column;align-items:baseline;gap:10px}.event .when .day{font-size:3rem}}
+/* ---------- app shelf ---------- */
+.apps{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.apps-badge{width:100%;height:auto;border-radius:50%;box-shadow:0 0 0 3px var(--chalk),0 30px 60px -20px #000,0 0 60px rgba(255,46,136,.15)}
+.apps .text{display:grid;gap:18px;justify-items:start}
+.apps .text > p{color:var(--smoke)}
+.app-card{display:grid;gap:8px;max-width:560px;padding:20px 22px;border:2px solid var(--chalk);background:var(--wall-2);text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
+.app-card .label{color:var(--uv)}
+.app-card p{color:var(--smoke)}
+.app-card:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--red)}
+.app-card:focus-visible{outline:3px solid var(--uv);outline-offset:4px}
+@media (max-width:780px){.apps{grid-template-columns:1fr}.apps-badge{max-width:260px;justify-self:center}}
 .crew{display:grid;grid-template-columns:repeat(2,minmax(0,380px));gap:clamp(18px,4vw,44px)}
 .crew figure{margin:0;display:grid;gap:12px}
 .crew figure:nth-child(1){transform:rotate(-1.5deg)}
@@ -295,6 +306,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <li><a href="#art">Originals</a></li>
       <li><a href="#crew">The crew</a></li>
       <li><a href="/Gameshed/">Game Shed</a></li>
+      <li><a href="#apps">App Shelf</a></li>
     </ul>
   </nav>
 
@@ -516,8 +528,25 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <div class="text">
       <div class="label" style="color:var(--uv)">The maker</div>
       <h2>Built in the shed</h2>
-      <p>Mancave Industries is Mark's shed: a spray booth, a wax pot, a UV light and a lot of empty cans. It's where the Mangrenades get made, the artwork gets layered up, and the Game Shed puzzles get built.</p>
-      <div><a class="btn ghost" href="/Gameshed/">Play the Game Shed</a></div>
+      <p>Mancave Industries is Mark's shed: a spray booth, a wax pot, a UV light and a lot of empty cans. It's where the Mangrenades get made, the artwork gets layered up, the Game Shed puzzles get built, and the App Shelf tools get made.</p>
+      <div class="ctas"><a class="btn ghost" href="/Gameshed/">Play the Game Shed</a><a class="btn ghost" href="#apps">Visit the App Shelf</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="apps" aria-labelledby="apps-title">
+  <div class="wrap apps">
+    <img class="apps-badge" src="assets/app-shelf.webp" width="640" height="640" alt="Mancave Industries App Shelf badge" loading="lazy">
+    <div class="text">
+      <div class="label" style="color:var(--uv)"><span class="g" aria-hidden="true"></span> Tools from the shed</div>
+      <h2 id="apps-title">The App Shelf</h2>
+      <p>The kit we use in the shed, tidied up so you can use it too. Everything runs in your browser. Your artwork never leaves your device.</p>
+      <a class="app-card" href="https://apps.mancaveindustries.store/stencil-lab/">
+        <span class="label">New on the shelf</span>
+        <h3>Stencil Lab</h3>
+        <p>Turn a JPG, PNG or SVG into one to five spray stencil layers, with bridges and registration marks, sized and ready to cut on a Cricut.</p>
+      </a>
+      <div class="ctas"><a class="btn primary" href="https://apps.mancaveindustries.store/">Open the App Shelf</a></div>
     </div>
   </div>
 </section>
@@ -542,6 +571,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <span>Mancave Industries (MCI) · Handmade in Hersham, Surrey</span>
       <a href="mailto:mancaveman@icloud.com">mancaveman@icloud.com</a>
       <a href="#delivery">Delivery &amp; returns</a>
+      <a href="https://apps.mancaveindustries.store/">App Shelf</a>
       <span>© Mancave Industries</span>
       <span>Not affiliated with or endorsed by any brewery or drinks brand.</span>
     </div>
