@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stencil Lab | MCI App Shelf</title>
+<meta name="description" content="Turn artwork into one to five layered stencils with automatic bridges and registration marks. Exports sized SVGs for Cricut Design Space.">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@900&family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&display=swap">
+<link rel="stylesheet" href="../shelf.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap wide">
+  <a class="brand" href="../"><img src="../assets/app-shelf-badge.webp" alt="" width="40" height="40"><span><b>Stencil Lab</b><small>MCI App Shelf</small></span></a>
+  <nav class="topnav" aria-label="App Shelf"><a href="../">All apps</a><a href="#help">How to cut</a></nav>
+</div></header>
+<div class="hazard" aria-hidden="true"></div>
+
+<main class="wrap wide lab">
+  <aside class="controls" aria-label="Stencil settings">
+    <fieldset>
+      <legend class="label"><span class="num">01</span> Artwork</legend>
+      <label class="drop" id="drop">
+        <input type="file" id="file" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
+        <span class="drop-main">Drop artwork here or <u>choose a file</u></span>
+        <span class="drop-sub">JPG, PNG or SVG</span>
+      </label>
+      <div class="row between"><span id="fileName" class="muted">No artwork loaded</span><button type="button" class="link" id="sample">Use the sample</button></div>
+      <label class="check"><input type="checkbox" id="invert"> Light artwork on a dark background (invert)</label>
+    </fieldset>
+
+    <fieldset>
+      <legend class="label"><span class="num">02</span> Layers</legend>
+      <div class="seg" role="radiogroup" aria-label="Number of layers" id="layerCount">
+        <label><input type="radio" name="layers" value="1"><span>1</span></label>
+        <label><input type="radio" name="layers" value="2"><span>2</span></label>
+        <label><input type="radio" name="layers" value="3" checked><span>3</span></label>
+        <label><input type="radio" name="layers" value="4"><span>4</span></label>
+        <label><input type="radio" name="layers" value="5"><span>5</span></label>
+      </div>
+      <p class="hint">Layer 1 is the lightest tone and gets sprayed first. Each layer after it adds the darker tones on top.</p>
+      <div id="layerRows" class="layer-rows"></div>
+      <button type="button" class="btn small" id="autoTones">Auto-set tones</button>
+    </fieldset>
+
+    <fieldset>
+      <legend class="label"><span class="num">03</span> Cutting size</legend>
+      <div class="grid2">
+        <label>Units<select id="units"><option value="mm">Millimetres</option><option value="in">Inches</option></select></label>
+        <label>Border<input type="number" id="margin" min="8" step="any" inputmode="decimal"></label>
+        <label>Artwork width<input type="number" id="artW" min="20" step="any" inputmode="decimal"></label>
+        <label>Artwork height<input type="number" id="artH" min="20" step="any" inputmode="decimal"></label>
+      </div>
+      <label class="check"><input type="checkbox" id="lock" checked> Keep proportions</label>
+      <p class="hint" id="sheetInfo"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend class="label"><span class="num">04</span> Bridges</legend>
+      <label>Bridge width <output id="bwOut"></output><input type="range" id="bridgeWidth" min="0.8" max="4" step="0.1" value="1.5"></label>
+      <label class="check"><input type="checkbox" id="extra" checked> Second bridge on larger islands</label>
+      <p class="hint">Bridges are added automatically. To move or add one by hand, open a layer tab above the preview.</p>
+    </fieldset>
+  </aside>
+
+  <section class="stage" aria-label="Preview">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="toolbar" id="toolbar">
+      <div class="tools" role="group" aria-label="Bridge tools">
+        <button type="button" class="btn small tool" data-tool="add" aria-pressed="false">+ Add bridge</button>
+        <button type="button" class="btn small tool" data-tool="remove" aria-pressed="false">− Remove bridge</button>
+        <button type="button" class="link" id="resetBridges">Reset this layer</button>
+      </div>
+      <p class="hint" id="toolHint">Pick a layer tab to edit its bridges.</p>
+    </div>
+    <div class="viewer" id="viewer">
+      <canvas id="canvas" aria-label="Stencil preview"></canvas>
+      <div class="empty" id="empty"><p class="stencil">Load some artwork</p><p>Drop a JPG, PNG or SVG on the left, or try the sample.</p></div>
+      <div class="busy" id="busy" hidden><span class="label" id="busyText">Cutting…</span></div>
+    </div>
+    <div class="legend label" id="legend"></div>
+
+    <div class="report" aria-live="polite">
+      <div class="verdict" id="verdict"><span class="badge" id="badge">Waiting</span><span id="verdictText">Load artwork to begin.</span></div>
+      <div id="layerReports" class="layer-reports"></div>
+    </div>
+
+    <div class="export">
+      <button type="button" class="btn solid" id="zipBtn" disabled>Download ZIP</button>
+      <div id="svgBtns" class="svg-btns"></div>
+    </div>
+
+    <details class="help" id="help">
+      <summary class="label">How to cut these in Cricut Design Space</summary>
+      <ol>
+        <li>In Design Space choose <b>Upload → Upload image</b>, pick one layer SVG, and insert it. Check the size panel shows the sheet size listed in the report. Don't resize it.</li>
+        <li>Each file is a single cut. Every layer has the same sheet outline, the same four corner crosses, and small notches along the bottom showing the layer number.</li>
+        <li>Cut each layer from stencil film, vinyl or card. Weed out the cut pieces: the holes are where the paint goes.</li>
+        <li>Spray layer 1 first. Line up the next sheet using the corner crosses (mark them through with a pencil on the first pass) and work up to the last layer.</li>
+      </ol>
+    </details>
+  </section>
+</main>
+<footer class="foot"><div class="wrap wide">Stencil Lab runs entirely in your browser. Nothing is uploaded. Part of the <a href="../">MCI App Shelf</a>.</div></footer>
+
+<script src="vendor/jszip.min.js"></script>
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
