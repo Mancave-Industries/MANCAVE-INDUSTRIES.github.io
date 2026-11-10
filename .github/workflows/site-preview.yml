@@ -37,7 +37,7 @@ jobs:
           mkdir -p _preview
           cp index.html thanks.html _preview/
           cp -r assets _preview/assets
-          sed -i "s#https://apps.mancaveindustries.store/#https://${alias}.mci-app-shelf.pages.dev/#g" _preview/index.html
+          sed -i -E "s#https://(apps.mancaveindustries.store|mci-app-shelf.pages.dev)/#https://${alias}.mci-app-shelf.pages.dev/#g" _preview/index.html
           printf '/*\n  X-Robots-Tag: noindex, nofollow\n' > _preview/_headers
           echo "App Shelf links point at https://${alias}.mci-app-shelf.pages.dev/"
 
