@@ -297,6 +297,13 @@ section{padding-block:clamp(56px,9vw,110px)}
 .newart .cap .btn{margin-left:auto}
 @media (max-width:820px){.newart{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.shots video{display:none}.shots.w2{grid-template-columns:1fr}}
+.newart .span{grid-column:1/-1}
+.newart .span .shots img{aspect-ratio:16/9}
+.pack{display:grid;gap:18px;margin-top:clamp(30px,5vw,48px)}
+.stamp-hersham{display:block;width:min(100%,520px);aspect-ratio:1200/400;background:var(--chalk);-webkit-mask:url("assets/stamp-hersham.png") left center/contain no-repeat;mask:url("assets/stamp-hersham.png") left center/contain no-repeat}
+.pack-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2vw,20px)}
+.pack-shots img{width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 22px 44px -20px #000}
+@media (max-width:620px){.pack-shots{grid-template-columns:1fr 1fr}.pack-shots img:first-child{grid-column:1/-1;aspect-ratio:4/3}}
 /* maker */
 .maker{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:center}
 .maker img{width:100%;aspect-ratio:1;object-fit:cover}
@@ -474,6 +481,14 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       </article>
     </div>
     <div class="facts label"><span><b>Stock</b>42 in the shed</span><span><b>UK post</b>£7.50</span><span><b>Collect</b>free at the market stall</span><span><b>Packed</b>in a stamped kraft tube</span></div>
+    <div class="pack">
+      <span class="stamp-hersham" role="img" aria-label="Hand poured in Hersham"></span>
+      <div class="pack-shots">
+        <img src="assets/pack-stack.webp" alt="ManGrenades stacked on their kraft tubes" loading="lazy">
+        <img src="assets/pack-tubes.webp" alt="Kraft tubes sealed with the Mancave Industries seal" loading="lazy">
+        <img src="assets/pack-label.webp" alt="The ManGrenade label: Mancaves just got lit, QR code, safety directions, hand poured in Hersham" loading="lazy">
+      </div>
+    </div>
     <figure class="strip"><img src="assets/uv-row.webp" width="1600" height="1200" alt="A long shelf of ManGrenades under blacklight, each can glowing a different colour" loading="lazy"><figcaption><span class="label">Under blacklight</span><span>The paint is UV-reactive. Same cans, lights off.</span></figcaption></figure>
   </div>
 </section>
@@ -553,6 +568,10 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 
     <div class="sub"><h3>New on the wall</h3></div>
     <div class="newart">
+      <article class="span">
+        <div class="shots"><img class="main" src="assets/o-drill.webp" width="1600" height="900" alt="This Is Not A Drill: a giant chrome screwdriver with MAN CAVE on the handle, mounted on a sprayed board" loading="lazy"></div>
+        <div class="cap"><h3>This Is Not A Drill</h3><span class="price">£350</span><span class="label">3D, on board</span><a class="btn primary" href="mailto:mancaveman@icloud.com?subject=This%20Is%20Not%20A%20Drill%20(%C2%A3350)">Buy by email</a></div>
+      </article>
       <article>
         <div class="shots w3">
           <img class="main" src="assets/o-weather-uv.webp" width="900" height="1599" alt="Under the Weather under blacklight: a man walks under a pound-sign umbrella across three panels on OSB" loading="lazy">
