@@ -279,6 +279,24 @@ section{padding-block:clamp(56px,9vw,110px)}
 .about .more{position:relative;z-index:1;justify-self:start;color:inherit;text-underline-offset:4px;margin-top:4px}
 @media (max-width:820px){.about{grid-template-columns:1fr}}
 @media (max-width:560px){.about-btn{order:-1;margin-left:auto}}
+.small-print{margin-top:6px}
+.small-print summary{cursor:pointer;color:var(--kraft);padding-block:8px;margin-bottom:14px}
+.newart{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(18px,3vw,34px);margin-bottom:clamp(36px,6vw,64px);align-items:start}
+.newart article{display:grid;gap:14px;min-width:0}
+.shots{display:grid;gap:10px}
+.shots img,.shots video{width:100%;display:block;object-fit:cover;box-shadow:0 22px 44px -20px #000;background:var(--wall-2)}
+.shots.w3{grid-template-columns:1fr 1fr}
+.shots.w3 .main{grid-row:span 2;aspect-ratio:9/16;height:100%}
+.shots.w3 img:not(.main){aspect-ratio:9/16}
+.shots.w3 img:last-child{grid-column:1/-1;aspect-ratio:16/9}
+.shots.w2 .main,.shots.w2 img{aspect-ratio:16/9}
+.newart .cap{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+.newart .cap h3{font-size:clamp(1.8rem,3.5vw,2.4rem)}
+.newart .price{font:900 1.8rem/1 var(--stencil);color:var(--red)}
+.newart .cap .label{color:var(--smoke)}
+.newart .cap .btn{margin-left:auto}
+@media (max-width:820px){.newart{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.shots video{display:none}.shots.w2{grid-template-columns:1fr}}
 /* maker */
 .maker{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:center}
 .maker img{width:100%;aspect-ratio:1;object-fit:cover}
@@ -332,11 +350,11 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <div class="event">
       <div class="what">
         <p class="where">11am to 7pm · High Street &amp; The Heart, Walton-on-Thames KT12 1GH</p>
-        <p>Our first stall, and the first chance to see the ManGrenades in person. The town's lantern parade, Christmas market and live music run all day.</p>
+        <p>Our first stall. Come and see them lit.</p>
         <ul class="expect">
-          <li><span class="g" aria-hidden="true"></span><span>The full ManGrenade range, lit, plus one-offs you won't find online</span></li>
-          <li><span class="g" aria-hidden="true"></span><span>Original canvases from the shed wall</span></li>
-          <li><span class="g" aria-hidden="true"></span><span>Bring a can: we'll take commissions on the day</span></li>
+          <li><span class="g" aria-hidden="true"></span><span>Every ManGrenade, lit</span></li>
+          <li><span class="g" aria-hidden="true"></span><span>Originals from the shed wall</span></li>
+          <li><span class="g" aria-hidden="true"></span><span>Bring a can: commissions on the day</span></li>
           <li><span class="g" aria-hidden="true"></span><span>Card, phone or cash</span></li>
         </ul>
         <div class="ctas"><a class="btn ghost" href="https://lovewalton.co.uk/event/waltons-christmas-festival-of-light-2026/" target="_blank" rel="noopener">Festival details</a></div>
@@ -360,18 +378,18 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <article>
         <span class="n">01</span>
         <h3>What we do</h3>
-        <p>We make things for the shed, the bar and the spare room. Candles poured into rescued cans. Spray-painted originals that come alive under blacklight. Games you can play on your phone. All of it made by hand in Hersham, Surrey, in small batches.</p>
+        <p>Candles in rescued cans. Blacklight art. Phone games. All made by hand in Hersham.</p>
       </article>
       <article>
         <span class="n">02</span>
         <h3>Who we are</h3>
-        <p>A shed in Hersham and the crew in it: TK, Mancave legend, and Lila, Girlcave queen. No factory, no warehouse, no dropshipping. If you buy something from us, one of us made it.</p>
+        <p>A shed in Hersham. TK and Lila. No factory, no dropshipping.</p>
         <a class="more label" href="#crew">Meet the crew</a>
       </article>
       <article class="wtf">
         <span class="n">03</span>
         <h3>WTF is a ManGrenade?</h3>
-        <p>A candle in a can. We rescue cans, stencil and spray them by hand, then pour in wax and a cotton wick. The paint glows under UV, so kill the lights and it comes alive. No two come out the same.</p>
+        <p>A candle in a can. Stencilled, sprayed and poured by hand. Kill the lights and it glows.</p>
         <a class="more label" href="#shop">See the ManGrenades</a>
       </article>
     </div>
@@ -385,7 +403,6 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <div class="seal-hero" role="img" aria-label="Mancave Industries seal with the ManGrenade at its centre"><span class="seal"></span></div>
     <div class="kicker label"><span class="g" aria-hidden="true"></span> Handmade in Hersham <span class="g" aria-hidden="true"></span></div>
     <h1>Mancaves just got <span class="r">lit</span></h1>
-    <p class="lede">ManGrenades: rescued cans, stencilled and sprayed in the shed, then poured with wax and a cotton wick. Kill the lights and they glow.</p>
     <div class="ctas">
       <a class="btn primary" href="#shop"><span class="g" aria-hidden="true"></span> Shop the drop</a>
       <a class="btn ghost" href="#commissions">Send us your can</a>
@@ -419,17 +436,17 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <div class="grid">
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-deluxe.webp" alt="Tall 500ml Deluxe ManGrenade with white Mancave Industries stencil" loading="lazy">
-        <div class="body"><h3>Black Harp</h3><p>500ml can, white Mancave Industries stencil over black, flecked with colour.</p>
+        <div class="body"><h3>Black Harp</h3>
           <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="https://buy.stripe.com/7sY14of4f8kueSY6DY3ks02">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-janedoe.webp" alt="Teal can candle with Mancave Industries grenade stencil beside its kraft tube" loading="lazy">
-        <div class="body"><h3>Jane Doe</h3><p>Teal and coral can tagged with the grenade stencil. Grey wax.</p>
+        <div class="body"><h3>Jane Doe</h3>
           <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/4gM14o9JVcAKaCI5zU3ks00">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-copilot.webp" alt="Orange can candle with black grenade stencil next to an open kraft tube" loading="lazy">
-        <div class="body"><h3>Co-Pilot</h3><p>Bright orange can with a crisp black lit-grenade stencil.</p>
+        <div class="body"><h3>Co-Pilot</h3>
           <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/6oUeVe7BNgR03ag6DY3ks01">Buy now</a></div></div>
       </article>
     </div>
@@ -437,22 +454,22 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <div class="grid">
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-orange.webp" alt="Orange and black sprayed can candle with Mancave Industries stencil, next to its kraft tube" loading="lazy">
-        <div class="body"><h3>Blast Orange</h3><p>Black stencil over a hot orange can, white-flecked. Orange wax.</p>
+        <div class="body"><h3>Blast Orange</h3>
           <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="https://buy.stripe.com/dRm5kE8FRbwGcKQ2nI3ks03">Buy now</a></div></div>
       </article>
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-blackred.webp" alt="Black and red sprayed can candle next to its stamped kraft tube" loading="lazy">
-        <div class="body"><h3>Scorched</h3><p>Coral base burned back with black drips. Orange wax.</p>
+        <div class="body"><h3>Scorched</h3>
           <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="https://buy.stripe.com/9B6bJ25tF58i128bYi3ks04">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-blue.webp" alt="Blue and rust sprayed can candle with a grenade stencil, shown sitting in its open tube" loading="lazy">
-        <div class="body"><h3>Rust &amp; Sky</h3><p>Sky-blue can, rust-red fade, grenade stencil front and centre.</p>
+        <div class="body"><h3>Rust &amp; Sky</h3>
           <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/bJedRacW78ku5iofau3ks05">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-purple.webp" alt="Purple-to-blue fade can candle with a black grenade stencil, beside its kraft tube" loading="lazy">
-        <div class="body"><h3>Night Shift</h3><p>Purple-to-teal fade with a crisp black grenade.</p>
+        <div class="body"><h3>Night Shift</h3>
           <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/7sYbJ27BN8kuaCIbYi3ks06">Buy now</a></div></div>
       </article>
     </div>
@@ -468,6 +485,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <h2>No small print ambush.</h2>
       <p>UK post is £7.50. Collection is free at the Walton-on-Thames Festival of Light stall on 28 November.</p>
     </div>
+    <details class="small-print"><summary class="label">Delivery, returns and refunds in full</summary>
     <div class="tiers">
       <div class="tier">
         <div class="label">Delivery</div>
@@ -482,6 +500,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
         <p>If it arrives faulty, damaged or not as described, email us and we’ll put it right. Reasonable return costs for faulty goods are on us. Personalised or custom-made commissions cannot normally be returned just because you change your mind. Your statutory rights are unaffected.</p>
       </div>
     </div>
+    </details>
     <div class="ctas"><a class="btn ghost" href="mailto:mancaveman@icloud.com?subject=MCI%20order%20or%20return">Email about an order</a></div>
   </div>
 </section>
@@ -509,7 +528,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <div>
         <div class="label">Commissions</div>
         <h2>Got a can that means something?</h2>
-        <p style="margin-top:14px">The beer from your stag do, your wedding, the brewery you found on holiday. Send it over and it comes back as a ManGrenade.</p>
+        <p style="margin-top:14px">Stag do, wedding, holiday find. Send the can, it comes back a ManGrenade.</p>
         <ol class="steps">
           <li><span class="g" aria-hidden="true"></span><span>Email us and tell us about the can.</span></li>
           <li><span class="g" aria-hidden="true"></span><span>Rinse it, post it, or drop it at the market stall.</span></li>
@@ -528,8 +547,27 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <div class="head">
       <div class="label"><span class="g" aria-hidden="true"></span> Originals</div>
       <h2>Built different</h2>
-      <p>Spray paint, stencils, resin and found objects, each one of a kind, painted to change under a blacklight. See them at the market stall, or email <a href="mailto:mancaveman@icloud.com">mancaveman@icloud.com</a> to arrange a viewing.</p>
+      <p>One of a kind. Painted to glow. Email <a href="mailto:mancaveman@icloud.com">mancaveman@icloud.com</a> to buy or view.</p>
       <button class="btn primary uv-switch" id="uv-switch" type="button" aria-pressed="false"><span class="g" aria-hidden="true"></span><span id="uv-switch-text">Hit the UV</span></button>
+    </div>
+
+    <div class="sub"><h3>New on the wall</h3></div>
+    <div class="newart">
+      <article>
+        <div class="shots w3">
+          <img class="main" src="assets/o-weather-uv.webp" width="900" height="1599" alt="Under the Weather under blacklight: a man walks under a pound-sign umbrella across three panels on OSB" loading="lazy">
+          <img src="assets/o-weather-day.webp" width="900" height="1599" alt="Under the Weather in daylight" loading="lazy">
+          <img src="assets/o-weather-back.webp" width="1200" height="675" alt="The reverse of Under the Weather: a Now Showing marquee reading ManGrenades, Funky Art, Ferris Bueller's Day Off" loading="lazy">
+        </div>
+        <div class="cap"><h3>Under the Weather</h3><span class="price">£250</span><span class="label">Now Showing on the reverse</span><a class="btn primary" href="mailto:mancaveman@icloud.com?subject=Under%20the%20Weather%20(%C2%A3250)">Buy by email</a></div>
+      </article>
+      <article>
+        <div class="shots w2">
+          <video class="main" src="assets/o-record.mp4" poster="assets/o-record-poster.webp" autoplay muted loop playsinline aria-label="On the Record spinning under blacklight"></video>
+          <img src="assets/o-record.webp" width="1200" height="675" alt="On the Record: a vinyl record sprayed with the Mancave Industries seal, glowing under blacklight" loading="lazy">
+        </div>
+        <div class="cap"><h3>On the Record</h3><span class="price">£250</span><span class="label">It spins</span><a class="btn primary" href="mailto:mancaveman@icloud.com?subject=On%20the%20Record%20(%C2%A3250)">Buy by email</a></div>
+      </article>
     </div>
     <div class="uvset">
       <figure class="wide"><button class="flip" id="flip-trip" type="button" aria-label="Triptych: switch between daylight and blacklight"><img src="assets/o-trip-day.webp" width="1540" height="957" alt="Triptych in daylight: a stencilled portrait over block lettering across three canvases" loading="lazy"><img class="uv" src="assets/o-trip-uv.webp" width="1540" height="957" alt="" loading="lazy"></button><figcaption><h3>Untitled (triptych)</h3><span class="label">Spray paint and stencil on three canvases · Enquire</span></figcaption></figure>
@@ -541,7 +579,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <figure><img src="assets/art-flag.webp" alt="Mancave Industries Flag: stars and stripes stencilled with repeated Mancave Industries lettering" loading="lazy"><figcaption><h3>Mancave Industries Flag</h3><span class="label">Spray paint and stencil on board · Enquire</span></figcaption></figure>
       <figure><img src="assets/art-greed.webp" alt="Greed: framed mixed-media piece with a masked figure surrounded by banknotes" loading="lazy"><figcaption><h3>Greed</h3><span class="label">Mixed media and resin, framed · Enquire</span></figcaption></figure>
     </div>
-      <div class="sub"><h3>More from the wall</h3><p>All shot under blacklight. Email to ask about any of them.</p></div>
+      <div class="sub"><h3>More from the wall</h3></div>
     <div class="wall">
       <figure><img src="assets/a-bat-pink.webp" width="900" height="1200" alt="Neon pink caped figure in a green speckled night, under blacklight" loading="lazy"><figcaption><h3>Pink Knight</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
       <figure><img src="assets/a-bat-pastel.webp" width="900" height="1200" alt="Black caped figure over a pastel spray haze, under blacklight" loading="lazy"><figcaption><h3>Pastel Knight</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
@@ -561,7 +599,6 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <div class="text">
       <div class="label" style="color:var(--uv)">The maker</div>
       <h2>Built in the shed</h2>
-      <p>Mancave Industries is Mark's shed: a spray booth, a wax pot, a UV light and a lot of empty cans. It's where the ManGrenades get made, the artwork gets layered up, and the Game Shed puzzles get built.</p>
       <div><a class="btn ghost" href="/Gameshed/">Play the Game Shed</a></div>
     </div>
   </div>
