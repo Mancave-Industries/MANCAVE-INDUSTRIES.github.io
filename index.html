@@ -304,6 +304,16 @@ section{padding-block:clamp(56px,9vw,110px)}
 .pack-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2vw,20px)}
 .pack-shots img{width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 22px 44px -20px #000}
 @media (max-width:620px){.pack-shots{grid-template-columns:1fr 1fr}.pack-shots img:first-child{grid-column:1/-1;aspect-ratio:4/3}}
+.top-btns{display:flex;gap:10px;flex-wrap:wrap}
+.press-btn{padding:12px 18px 10px;font-size:.9rem;color:var(--chalk)}
+.clip{display:grid;gap:14px;max-width:760px;text-decoration:none;background:var(--paper);color:var(--wall);padding:clamp(22px,4vw,40px);transform:rotate(-1deg);box-shadow:8px 8px 0 var(--red),0 30px 60px -25px #000;transition:transform .15s ease}
+.clip:hover,.clip:focus-visible{transform:rotate(0)}
+.clip:focus-visible{outline:3px solid var(--uv);outline-offset:6px}
+.clip .masthead{font:700 .82rem/1 var(--label);letter-spacing:.24em;text-transform:uppercase;border-bottom:2px solid var(--wall);padding-bottom:10px}
+.clip .clip-head{font:900 clamp(2rem,5.5vw,3.6rem)/.92 var(--stencil);text-transform:uppercase;text-wrap:balance}
+.clip .clip-cta{color:var(--red)}
+@media (max-width:560px){.top-btns{order:-1;margin-left:auto}.about-btn{order:0;margin-left:0}}
+@media (prefers-reduced-motion:reduce){.clip{transition:none}}
 /* maker */
 .maker{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:center}
 .maker img{width:100%;aspect-ratio:1;object-fit:cover}
@@ -329,6 +339,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <a class="brand" href="#top" aria-label="Mancave Industries home"><span class="seal seal-nav" aria-hidden="true"></span><span class="brand-name">Mancave Industries</span></a>
     <ul class="label">
       <li><a href="#about">About</a></li>
+      <li><a href="#press">Press</a></li>
       <li><a href="#shop">Shop</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#commissions">Commissions</a></li>
@@ -336,7 +347,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <li><a href="#crew">The crew</a></li>
       <li><a href="/Gameshed/">Game Shed</a></li>
     </ul>
-    <a class="btn primary about-btn" href="#about"><span class="g" aria-hidden="true"></span> About MCI</a>
+    <div class="top-btns"><a class="btn primary about-btn" href="#about"><span class="g" aria-hidden="true"></span> About MCI</a><a class="btn ghost press-btn" href="#press">Press</a></div>
   </nav>
 
 </div>
@@ -402,6 +413,21 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     </div>
   </div>
 </section>
+
+<section id="press" aria-labelledby="press-title">
+  <div class="wrap">
+    <div class="head">
+      <div class="label"><span class="g" aria-hidden="true"></span> Press</div>
+      <h2 id="press-title">As seen in</h2>
+    </div>
+    <a class="clip" href="https://thelondon.news/category/business/banker-by-day-candle-maker-by-night-launches-man-cave-business" target="_blank" rel="noopener">
+      <span class="masthead">The London News</span>
+      <span class="clip-head">Banker by day, candle maker by night, launches man cave business</span>
+      <span class="clip-cta label">Read the article &rarr;</span>
+    </a>
+  </div>
+</section>
+
 
 
 <div class="wrap">
