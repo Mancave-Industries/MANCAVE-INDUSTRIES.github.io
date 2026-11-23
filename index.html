@@ -902,5 +902,24 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cb5dec2893e44482a5de363481052356"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- GoatCounter: visits plus taps on Buy, openers, sound -->
+<script data-goatcounter="https://mancave.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  function slug(s){return (s||'').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
+  function ev(path,title){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:path,title:title||path,event:true});}catch(e){}}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href*="buy.stripe.com"]');
+    if(a){var c=a.closest('article,figure,.cap,.card');var h=c&&c.querySelector('h3');ev('buy-'+slug(h?h.textContent:a.href.split('/').pop()),'Buy: '+(h?h.textContent:'item'));
+      if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&a.target!=='_blank'&&window.goatcounter){e.preventDefault();setTimeout(function(){location.href=a.href;},250);}return;}
+    var g=e.target.closest('a[href^="/Gameshed"]');
+    if(g){ev('to-gameshed','Game Shed link');return;}
+    var s=e.target.closest('summary');
+    if(s){var d=s.parentNode;if(d.open)return;var host=d.id?d:d.closest('[id]');ev('open-'+(host?host.id:'fold'),'Opened: '+(host?host.id:'fold'));return;}
+    var b=e.target.closest('.bts-sound');
+    if(b&&b.getAttribute('aria-pressed')!=='true'){var v=b.parentNode.querySelector('video');var n=v?v.getAttribute('src').replace(/^.*bts-|\.mp4$/g,''):'clip';ev('sound-'+n,'Sound on: '+n);}
+  },true);
+})();
+</script>
 </body>
 </html>
