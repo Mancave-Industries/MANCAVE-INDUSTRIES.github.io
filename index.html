@@ -355,6 +355,23 @@ section{padding-block:clamp(56px,9vw,110px)}
 .promo-more>summary::after{content:" +";color:var(--red)}
 .promo-more[open]>summary::after{content:" \2212"}
 @media (prefers-reduced-motion:reduce){.fold-x,.fold-x::after{transition:none}}
+/* teasers: two pictures, then the full stock behind */
+.teaser{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(12px,2vw,22px);align-items:stretch}
+.teaser img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;box-shadow:0 26px 50px -20px #000}
+.teaser img:nth-child(2){aspect-ratio:3/4}
+.teaser-cta{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:6px}
+.teaser .from{font:700 1rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--smoke)}
+.teaser .from b{font:900 2.2rem/1 var(--stencil);color:var(--chalk);letter-spacing:0;margin-left:6px}
+.stock{margin-top:clamp(14px,2vw,20px)}
+.stock>summary{cursor:pointer;list-style:none}
+.stock>summary::-webkit-details-marker{display:none}
+.stock .when-open,.stock[open] .when-closed{display:none}
+.stock[open] .when-open{display:inline}
+.stock[open]>summary{margin-bottom:clamp(22px,4vw,36px);background:transparent;color:var(--chalk);box-shadow:none}
+.coll>.wrap{padding-inline:0}
+.coll>.wrap>.head>.label,.coll>.wrap>.head>h2{display:none}
+.gallery-sec{border-top:3px solid var(--red)}
+@media (max-width:620px){.teaser{grid-template-columns:1fr 1fr}.teaser img,.teaser img:nth-child(2){aspect-ratio:3/4}}
 /* maker */
 .maker{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:center}
 .maker img{width:100%;aspect-ratio:1;object-fit:cover}
@@ -381,10 +398,10 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <ul class="label">
       <li><a href="#about">About</a></li>
       <li><a href="#press">Press</a></li>
-      <li><a href="#shop">Shop</a></li>
+      <li><a href="#shop">ManGrenades</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#commissions">Commissions</a></li>
-      <li><a href="#art">Originals</a></li>
+      <li><a href="#art">Gallery</a></li>
       <li><a href="#crew">The crew</a></li>
       <li><a href="#bts">Behind the scenes</a></li>
       <li><a href="/Gameshed/">Game Shed</a></li>
@@ -403,7 +420,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
         <p class="buy">Buy him a ManGrenade.</p>
         <p class="at">Mancave Industries at the Walton-on-Thames Festival of Light</p>
         <p class="date"><span>Saturday 28 November 2026</span></p>
-        <div class="ctas"><a class="btn primary" href="#shop"><span class="g" aria-hidden="true"></span> See the ManGrenades</a></div>
+        <div class="ctas"><a class="btn primary" href="#stock"><span class="g" aria-hidden="true"></span> See the ManGrenades</a></div>
       </div>
       <figure class="promo-shot"><img src="assets/uv-shelf.webp" width="1800" height="1350" alt="Five ManGrenades on the shed shelf, their grenade stencils glowing red and green under a blacklight"></figure>
     </div>
@@ -460,10 +477,15 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 <section id="shop">
   <div class="wrap">
     <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> The drop</div>
-      <h2>Live rounds</h2>
-      <p>Pick a regular by the can it started as, or take a one-off.</p>
+      <div class="label"><span class="g" aria-hidden="true"></span> Shop</div>
+      <h2>The ManGrenades</h2>
     </div>
+    <div class="teaser">
+      <img src="assets/uv-shelf.webp" alt="ManGrenades glowing under blacklight on the shed shelf" loading="lazy">
+      <img src="assets/p-deluxe.webp" alt="A Deluxe ManGrenade" loading="lazy">
+      <div class="teaser-cta"><p class="from">From <b>£20</b></p></div>
+    </div>
+    <details class="stock" id="stock"><summary class="btn primary"><span class="g" aria-hidden="true"></span> <span class="when-closed">See all 7 ManGrenades</span><span class="when-open">Hide the stock</span></summary>
     <div class="tiers">
       <div class="tier"><div class="label">Standard · 330ml</div><div class="price">£20</div><p>Stencilled and sprayed can, hand-poured wax, cotton wick.</p></div>
       <div class="tier deluxe"><div class="label">Deluxe</div><div class="price">£30</div><p>Mancavemanmade with extra attention. Big 500ml cans and our standout pieces.</p></div>
@@ -522,46 +544,23 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       </div>
     </div>
     <figure class="strip"><img src="assets/uv-row.webp" width="1600" height="1200" alt="A long shelf of ManGrenades under blacklight, each can glowing a different colour" loading="lazy"><figcaption><span class="label">Under blacklight</span><span>The paint is UV-reactive. Same cans, lights off.</span></figcaption></figure>
+    </details>
   </div>
 </section>
 
-<div class="folds" aria-label="More from Mancave Industries">
-<section id="about" class="folded">
-  <details class="fold">
-    <summary><span class="wrap fold-bar"><span class="fold-t">About MCI</span><span class="fold-s">What we do. Who we are. WTF is a ManGrenade.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
-    <div class="fold-body">
+<section id="art" class="gallery-sec">
   <div class="wrap">
     <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> About MCI</div>
-      <h2 id="about-title">Who are Mancave Industries?</h2>
+      <div class="label"><span class="g" aria-hidden="true"></span> Originals</div>
+      <h2>The Gallery</h2>
     </div>
-    <div class="about">
-      <article>
-        <span class="n">01</span>
-        <h3>What we do</h3>
-        <p>Candles in rescued cans. Blacklight art. Phone games. All made by hand in Hersham.</p>
-      </article>
-      <article>
-        <span class="n">02</span>
-        <h3>Who we are</h3>
-        <p>A shed in Hersham. TK, Kerry and Lila. No factory, no dropshipping.</p>
-        <a class="more label" href="#crew">Meet the crew</a>
-      </article>
-      <article class="wtf">
-        <span class="n">03</span>
-        <h3>WTF is a ManGrenade?</h3>
-        <p>A candle in a can. Stencilled, sprayed and poured by hand. Kill the lights and it glows.</p>
-        <a class="more label" href="#shop">See the ManGrenades</a>
-      </article>
+    <div class="teaser">
+      <img src="assets/o-drill.webp" alt="This Is Not A Drill" loading="lazy">
+      <img src="assets/o-weather-uv.webp" alt="Under the Weather under blacklight" loading="lazy">
+      <div class="teaser-cta"><p class="from">One-offs from <b>£250</b></p></div>
     </div>
-  </div>
-</div>
-  </details>
-</section>
-<section id="art" class="folded">
-  <details class="fold">
-    <summary><span class="wrap fold-bar"><span class="fold-t">Originals</span><span class="fold-s">One-offs from the shed wall. From £250.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
-    <div class="fold-body">
+    <details class="stock" id="collection"><summary class="btn primary"><span class="g" aria-hidden="true"></span> <span class="when-closed">See the collection</span><span class="when-open">Hide the collection</span></summary>
+      <div class="coll">
   <div class="wrap">
     <div class="head">
       <div class="label"><span class="g" aria-hidden="true"></span> Originals</div>
@@ -615,8 +614,45 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     </div>
 </div>
 </div>
+    </details>
+  </div>
+</section>
+
+
+<div class="folds" aria-label="More from Mancave Industries">
+<section id="about" class="folded">
+  <details class="fold">
+    <summary><span class="wrap fold-bar"><span class="fold-t">About MCI</span><span class="fold-s">What we do. Who we are. WTF is a ManGrenade.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <div class="fold-body">
+  <div class="wrap">
+    <div class="head">
+      <div class="label"><span class="g" aria-hidden="true"></span> About MCI</div>
+      <h2 id="about-title">Who are Mancave Industries?</h2>
+    </div>
+    <div class="about">
+      <article>
+        <span class="n">01</span>
+        <h3>What we do</h3>
+        <p>Candles in rescued cans. Blacklight art. Phone games. All made by hand in Hersham.</p>
+      </article>
+      <article>
+        <span class="n">02</span>
+        <h3>Who we are</h3>
+        <p>A shed in Hersham. TK, Kerry and Lila. No factory, no dropshipping.</p>
+        <a class="more label" href="#crew">Meet the crew</a>
+      </article>
+      <article class="wtf">
+        <span class="n">03</span>
+        <h3>WTF is a ManGrenade?</h3>
+        <p>A candle in a can. Stencilled, sprayed and poured by hand. Kill the lights and it glows.</p>
+        <a class="more label" href="#shop">See the ManGrenades</a>
+      </article>
+    </div>
+  </div>
+</div>
   </details>
 </section>
+
 <section id="commissions" class="folded">
   <details class="fold">
     <summary><span class="wrap fold-bar"><span class="fold-t">Commissions</span><span class="fold-s">Your can, made into a ManGrenade. £50.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
