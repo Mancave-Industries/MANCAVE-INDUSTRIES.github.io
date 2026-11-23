@@ -234,14 +234,16 @@ section{padding-block:clamp(56px,9vw,110px)}
 .expect li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start}
 .expect .g{color:var(--red);font-size:1.15rem}
 @media (max-width:620px){.event{grid-template-columns:1fr}.event .when{justify-self:start;grid-auto-flow:column;align-items:baseline;gap:10px}.event .when .day{font-size:3rem}}
-.crew{display:grid;grid-template-columns:repeat(2,minmax(0,380px));gap:clamp(18px,4vw,44px)}
+.crew{display:grid;grid-template-columns:repeat(3,minmax(0,340px));gap:clamp(18px,4vw,44px)}
 .crew figure{margin:0;display:grid;gap:12px}
 .crew figure:nth-child(1){transform:rotate(-1.5deg)}
-.crew figure:nth-child(2){transform:rotate(1.5deg)}
+.crew figure:nth-child(2){transform:rotate(1deg)}
+.crew figure:nth-child(3){transform:rotate(-0.5deg)}
 .crew img{width:100%;aspect-ratio:1;object-fit:cover;box-shadow:0 26px 50px -20px #000}
 .crew h3{font-size:2.2rem}
 .crew figure:nth-child(1) .label{color:#f2c230}
-.crew figure:nth-child(2) .label{color:var(--uv)}
+.crew figure:nth-child(2) .label{color:#f2c230}
+.crew figure:nth-child(3) .label{color:var(--uv)}
 @media (max-width:620px){.crew{grid-template-columns:1fr}}
 /* promo: Festival of Light / Christmas, first thing under the nav */
 .promo{background:var(--paper);color:var(--wall);padding-block:clamp(34px,7vw,84px) clamp(44px,8vw,96px);border-block:6px solid var(--red)}
@@ -401,7 +403,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <article>
         <span class="n">02</span>
         <h3>Who we are</h3>
-        <p>A shed in Hersham. TK and Lila. No factory, no dropshipping.</p>
+        <p>A shed in Hersham. TK, Kerry and Lila. No factory, no dropshipping.</p>
         <a class="more label" href="#crew">Meet the crew</a>
       </article>
       <article class="wtf">
@@ -657,6 +659,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     </div>
     <div class="crew">
       <figure><img src="assets/crew-tk.webp" width="800" height="800" alt="TK, arms crossed, in front of the Mancave Industries seal splashed with yellow paint" loading="lazy"><figcaption><h3>TK</h3><span class="label">Mancave legend</span></figcaption></figure>
+      <figure><img src="assets/crew-kerry.webp" width="800" height="800" alt="Kerry, smiling, in front of the Mancave Industries seal splashed with yellow paint and a sprayed crown" loading="lazy"><figcaption><h3>Kerry</h3><span class="label">Mancave queen</span></figcaption></figure>
       <figure><img src="assets/crew-lila.webp" width="800" height="800" alt="Lila in front of the seal, with MAN crossed out and GIRL sprayed over it in pink" loading="lazy"><figcaption><h3>Lila</h3><span class="label">Girlcave queen</span></figcaption></figure>
     </div>
   </div>
