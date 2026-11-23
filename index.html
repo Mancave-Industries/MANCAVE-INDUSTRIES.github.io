@@ -329,6 +329,32 @@ section{padding-block:clamp(56px,9vw,110px)}
 .bts-sound:focus-visible{outline:3px solid var(--chalk);outline-offset:3px}
 @media (max-width:1000px){.bts{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:760px){.bts{grid-template-columns:1fr 1fr}.bts-outro{grid-column:1/-1;max-width:60%;justify-self:center;width:100%}}
+/* folds: collapsed sections below the shop */
+.folds{border-top:3px solid var(--red)}
+.folded{padding-block:0;border-bottom:1px solid rgba(243,238,230,.14)}
+.fold>summary{list-style:none;cursor:pointer}
+.fold>summary::-webkit-details-marker{display:none}
+.fold-bar{display:grid;grid-template-columns:1fr auto;grid-template-areas:"t x" "s x";align-items:center;column-gap:16px;row-gap:4px;padding-block:clamp(18px,3vw,28px)}
+.fold-t{grid-area:t;font:900 clamp(1.9rem,5vw,3.2rem)/.9 var(--stencil);text-transform:uppercase;color:var(--chalk)}
+.fold-s{grid-area:s;color:var(--smoke);font-size:.98rem}
+.fold-x{grid-area:x;width:46px;height:46px;border:2px solid var(--red);position:relative;flex:none;transition:transform .2s ease,background .2s ease}
+.fold-x::before,.fold-x::after{content:"";position:absolute;left:50%;top:50%;width:18px;height:3px;margin:-1.5px 0 0 -9px;background:var(--chalk)}
+.fold-x::after{transform:rotate(90deg);transition:transform .2s ease}
+.fold>summary:hover .fold-t,.fold>summary:focus-visible .fold-t{color:var(--uv)}
+.fold>summary:hover .fold-x{background:var(--red)}
+.fold>summary:focus-visible{outline:3px solid var(--uv);outline-offset:-3px}
+.fold[open] .fold-x{background:var(--red)}
+.fold[open] .fold-x::after{transform:rotate(0)}
+.fold-body{padding-block:0 clamp(40px,7vw,80px)}
+.fold-body>.wrap>.head>.label,.fold-body>.wrap>.head>h2{display:none}
+.fold-body>.wrap>.head:not(:has(p,button)){display:none}
+.fold-body .maker{margin-top:clamp(36px,6vw,60px)}
+.promo-more{margin-top:4px}
+.promo-more>summary{cursor:pointer;color:var(--wall);display:inline-block;border-bottom:2px solid var(--red);padding-block:6px;margin-bottom:22px}
+.promo-more>summary::-webkit-details-marker{display:none}
+.promo-more>summary::after{content:" +";color:var(--red)}
+.promo-more[open]>summary::after{content:" \2212"}
+@media (prefers-reduced-motion:reduce){.fold-x,.fold-x::after{transition:none}}
 /* maker */
 .maker{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:center}
 .maker img{width:100%;aspect-ratio:1;object-fit:cover}
@@ -381,6 +407,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       </div>
       <figure class="promo-shot"><img src="assets/uv-shelf.webp" width="1800" height="1350" alt="Five ManGrenades on the shed shelf, their grenade stencils glowing red and green under a blacklight"></figure>
     </div>
+    <details class="promo-more"><summary class="label">Festival details and posters</summary>
     <div class="event">
       <div class="what">
         <p class="where">11am to 7pm · High Street &amp; The Heart, Walton-on-Thames KT12 1GH</p>
@@ -399,50 +426,13 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <figure><img src="assets/poster-glow.webp" alt="ManGrenade poster: a glowing can candle dripping green wax" loading="lazy"></figure>
       <figure><img src="assets/poster-noir.webp" alt="ManGrenade poster: three lit can candles above a noir street scene" loading="lazy"></figure>
     </div>
+    </details>
   </div>
 </section>
 
-<section id="about" aria-labelledby="about-title">
-  <div class="wrap">
-    <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> About MCI</div>
-      <h2 id="about-title">Who are Mancave Industries?</h2>
-    </div>
-    <div class="about">
-      <article>
-        <span class="n">01</span>
-        <h3>What we do</h3>
-        <p>Candles in rescued cans. Blacklight art. Phone games. All made by hand in Hersham.</p>
-      </article>
-      <article>
-        <span class="n">02</span>
-        <h3>Who we are</h3>
-        <p>A shed in Hersham. TK, Kerry and Lila. No factory, no dropshipping.</p>
-        <a class="more label" href="#crew">Meet the crew</a>
-      </article>
-      <article class="wtf">
-        <span class="n">03</span>
-        <h3>WTF is a ManGrenade?</h3>
-        <p>A candle in a can. Stencilled, sprayed and poured by hand. Kill the lights and it glows.</p>
-        <a class="more label" href="#shop">See the ManGrenades</a>
-      </article>
-    </div>
-  </div>
-</section>
 
-<section id="press" aria-labelledby="press-title">
-  <div class="wrap">
-    <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> Press</div>
-      <h2 id="press-title">As seen in</h2>
-    </div>
-    <a class="clip" href="https://thelondon.news/category/business/banker-by-day-candle-maker-by-night-launches-man-cave-business" target="_blank" rel="noopener">
-      <span class="masthead">The London News</span>
-      <span class="clip-head">Banker by day, candle maker by night, launches man cave business</span>
-      <span class="clip-cta label">Read the article &rarr;</span>
-    </a>
-  </div>
-</section>
+
+
 
 
 
@@ -535,71 +525,43 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
   </div>
 </section>
 
-<section id="delivery">
+<div class="folds" aria-label="More from Mancave Industries">
+<section id="about" class="folded">
+  <details class="fold">
+    <summary><span class="wrap fold-bar"><span class="fold-t">About MCI</span><span class="fold-s">What we do. Who we are. WTF is a ManGrenade.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <div class="fold-body">
   <div class="wrap">
     <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> Delivery &amp; returns</div>
-      <h2>No small print ambush.</h2>
-      <p>UK post is £7.50. Collection is free at the Walton-on-Thames Festival of Light stall on 28 November.</p>
+      <div class="label"><span class="g" aria-hidden="true"></span> About MCI</div>
+      <h2 id="about-title">Who are Mancave Industries?</h2>
     </div>
-    <details class="small-print"><summary class="label">Delivery, returns and refunds in full</summary>
-    <div class="tiers">
-      <div class="tier">
-        <div class="label">Delivery</div>
-        <p>We deliver UK online orders within 30 days unless we agree a different date with you. If you need a ManGrenade by a particular date, email before ordering.</p>
-      </div>
-      <div class="tier">
-        <div class="label">Changed your mind?</div>
-        <p>For standard online orders, tell us within 14 days of receiving your order if you want to cancel. You then have another 14 days to return it. You pay the direct return postage for a change-of-mind return. We refund the item and the standard outbound delivery charge where required by law.</p>
-      </div>
-      <div class="tier">
-        <div class="label">Problem with an order?</div>
-        <p>If it arrives faulty, damaged or not as described, email us and we’ll put it right. Reasonable return costs for faulty goods are on us. Personalised or custom-made commissions cannot normally be returned just because you change your mind. Your statutory rights are unaffected.</p>
-      </div>
-    </div>
-    </details>
-    <div class="ctas"><a class="btn ghost" href="mailto:mancaveman@icloud.com?subject=MCI%20order%20or%20return">Email about an order</a></div>
-  </div>
-</section>
-
-<div class="rule" aria-hidden="true"><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span></div>
-
-<section id="making">
-  <div class="wrap">
-    <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> How they're made</div>
-      <h2>Recycling bin to shelf</h2>
-    </div>
-    <figure class="strip lead"><img src="assets/bench.webp" width="1600" height="1200" alt="The spray bench: stencils, paint cans and a row of freshly poured can candles" loading="lazy"></figure>
-    <div class="making">
-      <figure><img src="assets/group.webp" alt="Finished can candles and a kraft tube on a spray-painted workbench" loading="lazy"><figcaption><span class="n">01</span>Cans rescued, cut and sprayed on the bench.</figcaption></figure>
-      <figure><img src="assets/wick.webp" alt="Wicks held upright on lolly sticks across freshly poured cans" loading="lazy"><figcaption><span class="n">02</span>Wicks set on lolly sticks, wax poured.</figcaption></figure>
-      <figure><img src="assets/wax.webp" alt="Pan of melted shimmering green wax" loading="lazy"><figcaption><span class="n">03</span>Wax melted and tinted in small batches.</figcaption></figure>
+    <div class="about">
+      <article>
+        <span class="n">01</span>
+        <h3>What we do</h3>
+        <p>Candles in rescued cans. Blacklight art. Phone games. All made by hand in Hersham.</p>
+      </article>
+      <article>
+        <span class="n">02</span>
+        <h3>Who we are</h3>
+        <p>A shed in Hersham. TK, Kerry and Lila. No factory, no dropshipping.</p>
+        <a class="more label" href="#crew">Meet the crew</a>
+      </article>
+      <article class="wtf">
+        <span class="n">03</span>
+        <h3>WTF is a ManGrenade?</h3>
+        <p>A candle in a can. Stencilled, sprayed and poured by hand. Kill the lights and it glows.</p>
+        <a class="more label" href="#shop">See the ManGrenades</a>
+      </article>
     </div>
   </div>
+</div>
+  </details>
 </section>
-
-<section id="commissions">
-  <div class="wrap">
-    <div class="kraft-panel">
-      <div>
-        <div class="label">Commissions</div>
-        <h2>Got a can that means something?</h2>
-        <p style="margin-top:14px">Stag do, wedding, holiday find. Send the can, it comes back a ManGrenade.</p>
-        <ol class="steps">
-          <li><span class="g" aria-hidden="true"></span><span>Email us and tell us about the can.</span></li>
-          <li><span class="g" aria-hidden="true"></span><span>Rinse it, post it, or drop it at the market stall.</span></li>
-          <li><span class="g" aria-hidden="true"></span><span>We stencil, spray and pour. It comes back boxed.</span></li>
-        </ol>
-        <div class="big-price">£50</div>
-        <p style="margin-top:8px">Email <a href="mailto:mancaveman@icloud.com">mancaveman@icloud.com</a></p>
-      </div>
-      <img src="assets/uv-pair.webp" alt="Two ManGrenades with red and green grenade stencils glowing under UV" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<section id="art">
+<section id="art" class="folded">
+  <details class="fold">
+    <summary><span class="wrap fold-bar"><span class="fold-t">Originals</span><span class="fold-s">One-offs from the shed wall. From £250.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <div class="fold-body">
   <div class="wrap">
     <div class="head">
       <div class="label"><span class="g" aria-hidden="true"></span> Originals</div>
@@ -652,34 +614,37 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <figure><img src="assets/a-darkside.webp" width="900" height="1200" alt="Helmeted figure through neon green and pink layers, under blacklight" loading="lazy"><figcaption><h3>Dark Side</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
     </div>
 </div>
+</div>
+  </details>
 </section>
-
-<section id="maker">
-  <div class="wrap maker">
-    <img src="assets/maker-art.webp" alt="Graffiti portrait of Mark, arms crossed, in front of the Mancave Industries badge" loading="lazy">
-    <div class="text">
-      <div class="label" style="color:var(--uv)">The maker</div>
-      <h2>Built in the shed</h2>
-      <div><a class="btn ghost" href="/Gameshed/">Play the Game Shed</a></div>
-    </div>
-  </div>
-</section>
-
-<section id="crew">
+<section id="commissions" class="folded">
+  <details class="fold">
+    <summary><span class="wrap fold-bar"><span class="fold-t">Commissions</span><span class="fold-s">Your can, made into a ManGrenade. £50.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <div class="fold-body">
   <div class="wrap">
-    <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> The shed</div>
-      <h2>Meet the crew</h2>
-    </div>
-    <div class="crew">
-      <figure><img src="assets/crew-tk.webp" width="800" height="800" alt="TK, arms crossed, in front of the Mancave Industries seal splashed with yellow paint" loading="lazy"><figcaption><h3>TK</h3><span class="label">Mancave legend</span></figcaption></figure>
-      <figure><img src="assets/crew-kerry.webp" width="800" height="800" alt="Kerry, smiling, in front of the Mancave Industries seal splashed with yellow paint and a sprayed crown" loading="lazy"><figcaption><h3>Kerry</h3><span class="label">Mancave queen</span></figcaption></figure>
-      <figure><img src="assets/crew-lila.webp" width="800" height="800" alt="Lila in front of the seal, with MAN crossed out and GIRL sprayed over it in pink" loading="lazy"><figcaption><h3>Lila</h3><span class="label">Girlcave queen</span></figcaption></figure>
+    <div class="kraft-panel">
+      <div>
+        <div class="label">Commissions</div>
+        <h2>Got a can that means something?</h2>
+        <p style="margin-top:14px">Stag do, wedding, holiday find. Send the can, it comes back a ManGrenade.</p>
+        <ol class="steps">
+          <li><span class="g" aria-hidden="true"></span><span>Email us and tell us about the can.</span></li>
+          <li><span class="g" aria-hidden="true"></span><span>Rinse it, post it, or drop it at the market stall.</span></li>
+          <li><span class="g" aria-hidden="true"></span><span>We stencil, spray and pour. It comes back boxed.</span></li>
+        </ol>
+        <div class="big-price">£50</div>
+        <p style="margin-top:8px">Email <a href="mailto:mancaveman@icloud.com">mancaveman@icloud.com</a></p>
+      </div>
+      <img src="assets/uv-pair.webp" alt="Two ManGrenades with red and green grenade stencils glowing under UV" loading="lazy">
     </div>
   </div>
+</div>
+  </details>
 </section>
-
-<section id="bts" aria-labelledby="bts-title">
+<section id="bts" class="folded">
+  <details class="fold">
+    <summary><span class="wrap fold-bar"><span class="fold-t">Behind the scenes</span><span class="fold-s">Spraying, pouring, canvassing. Sound on.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <div class="fold-body">
   <div class="wrap">
     <div class="head">
       <div class="label"><span class="g" aria-hidden="true"></span> Behind the scenes</div>
@@ -694,7 +659,121 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <figure class="bts-outro"><video src="assets/bts-outro.mp4" poster="assets/bts-outro.webp" muted loop playsinline autoplay preload="metadata" aria-label="TK in his respirator, spraying in the shed"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button></figure>
     </div>
   </div>
+</div>
+  </details>
 </section>
+<section id="crew" class="folded">
+  <details class="fold">
+    <summary><span class="wrap fold-bar"><span class="fold-t">The crew</span><span class="fold-s">TK, Kerry and Lila.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <div class="fold-body">
+  <div class="wrap">
+    <div class="head">
+      <div class="label"><span class="g" aria-hidden="true"></span> The shed</div>
+      <h2>Meet the crew</h2>
+    </div>
+    <div class="crew">
+      <figure><img src="assets/crew-tk.webp" width="800" height="800" alt="TK, arms crossed, in front of the Mancave Industries seal splashed with yellow paint" loading="lazy"><figcaption><h3>TK</h3><span class="label">Mancave legend</span></figcaption></figure>
+      <figure><img src="assets/crew-kerry.webp" width="800" height="800" alt="Kerry, smiling, in front of the Mancave Industries seal splashed with yellow paint and a sprayed crown" loading="lazy"><figcaption><h3>Kerry</h3><span class="label">Mancave queen</span></figcaption></figure>
+      <figure><img src="assets/crew-lila.webp" width="800" height="800" alt="Lila in front of the seal, with MAN crossed out and GIRL sprayed over it in pink" loading="lazy"><figcaption><h3>Lila</h3><span class="label">Girlcave queen</span></figcaption></figure>
+    </div>
+    <div class="maker">
+    <img src="assets/maker-art.webp" alt="Graffiti portrait of Mark, arms crossed, in front of the Mancave Industries badge" loading="lazy">
+    <div class="text">
+      <div class="label" style="color:var(--uv)">The maker</div>
+      <h2>Built in the shed</h2>
+      <div><a class="btn ghost" href="/Gameshed/">Play the Game Shed</a></div>
+    </div>
+  </div>
+  </div>
+</div>
+  </details>
+</section>
+<section id="making" class="folded">
+  <details class="fold">
+    <summary><span class="wrap fold-bar"><span class="fold-t">How they&rsquo;re made</span><span class="fold-s">Rescued can to lit candle.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <div class="fold-body">
+  <div class="wrap">
+    <div class="head">
+      <div class="label"><span class="g" aria-hidden="true"></span> How they're made</div>
+      <h2>Recycling bin to shelf</h2>
+    </div>
+    <figure class="strip lead"><img src="assets/bench.webp" width="1600" height="1200" alt="The spray bench: stencils, paint cans and a row of freshly poured can candles" loading="lazy"></figure>
+    <div class="making">
+      <figure><img src="assets/group.webp" alt="Finished can candles and a kraft tube on a spray-painted workbench" loading="lazy"><figcaption><span class="n">01</span>Cans rescued, cut and sprayed on the bench.</figcaption></figure>
+      <figure><img src="assets/wick.webp" alt="Wicks held upright on lolly sticks across freshly poured cans" loading="lazy"><figcaption><span class="n">02</span>Wicks set on lolly sticks, wax poured.</figcaption></figure>
+      <figure><img src="assets/wax.webp" alt="Pan of melted shimmering green wax" loading="lazy"><figcaption><span class="n">03</span>Wax melted and tinted in small batches.</figcaption></figure>
+    </div>
+  </div>
+</div>
+  </details>
+</section>
+<section id="press" class="folded">
+  <details class="fold">
+    <summary><span class="wrap fold-bar"><span class="fold-t">Press</span><span class="fold-s">As seen in The London News.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <div class="fold-body">
+  <div class="wrap">
+    <div class="head">
+      <div class="label"><span class="g" aria-hidden="true"></span> Press</div>
+      <h2 id="press-title">As seen in</h2>
+    </div>
+    <a class="clip" href="https://thelondon.news/category/business/banker-by-day-candle-maker-by-night-launches-man-cave-business" target="_blank" rel="noopener">
+      <span class="masthead">The London News</span>
+      <span class="clip-head">Banker by day, candle maker by night, launches man cave business</span>
+      <span class="clip-cta label">Read the article &rarr;</span>
+    </a>
+  </div>
+</div>
+  </details>
+</section>
+<section id="delivery" class="folded">
+  <details class="fold">
+    <summary><span class="wrap fold-bar"><span class="fold-t">Delivery &amp; returns</span><span class="fold-s">UK post £7.50. Returns and refunds in full.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <div class="fold-body">
+  <div class="wrap">
+    <div class="head">
+      <div class="label"><span class="g" aria-hidden="true"></span> Delivery &amp; returns</div>
+      <h2>No small print ambush.</h2>
+      <p>UK post is £7.50. Collection is free at the Walton-on-Thames Festival of Light stall on 28 November.</p>
+    </div>
+    <details class="small-print"><summary class="label">Delivery, returns and refunds in full</summary>
+    <div class="tiers">
+      <div class="tier">
+        <div class="label">Delivery</div>
+        <p>We deliver UK online orders within 30 days unless we agree a different date with you. If you need a ManGrenade by a particular date, email before ordering.</p>
+      </div>
+      <div class="tier">
+        <div class="label">Changed your mind?</div>
+        <p>For standard online orders, tell us within 14 days of receiving your order if you want to cancel. You then have another 14 days to return it. You pay the direct return postage for a change-of-mind return. We refund the item and the standard outbound delivery charge where required by law.</p>
+      </div>
+      <div class="tier">
+        <div class="label">Problem with an order?</div>
+        <p>If it arrives faulty, damaged or not as described, email us and we’ll put it right. Reasonable return costs for faulty goods are on us. Personalised or custom-made commissions cannot normally be returned just because you change your mind. Your statutory rights are unaffected.</p>
+      </div>
+    </div>
+    </details>
+    <div class="ctas"><a class="btn ghost" href="mailto:mancaveman@icloud.com?subject=MCI%20order%20or%20return">Email about an order</a></div>
+  </div>
+</div>
+  </details>
+</section>
+</div>
+
+
+
+
+<div class="rule" aria-hidden="true"><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span><span class="g" aria-hidden="true"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="wrap">
@@ -764,6 +843,26 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
   }
   document.addEventListener('pointerdown',firstTouch,true);
   document.addEventListener('keydown',firstTouch,true);
+})();
+</script>
+
+<script>
+(function(){
+  function openFor(id){
+    var el=document.getElementById(id); if(!el) return;
+    var d=el.closest('details')||(el.classList.contains('folded')?el.querySelector('details.fold'):null);
+    if(d&&!d.open){d.open=true;}
+  }
+  function go(){var h=location.hash.slice(1); if(h){openFor(h); var t=document.getElementById(h); if(t) setTimeout(function(){t.scrollIntoView();},0);}}
+  window.addEventListener('hashchange',go); go();
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(){var h=a.getAttribute('href').slice(1); if(h) openFor(h);});
+  });
+  document.querySelectorAll('details.fold').forEach(function(d){
+    d.addEventListener('toggle',function(){
+      d.querySelectorAll('video').forEach(function(v){ if(d.open){v.play().catch(function(){});} else {v.muted=true; v.pause();} });
+    });
+  });
 })();
 </script>
 </body>
