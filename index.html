@@ -389,24 +389,69 @@ footer .mark{width:84px;aspect-ratio:479/772;color:var(--chalk)}
 footer .lines{display:grid;gap:6px;color:var(--smoke)}
 footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:uppercase;color:var(--uv);text-align:right}
 @media (max-width:700px){footer{grid-template-columns:1fr;justify-items:start}footer .sign{text-align:left}}
+
+/* ---- 2026-11 declutter + signature buttons ---- */
+[hidden]{display:none!important}
+.sub-fold{border-top:1px solid #2a2622}
+/* Pull the pin */
+.pin-btn,.switch-btn{display:inline-flex;align-items:center;gap:16px;cursor:pointer;list-style:none;padding:10px 26px 10px 14px;background:var(--red);color:#fff;box-shadow:6px 6px 0 var(--uv);transition:transform .15s ease}
+.pin-btn::-webkit-details-marker,.switch-btn::-webkit-details-marker{display:none}
+.pin-btn:hover,.switch-btn:hover{transform:translate(-2px,-2px)}
+.pin-btn:focus-visible,.switch-btn:focus-visible{outline:3px solid var(--chalk);outline-offset:4px}
+.pin-t{display:grid;gap:4px;text-align:left}
+.pin-t b{font:900 clamp(1.6rem,4vw,2.1rem)/.9 var(--stencil);text-transform:uppercase;letter-spacing:.01em}
+.pin-t small{font:700 .78rem/1 var(--label);letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.stock .pin-t .when-closed{display:block}.stock[open] .pin-t .when-closed{display:none}.stock[open] .pin-t .when-open{display:block}
+.gren{width:52px;height:68px;flex:none;overflow:visible}
+.gren .body{fill:var(--chalk)}
+.gren .cut{fill:none;stroke:var(--red);stroke-width:2.4}
+.gren .lever{fill:none;stroke:var(--chalk);stroke-width:5;stroke-linecap:round}
+.gren .pin{fill:none;stroke:var(--chalk);stroke-width:3.2;stroke-linecap:round;transform-box:fill-box;transform-origin:100% 50%;transition:transform .45s cubic-bezier(.3,1.6,.5,1),opacity .45s}
+.pin-btn:hover .gren .pin{transform:rotate(-14deg)}
+.stock[open]>.pin-btn .gren .pin{transform:translate(-10px,-26px) rotate(-75deg);stroke:var(--uv)}
+.stock[open]>.pin-btn .gren .lever{transform:rotate(18deg);transform-origin:39px 15px;transition:transform .35s .15s}
+.stock[open]>.pin-btn,.stock[open]>.switch-btn{background:transparent;box-shadow:none;outline:2px solid var(--red);outline-offset:-2px;margin-bottom:clamp(22px,4vw,36px)}
+/* Lights off */
+.plate{position:relative;flex:none;width:46px;height:64px;background:var(--chalk);border-radius:6px;box-shadow:inset 0 -3px 0 #cfc7ba,0 3px 0 rgba(0,0,0,.3);display:grid;justify-items:center;align-content:space-between;padding:5px 0}
+.plate i{width:5px;height:5px;border-radius:50%;background:#a9a092;box-shadow:inset 1px 1px 0 #7c7468}
+.rocker{width:18px;height:30px;border-radius:3px;background:linear-gradient(#fffdf8 0 48%,#d6cec1 52%);box-shadow:0 2px 0 #b8afa1;transition:background .2s,box-shadow .2s}
+#collection[open]>.switch-btn .rocker{background:linear-gradient(#d6cec1 0 48%,#fffdf8 52%);box-shadow:0 -2px 0 #b8afa1}
+.tz{position:relative;overflow:hidden;box-shadow:0 26px 50px -20px #000}
+.tz img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.tz:nth-child(2) img{aspect-ratio:3/4}
+.tz .uv{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}
+.uv-on .tz .uv{opacity:1}
+.gallery-sec{transition:background-color .7s ease}
+.gallery-sec.uv-on{background-color:#0c0618;box-shadow:inset 0 0 160px rgba(140,60,255,.18)}
+@media (max-width:620px){.tz img,.tz:nth-child(2) img{aspect-ratio:3/4}}
+/* Tape deck sound */
+.bts .bts-sound{display:inline-flex;align-items:center;gap:9px;background:#1b1916;color:var(--chalk);border:2px solid var(--chalk);box-shadow:3px 3px 0 var(--red);padding:6px 11px 5px 7px}
+.bts .bts-sound[aria-pressed="true"]{background:var(--uv);color:var(--wall);border-color:var(--wall)}
+.deck{display:inline-flex;gap:7px;align-items:center;background:#2c2925;border:2px solid currentColor;border-radius:3px;padding:3px 6px}
+.bts-sound[aria-pressed="true"] .deck{background:#ffd1e6}
+.deck i{width:12px;height:12px;border-radius:50%;border:2.5px solid currentColor;border-top-color:transparent;background:radial-gradient(currentColor 0 28%,transparent 32%)}
+.bts-sound[aria-pressed="true"] .deck i{animation:reel 1.4s linear infinite}
+@keyframes reel{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.bts-sound .deck i{animation:none!important}.gren .pin{transition:none}}
+/* Buy now as a price tag */
+.tag{--tag:var(--red);position:relative;display:inline-flex;align-items:center;margin-left:auto;padding:10px 16px 8px 26px;background:var(--tag);color:#fff;text-decoration:none;font:700 .9rem/1 var(--label);letter-spacing:.18em;text-transform:uppercase;clip-path:polygon(12px 0,100% 0,100% 100%,12px 100%,0 50%);box-shadow:none;border:0}
+.tag::before{content:"";position:absolute;left:10px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--paper)}
+.newart .tag::before{background:var(--wall)}
+.tag:hover,.tag:focus-visible{--tag:var(--uv);color:var(--wall)}
+.card .buy.tag{box-shadow:none;padding:10px 16px 8px 26px;background:var(--tag)}
+.card .buy.tag:hover{background:var(--uv)}
 </style>
 </head>
 <body>
 <div class="wrap">
   <nav class="nav" aria-label="Main">
-    <a class="brand" href="#top" aria-label="Mancave Industries home"><span class="seal seal-nav" aria-hidden="true"></span><span class="brand-name">Mancave Industries</span></a>
+    <a class="brand" href="#" aria-label="Mancave Industries home"><span class="seal seal-nav" aria-hidden="true"></span><span class="brand-name">Mancave Industries</span></a>
     <ul class="label">
-      <li><a href="#about">About</a></li>
-      <li><a href="#press">Press</a></li>
       <li><a href="#shop">ManGrenades</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#commissions">Commissions</a></li>
       <li><a href="#art">Gallery</a></li>
-      <li><a href="#crew">The crew</a></li>
-      <li><a href="#bts">Behind the scenes</a></li>
       <li><a href="/Gameshed/">Game Shed</a></li>
+      <li><a href="#about">About</a></li>
     </ul>
-    <div class="top-btns"><a class="btn primary about-btn" href="#about"><span class="g" aria-hidden="true"></span> About MCI</a><a class="btn ghost press-btn" href="#press">Press</a></div>
   </nav>
 
 </div>
@@ -414,12 +459,11 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 <section id="events" class="promo" aria-labelledby="promo-title">
   <div class="wrap">
     <div class="promo-top">
-      <div class="soon label"><span class="g" aria-hidden="true"></span> Coming soon</div>
+      <div class="soon label"><span class="g" aria-hidden="true"></span> Live 28 Nov</div>
       <h2 id="promo-title" class="socks">Don&rsquo;t buy him <span class="r">socks</span> this Christmas.</h2>
       <div class="promo-copy">
         <p class="buy">Buy him a ManGrenade.</p>
         <p class="at">Mancave Industries at the Walton-on-Thames Festival of Light</p>
-        <p class="date"><span>Saturday 28 November 2026</span></p>
         <div class="ctas"><a class="btn primary" href="#stock"><span class="g" aria-hidden="true"></span> See the ManGrenades</a></div>
       </div>
       <figure class="promo-shot"><img src="assets/uv-shelf.webp" width="1800" height="1350" alt="Five ManGrenades on the shed shelf, their grenade stencils glowing red and green under a blacklight"></figure>
@@ -455,14 +499,10 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 
 <div class="wrap">
 
-  <header class="hero" id="top">
+  <header class="hero" hidden>
     <div class="seal-hero" role="img" aria-label="Mancave Industries seal with the ManGrenade at its centre"><span class="seal"></span></div>
     <div class="kicker label"><span class="g" aria-hidden="true"></span> Handmade in Hersham <span class="g" aria-hidden="true"></span></div>
     <h1>Mancaves just got <span class="r">lit</span></h1>
-    <div class="ctas">
-      <a class="btn primary" href="#shop"><span class="g" aria-hidden="true"></span> Shop the drop</a>
-      <a class="btn ghost" href="#commissions">Send us your can</a>
-    </div>
   </header>
 </div>
 
@@ -477,7 +517,6 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 <section id="shop">
   <div class="wrap">
     <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> Shop</div>
       <h2>The ManGrenades</h2>
     </div>
     <div class="teaser">
@@ -485,7 +524,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <img src="assets/p-deluxe.webp" alt="A Deluxe ManGrenade" loading="lazy">
       <div class="teaser-cta"><p class="from">From <b>£20</b></p></div>
     </div>
-    <details class="stock" id="stock"><summary class="btn primary"><span class="g" aria-hidden="true"></span> <span class="when-closed">See all 7 ManGrenades</span><span class="when-open">Hide the stock</span></summary>
+    <details class="stock" id="stock"><summary class="pin-btn"><svg class="gren" viewBox="0 0 64 84" aria-hidden="true"><g class="body"><rect x="23" y="13" width="16" height="10"/><path d="M14 33q0-10 10-10h14q10 0 10 10v31q0 12-17 12T14 64z"/><path class="cut" d="M14 38h34M14 50h34M14 62h34M31 23v53"/><path class="lever" d="M39 15q15 0 15 12v24"/></g><g class="pin"><circle cx="9" cy="18" r="7.5"/><path d="M16.5 18h8"/></g></svg><span class="pin-t"><b class="when-closed">Pull the pin</b><b class="when-open">Pin back in</b><small class="when-closed">See all 7 ManGrenades</small><small class="when-open">Hide the stock</small></span></summary>
     <div class="tiers">
       <div class="tier"><div class="label">Standard · 330ml</div><div class="price">£20</div><p>Stencilled and sprayed can, hand-poured wax, cotton wick.</p></div>
       <div class="tier deluxe"><div class="label">Deluxe</div><div class="price">£30</div><p>Mancavemanmade with extra attention. Big 500ml cans and our standout pieces.</p></div>
@@ -498,17 +537,17 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-deluxe.webp" alt="Tall 500ml Deluxe ManGrenade with white Mancave Industries stencil" loading="lazy">
         <div class="body"><h3>Black Harp</h3>
-          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="https://buy.stripe.com/7sY14of4f8kueSY6DY3ks02">Buy now</a></div></div>
+          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/7sY14of4f8kueSY6DY3ks02">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-janedoe.webp" alt="Teal can candle with Mancave Industries grenade stencil beside its kraft tube" loading="lazy">
         <div class="body"><h3>Jane Doe</h3>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/4gM14o9JVcAKaCI5zU3ks00">Buy now</a></div></div>
+          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/4gM14o9JVcAKaCI5zU3ks00">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-copilot.webp" alt="Orange can candle with black grenade stencil next to an open kraft tube" loading="lazy">
         <div class="body"><h3>Co-Pilot</h3>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/6oUeVe7BNgR03ag6DY3ks01">Buy now</a></div></div>
+          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/6oUeVe7BNgR03ag6DY3ks01">Buy now</a></div></div>
       </article>
     </div>
     <div class="sub"><h3>One-offs</h3><p>The one in the photo is the one you get.</p></div>
@@ -516,22 +555,22 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-orange.webp" alt="Orange and black sprayed can candle with Mancave Industries stencil, next to its kraft tube" loading="lazy">
         <div class="body"><h3>Blast Orange</h3>
-          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="https://buy.stripe.com/dRm5kE8FRbwGcKQ2nI3ks03">Buy now</a></div></div>
+          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/dRm5kE8FRbwGcKQ2nI3ks03">Buy now</a></div></div>
       </article>
       <article class="card"><span class="stamp label">Deluxe</span>
         <img src="assets/p-blackred.webp" alt="Black and red sprayed can candle next to its stamped kraft tube" loading="lazy">
         <div class="body"><h3>Scorched</h3>
-          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy label" href="https://buy.stripe.com/9B6bJ25tF58i128bYi3ks04">Buy now</a></div></div>
+          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/9B6bJ25tF58i128bYi3ks04">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-blue.webp" alt="Blue and rust sprayed can candle with a grenade stencil, shown sitting in its open tube" loading="lazy">
         <div class="body"><h3>Rust &amp; Sky</h3>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/bJedRacW78ku5iofau3ks05">Buy now</a></div></div>
+          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/bJedRacW78ku5iofau3ks05">Buy now</a></div></div>
       </article>
       <article class="card">
         <img src="assets/p-purple.webp" alt="Purple-to-blue fade can candle with a black grenade stencil, beside its kraft tube" loading="lazy">
         <div class="body"><h3>Night Shift</h3>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy label" href="https://buy.stripe.com/7sYbJ27BN8kuaCIbYi3ks06">Buy now</a></div></div>
+          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/7sYbJ27BN8kuaCIbYi3ks06">Buy now</a></div></div>
       </article>
     </div>
     <div class="facts label"><span><b>Stock</b>42 in the shed</span><span><b>UK post</b>£7.50</span><span><b>Collect</b>free at the market stall</span><span><b>Packed</b>in a stamped kraft tube</span></div>
@@ -551,29 +590,26 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 <section id="art" class="gallery-sec">
   <div class="wrap">
     <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> Originals</div>
       <h2>The Gallery</h2>
     </div>
     <div class="teaser">
-      <img src="assets/o-drill.webp" alt="This Is Not A Drill" loading="lazy">
-      <img src="assets/o-weather-uv.webp" alt="Under the Weather under blacklight" loading="lazy">
+      <div class="tz"><img src="assets/o-trip-day.webp" alt="Untitled triptych in daylight" loading="lazy"><img class="uv" src="assets/o-trip-uv.webp" alt="" loading="lazy"></div>
+      <div class="tz"><img src="assets/o-weather-day.webp" alt="Under the Weather in daylight" loading="lazy"><img class="uv" src="assets/o-weather-uv.webp" alt="" loading="lazy"></div>
       <div class="teaser-cta"><p class="from">One-offs from <b>£250</b></p></div>
     </div>
-    <details class="stock" id="collection"><summary class="btn primary"><span class="g" aria-hidden="true"></span> <span class="when-closed">See the collection</span><span class="when-open">Hide the collection</span></summary>
+    <details class="stock" id="collection"><summary class="switch-btn"><span class="plate" aria-hidden="true"><i></i><span class="rocker"></span><i></i></span><span class="pin-t"><b class="when-closed">Lights off</b><b class="when-open">Lights on</b><small class="when-closed">See the collection</small><small class="when-open">Hide the collection</small></span></summary>
       <div class="coll">
   <div class="wrap">
     <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> Originals</div>
       <h2>Built different</h2>
       <p>One of a kind. Painted to glow. Email <a href="mailto:mancaveman@icloud.com">mancaveman@icloud.com</a> to buy or view.</p>
-      <button class="btn primary uv-switch" id="uv-switch" type="button" aria-pressed="false"><span class="g" aria-hidden="true"></span><span id="uv-switch-text">Hit the UV</span></button>
     </div>
 
     <div class="sub"><h3>New on the wall</h3></div>
     <div class="newart">
       <article class="span">
         <div class="shots"><img class="main" src="assets/o-drill.webp" width="1600" height="900" alt="This Is Not A Drill: a giant chrome screwdriver with MAN CAVE on the handle, mounted on a sprayed board" loading="lazy"></div>
-        <div class="cap"><h3>This Is Not A Drill</h3><span class="price">£350</span><span class="label">3D, on board</span><a class="btn primary" href="https://buy.stripe.com/9B6dRa8FR58i3agbYi3ks07">Buy now</a></div>
+        <div class="cap"><h3>This Is Not A Drill</h3><span class="price">£350</span><span class="label">3D, on board</span><a class="buy tag label" href="https://buy.stripe.com/9B6dRa8FR58i3agbYi3ks07">Buy now</a></div>
       </article>
       <article>
         <div class="shots w3">
@@ -581,14 +617,14 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
           <img src="assets/o-weather-day.webp" width="900" height="1599" alt="Under the Weather in daylight" loading="lazy">
           <img src="assets/o-weather-back.webp" width="1200" height="675" alt="The reverse of Under the Weather: a Now Showing marquee reading ManGrenades, Funky Art, Ferris Bueller's Day Off" loading="lazy">
         </div>
-        <div class="cap"><h3>Under the Weather</h3><span class="price">£250</span><span class="label">Now Showing on the reverse</span><a class="btn primary" href="https://buy.stripe.com/eVq7sMcW744e5io9Qa3ks08">Buy now</a></div>
+        <div class="cap"><h3>Under the Weather</h3><span class="price">£250</span><span class="label">Now Showing on the reverse</span><a class="buy tag label" href="https://buy.stripe.com/eVq7sMcW744e5io9Qa3ks08">Buy now</a></div>
       </article>
       <article>
         <div class="shots w2">
           <video class="main" src="assets/o-record.mp4" poster="assets/o-record-poster.webp" autoplay muted loop playsinline aria-label="On the Record spinning under blacklight"></video>
           <img src="assets/o-record.webp" width="1200" height="675" alt="On the Record: a vinyl record sprayed with the Mancave Industries seal, glowing under blacklight" loading="lazy">
         </div>
-        <div class="cap"><h3>On the Record</h3><span class="price">£250</span><span class="label">It spins</span><a class="btn primary" href="https://buy.stripe.com/3cIfZi09l9oyh164vQ3ks09">Buy now</a></div>
+        <div class="cap"><h3>On the Record</h3><span class="price">£250</span><span class="label">It spins</span><a class="buy tag label" href="https://buy.stripe.com/3cIfZi09l9oyh164vQ3ks09">Buy now</a></div>
       </article>
     </div>
     <div class="uvset">
@@ -622,11 +658,10 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 <div class="folds" aria-label="More from Mancave Industries">
 <section id="about" class="folded">
   <details class="fold">
-    <summary><span class="wrap fold-bar"><span class="fold-t">About MCI</span><span class="fold-s">What we do. Who we are. WTF is a ManGrenade.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <summary><span class="wrap fold-bar"><span class="fold-t">About MCI</span><span class="fold-s">Who we are. The crew. How they&rsquo;re made. Press.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
     <div class="fold-body">
   <div class="wrap">
     <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> About MCI</div>
       <h2 id="about-title">Who are Mancave Industries?</h2>
     </div>
     <div class="about">
@@ -650,9 +685,72 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     </div>
   </div>
 </div>
+<div class="fold-body sub-fold" id="crew">
+  <div class="wrap">
+    <div class="head">
+      <h2>Meet the crew</h2>
+    </div>
+    <div class="crew">
+      <figure><img src="assets/crew-tk.webp" width="800" height="800" alt="TK, arms crossed, in front of the Mancave Industries seal splashed with yellow paint" loading="lazy"><figcaption><h3>TK</h3><span class="label">Mancave legend</span></figcaption></figure>
+      <figure><img src="assets/crew-kerry.webp" width="800" height="800" alt="Kerry, smiling, in front of the Mancave Industries seal splashed with yellow paint and a sprayed crown" loading="lazy"><figcaption><h3>Kerry</h3><span class="label">Mancave queen</span></figcaption></figure>
+      <figure><img src="assets/crew-lila.webp" width="800" height="800" alt="Lila in front of the seal, with MAN crossed out and GIRL sprayed over it in pink" loading="lazy"><figcaption><h3>Lila</h3><span class="label">Girlcave queen</span></figcaption></figure>
+    </div>
+    <div class="maker">
+    <img src="assets/maker-art.webp" alt="Graffiti portrait of Mark, arms crossed, in front of the Mancave Industries badge" loading="lazy">
+    <div class="text">
+      <h2>Built in the shed</h2>
+      <div><a class="btn ghost" href="/Gameshed/">Play the Game Shed</a></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="fold-body sub-fold" id="making">
+  <div class="wrap">
+    <div class="head">
+      <h2>Recycling bin to shelf</h2>
+    </div>
+    <figure class="strip lead"><img src="assets/bench.webp" width="1600" height="1200" alt="The spray bench: stencils, paint cans and a row of freshly poured can candles" loading="lazy"></figure>
+    <div class="making">
+      <figure><img src="assets/group.webp" alt="Finished can candles and a kraft tube on a spray-painted workbench" loading="lazy"><figcaption><span class="n">01</span>Cans rescued, cut and sprayed on the bench.</figcaption></figure>
+      <figure><img src="assets/wick.webp" alt="Wicks held upright on lolly sticks across freshly poured cans" loading="lazy"><figcaption><span class="n">02</span>Wicks set on lolly sticks, wax poured.</figcaption></figure>
+      <figure><img src="assets/wax.webp" alt="Pan of melted shimmering green wax" loading="lazy"><figcaption><span class="n">03</span>Wax melted and tinted in small batches.</figcaption></figure>
+    </div>
+  </div>
+</div>
+<div class="fold-body sub-fold" id="press">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="press-title">As seen in</h2>
+    </div>
+    <a class="clip" href="https://thelondon.news/category/business/banker-by-day-candle-maker-by-night-launches-man-cave-business" target="_blank" rel="noopener">
+      <span class="masthead">The London News</span>
+      <span class="clip-head">Banker by day, candle maker by night, launches man cave business</span>
+      <span class="clip-cta label">Read the article &rarr;</span>
+    </a>
+  </div>
+</div>
   </details>
 </section>
-
+<section id="bts" class="folded">
+  <details class="fold">
+    <summary><span class="wrap fold-bar"><span class="fold-t">Behind the scenes</span><span class="fold-s">Spraying, pouring, canvassing. Sound on.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
+    <div class="fold-body">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="bts-title">In the shed</h2>
+    </div>
+    <div class="bts">
+      <figure class="bts-intro"><video src="assets/bts-intro.mp4" poster="assets/bts-intro.webp" muted loop playsinline autoplay preload="metadata" aria-label="Behind the scenes at Mancave Industries: spraying, pouring and the finished ManGrenades"></video><button class="bts-sound label" type="button" aria-pressed="false"><span class="deck" aria-hidden="true"><i></i><i></i></span><span class="t">Sound on</span></button></figure>
+      <figure class="bts-clip"><video src="assets/bts-look.mp4" poster="assets/bts-look.webp" muted loop playsinline autoplay preload="metadata" aria-label="Come and have a look: TK in his respirator in the shed"></video><button class="bts-sound label" type="button" aria-pressed="false"><span class="deck" aria-hidden="true"><i></i><i></i></span><span class="t">Sound on</span></button><figcaption class="label">Come and have a look</figcaption></figure>
+      <figure class="bts-clip"><video src="assets/bts-wingman.mp4" poster="assets/bts-wingman.webp" muted loop playsinline autoplay preload="metadata" aria-label="I'm your Wingman: TK sprays an orange can in the shed"></video><button class="bts-sound label" type="button" aria-pressed="false"><span class="deck" aria-hidden="true"><i></i><i></i></span><span class="t">Sound on</span></button><figcaption class="label">I&rsquo;m your Wingman</figcaption></figure>
+      <figure class="bts-clip"><video src="assets/bts-pour.mp4" poster="assets/bts-pour.webp" muted loop playsinline autoplay preload="metadata" aria-label="The pour: wax poured into a tray of sprayed cans with wicks held on lolly sticks"></video><button class="bts-sound label" type="button" aria-pressed="false"><span class="deck" aria-hidden="true"><i></i><i></i></span><span class="t">Sound on</span></button><figcaption class="label">The pour</figcaption></figure>
+      <figure class="bts-clip"><video src="assets/bts-canvas.mp4" poster="assets/bts-canvas.webp" muted loop playsinline autoplay preload="metadata" aria-label="Canvassing: a canvas taped, sprayed and stencilled on the bench, then lit under blacklight"></video><button class="bts-sound label" type="button" aria-pressed="false"><span class="deck" aria-hidden="true"><i></i><i></i></span><span class="t">Sound on</span></button><figcaption class="label">Canvassing</figcaption></figure>
+      <figure class="bts-outro"><video src="assets/bts-outro.mp4" poster="assets/bts-outro.webp" muted loop playsinline autoplay preload="metadata" aria-label="TK in his respirator, spraying in the shed"></video><button class="bts-sound label" type="button" aria-pressed="false"><span class="deck" aria-hidden="true"><i></i><i></i></span><span class="t">Sound on</span></button></figure>
+    </div>
+  </div>
+</div>
+  </details>
+</section>
 <section id="commissions" class="folded">
   <details class="fold">
     <summary><span class="wrap fold-bar"><span class="fold-t">Commissions</span><span class="fold-s">Your can, made into a ManGrenade. £50.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
@@ -660,7 +758,6 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
   <div class="wrap">
     <div class="kraft-panel">
       <div>
-        <div class="label">Commissions</div>
         <h2>Got a can that means something?</h2>
         <p style="margin-top:14px">Stag do, wedding, holiday find. Send the can, it comes back a ManGrenade.</p>
         <ol class="steps">
@@ -677,97 +774,12 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 </div>
   </details>
 </section>
-<section id="bts" class="folded">
-  <details class="fold">
-    <summary><span class="wrap fold-bar"><span class="fold-t">Behind the scenes</span><span class="fold-s">Spraying, pouring, canvassing. Sound on.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
-    <div class="fold-body">
-  <div class="wrap">
-    <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> Behind the scenes</div>
-      <h2 id="bts-title">In the shed</h2>
-    </div>
-    <div class="bts">
-      <figure class="bts-intro"><video src="assets/bts-intro.mp4" poster="assets/bts-intro.webp" muted loop playsinline autoplay preload="metadata" aria-label="Behind the scenes at Mancave Industries: spraying, pouring and the finished ManGrenades"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button></figure>
-      <figure class="bts-clip"><video src="assets/bts-look.mp4" poster="assets/bts-look.webp" muted loop playsinline autoplay preload="metadata" aria-label="Come and have a look: TK in his respirator in the shed"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button><figcaption class="label">Come and have a look</figcaption></figure>
-      <figure class="bts-clip"><video src="assets/bts-wingman.mp4" poster="assets/bts-wingman.webp" muted loop playsinline autoplay preload="metadata" aria-label="I'm your Wingman: TK sprays an orange can in the shed"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button><figcaption class="label">I&rsquo;m your Wingman</figcaption></figure>
-      <figure class="bts-clip"><video src="assets/bts-pour.mp4" poster="assets/bts-pour.webp" muted loop playsinline autoplay preload="metadata" aria-label="The pour: wax poured into a tray of sprayed cans with wicks held on lolly sticks"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button><figcaption class="label">The pour</figcaption></figure>
-      <figure class="bts-clip"><video src="assets/bts-canvas.mp4" poster="assets/bts-canvas.webp" muted loop playsinline autoplay preload="metadata" aria-label="Canvassing: a canvas taped, sprayed and stencilled on the bench, then lit under blacklight"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button><figcaption class="label">Canvassing</figcaption></figure>
-      <figure class="bts-outro"><video src="assets/bts-outro.mp4" poster="assets/bts-outro.webp" muted loop playsinline autoplay preload="metadata" aria-label="TK in his respirator, spraying in the shed"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button></figure>
-    </div>
-  </div>
-</div>
-  </details>
-</section>
-<section id="crew" class="folded">
-  <details class="fold">
-    <summary><span class="wrap fold-bar"><span class="fold-t">The crew</span><span class="fold-s">TK, Kerry and Lila.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
-    <div class="fold-body">
-  <div class="wrap">
-    <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> The shed</div>
-      <h2>Meet the crew</h2>
-    </div>
-    <div class="crew">
-      <figure><img src="assets/crew-tk.webp" width="800" height="800" alt="TK, arms crossed, in front of the Mancave Industries seal splashed with yellow paint" loading="lazy"><figcaption><h3>TK</h3><span class="label">Mancave legend</span></figcaption></figure>
-      <figure><img src="assets/crew-kerry.webp" width="800" height="800" alt="Kerry, smiling, in front of the Mancave Industries seal splashed with yellow paint and a sprayed crown" loading="lazy"><figcaption><h3>Kerry</h3><span class="label">Mancave queen</span></figcaption></figure>
-      <figure><img src="assets/crew-lila.webp" width="800" height="800" alt="Lila in front of the seal, with MAN crossed out and GIRL sprayed over it in pink" loading="lazy"><figcaption><h3>Lila</h3><span class="label">Girlcave queen</span></figcaption></figure>
-    </div>
-    <div class="maker">
-    <img src="assets/maker-art.webp" alt="Graffiti portrait of Mark, arms crossed, in front of the Mancave Industries badge" loading="lazy">
-    <div class="text">
-      <div class="label" style="color:var(--uv)">The maker</div>
-      <h2>Built in the shed</h2>
-      <div><a class="btn ghost" href="/Gameshed/">Play the Game Shed</a></div>
-    </div>
-  </div>
-  </div>
-</div>
-  </details>
-</section>
-<section id="making" class="folded">
-  <details class="fold">
-    <summary><span class="wrap fold-bar"><span class="fold-t">How they&rsquo;re made</span><span class="fold-s">Rescued can to lit candle.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
-    <div class="fold-body">
-  <div class="wrap">
-    <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> How they're made</div>
-      <h2>Recycling bin to shelf</h2>
-    </div>
-    <figure class="strip lead"><img src="assets/bench.webp" width="1600" height="1200" alt="The spray bench: stencils, paint cans and a row of freshly poured can candles" loading="lazy"></figure>
-    <div class="making">
-      <figure><img src="assets/group.webp" alt="Finished can candles and a kraft tube on a spray-painted workbench" loading="lazy"><figcaption><span class="n">01</span>Cans rescued, cut and sprayed on the bench.</figcaption></figure>
-      <figure><img src="assets/wick.webp" alt="Wicks held upright on lolly sticks across freshly poured cans" loading="lazy"><figcaption><span class="n">02</span>Wicks set on lolly sticks, wax poured.</figcaption></figure>
-      <figure><img src="assets/wax.webp" alt="Pan of melted shimmering green wax" loading="lazy"><figcaption><span class="n">03</span>Wax melted and tinted in small batches.</figcaption></figure>
-    </div>
-  </div>
-</div>
-  </details>
-</section>
-<section id="press" class="folded">
-  <details class="fold">
-    <summary><span class="wrap fold-bar"><span class="fold-t">Press</span><span class="fold-s">As seen in The London News.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
-    <div class="fold-body">
-  <div class="wrap">
-    <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> Press</div>
-      <h2 id="press-title">As seen in</h2>
-    </div>
-    <a class="clip" href="https://thelondon.news/category/business/banker-by-day-candle-maker-by-night-launches-man-cave-business" target="_blank" rel="noopener">
-      <span class="masthead">The London News</span>
-      <span class="clip-head">Banker by day, candle maker by night, launches man cave business</span>
-      <span class="clip-cta label">Read the article &rarr;</span>
-    </a>
-  </div>
-</div>
-  </details>
-</section>
 <section id="delivery" class="folded">
   <details class="fold">
     <summary><span class="wrap fold-bar"><span class="fold-t">Delivery &amp; returns</span><span class="fold-s">UK post £7.50. Returns and refunds in full.</span><span class="fold-x" aria-hidden="true"></span></span></summary>
     <div class="fold-body">
   <div class="wrap">
     <div class="head">
-      <div class="label"><span class="g" aria-hidden="true"></span> Delivery &amp; returns</div>
       <h2>No small print ambush.</h2>
       <p>UK post is £7.50. Collection is free at the Walton-on-Thames Festival of Light stall on 28 November.</p>
     </div>
@@ -829,11 +841,11 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 
 <script>
 (function(){
-  var art=document.getElementById('art'),sw=document.getElementById('uv-switch'),txt=document.getElementById('uv-switch-text');
-  if(!art||!sw)return;
-  function set(on){art.classList.toggle('uv-on',on);sw.setAttribute('aria-pressed',on?'true':'false');txt.textContent=on?'Lights on':'Hit the UV';}
+  var art=document.getElementById('art'),coll=document.getElementById('collection');
+  if(!art||!coll)return;
+  function set(on){art.classList.toggle('uv-on',on);}
   function flip(){set(!art.classList.contains('uv-on'));}
-  sw.addEventListener('click',flip);
+  coll.addEventListener('toggle',function(){set(coll.open);});
   Array.prototype.forEach.call(art.querySelectorAll('.flip'),function(b){b.addEventListener('click',flip);});
 })();
 </script>
@@ -845,7 +857,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var want=true; /* sound on by default */
   var current=figs[0];
-  function setBtn(f,on){var b=f.querySelector('.bts-sound');b.setAttribute('aria-pressed',on?'true':'false');b.textContent=on?'Sound off':'Sound on';}
+  function setBtn(f,on){var b=f.querySelector('.bts-sound');b.setAttribute('aria-pressed',on?'true':'false');b.querySelector('.t').textContent=on?'Sound off':'Sound on';}
   function soundTo(f){
     figs.forEach(function(o){o.querySelector('video').muted=true;setBtn(o,false);});
     if(!f||!want)return;
