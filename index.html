@@ -316,7 +316,7 @@ section{padding-block:clamp(56px,9vw,110px)}
 .clip .clip-cta{color:var(--red)}
 @media (max-width:560px){.top-btns{order:-1;margin-left:auto}.about-btn{order:0;margin-left:0}}
 @media (prefers-reduced-motion:reduce){.clip{transition:none}}
-.bts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.5vw,26px);align-items:start}
+.bts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,2.5vw,26px);align-items:start}
 .bts figure{margin:0;position:relative;background:var(--wall-2);box-shadow:0 26px 50px -20px #000}
 .bts video{display:block;width:100%;height:auto}
 .bts-intro{grid-column:1/-1}
@@ -327,7 +327,8 @@ section{padding-block:clamp(56px,9vw,110px)}
 .bts-sound{position:absolute;right:12px;bottom:12px;background:var(--red);color:#fff;border:0;padding:9px 12px 7px;cursor:pointer;box-shadow:3px 3px 0 var(--uv)}
 .bts-sound[aria-pressed="true"]{background:var(--uv);color:var(--wall)}
 .bts-sound:focus-visible{outline:3px solid var(--chalk);outline-offset:3px}
-@media (max-width:760px){.bts{grid-template-columns:1fr 1fr}}
+@media (max-width:1000px){.bts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.bts{grid-template-columns:1fr 1fr}.bts-outro{grid-column:1/-1;max-width:60%;justify-self:center;width:100%}}
 /* maker */
 .maker{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:center}
 .maker img{width:100%;aspect-ratio:1;object-fit:cover}
@@ -689,6 +690,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <figure class="bts-clip"><video src="assets/bts-look.mp4" poster="assets/bts-look.webp" muted loop playsinline autoplay preload="metadata" aria-label="Come and have a look: TK in his respirator in the shed"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button><figcaption class="label">Come and have a look</figcaption></figure>
       <figure class="bts-clip"><video src="assets/bts-wingman.mp4" poster="assets/bts-wingman.webp" muted loop playsinline autoplay preload="metadata" aria-label="I'm your Wingman: TK sprays an orange can in the shed"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button><figcaption class="label">I&rsquo;m your Wingman</figcaption></figure>
       <figure class="bts-clip"><video src="assets/bts-pour.mp4" poster="assets/bts-pour.webp" muted loop playsinline autoplay preload="metadata" aria-label="The pour: wax poured into a tray of sprayed cans with wicks held on lolly sticks"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button><figcaption class="label">The pour</figcaption></figure>
+      <figure class="bts-clip"><video src="assets/bts-canvas.mp4" poster="assets/bts-canvas.webp" muted loop playsinline autoplay preload="metadata" aria-label="Canvassing: a canvas taped, sprayed and stencilled on the bench, then lit under blacklight"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button><figcaption class="label">Canvassing</figcaption></figure>
       <figure class="bts-outro"><video src="assets/bts-outro.mp4" poster="assets/bts-outro.webp" muted loop playsinline autoplay preload="metadata" aria-label="TK in his respirator, spraying in the shed"></video><button class="bts-sound label" type="button" aria-pressed="false">Sound on</button></figure>
     </div>
   </div>
