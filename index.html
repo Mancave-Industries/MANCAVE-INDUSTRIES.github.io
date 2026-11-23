@@ -716,16 +716,47 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 </script>
 
 <script>
-document.querySelectorAll('.bts figure').forEach(function(f){
-  var v=f.querySelector('video'),b=f.querySelector('.bts-sound');
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}
-  b.addEventListener('click',function(){
-    var on=v.muted;
-    document.querySelectorAll('.bts video').forEach(function(o){o.muted=true;});
-    document.querySelectorAll('.bts-sound').forEach(function(o){o.setAttribute('aria-pressed','false');o.textContent='Sound on';});
-    if(on){v.muted=false;v.play();b.setAttribute('aria-pressed','true');b.textContent='Sound off';}
+(function(){
+  var figs=[].slice.call(document.querySelectorAll('.bts figure'));
+  if(!figs.length)return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var want=true; /* sound on by default */
+  var current=figs[0];
+  function setBtn(f,on){var b=f.querySelector('.bts-sound');b.setAttribute('aria-pressed',on?'true':'false');b.textContent=on?'Sound off':'Sound on';}
+  function soundTo(f){
+    figs.forEach(function(o){o.querySelector('video').muted=true;setBtn(o,false);});
+    if(!f||!want)return;
+    var v=f.querySelector('video');v.muted=false;
+    var p=v.play();
+    if(p&&p.catch)p.catch(function(){v.muted=true;v.play().catch(function(){});setBtn(f,false);});
+    setBtn(f,!v.muted);
+  }
+  figs.forEach(function(f){
+    var v=f.querySelector('video');
+    if(reduce){v.removeAttribute('autoplay');v.pause();}
+    f.querySelector('.bts-sound').addEventListener('click',function(e){
+      e.stopPropagation();
+      var on=v.muted; want=on; current=f; soundTo(on?f:null);
+    });
   });
-});
+  /* start sound when the section scrolls into view; browsers may hold it until the first tap */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      var f=e.target;
+      if(e.isIntersecting&&e.intersectionRatio>.5){current=f;soundTo(f);}
+      else if(f===current&&!e.isIntersecting){f.querySelector('video').muted=true;setBtn(f,false);}
+    });
+  },{threshold:[0,.5]});
+  figs.forEach(function(f){io.observe(f);});
+  function firstTouch(){
+    document.removeEventListener('pointerdown',firstTouch,true);
+    document.removeEventListener('keydown',firstTouch,true);
+    var r=current.getBoundingClientRect();
+    if(want&&r.top<innerHeight&&r.bottom>0)soundTo(current);
+  }
+  document.addEventListener('pointerdown',firstTouch,true);
+  document.addEventListener('keydown',firstTouch,true);
+})();
 </script>
 </body>
 </html>
