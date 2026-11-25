@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>MCI Counter</title>
+<meta name="theme-color" content="#11100f">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=Barlow:wght@400;600&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: the shop's shed wall, read like a tally board. Summary first, then the path to a sale, then the detail. */
+:root{
+  color-scheme:dark;
+  --wall:#11100f;--wall-2:#1c1a17;--line:#2e2a26;
+  --paper:#ede4d3;--kraft:#c29a66;
+  --red:#d9262c;--uv:#ff2e88;--chalk:#f3eee6;--smoke:#a8a097;
+  --good:#5fd38a;
+  --stencil:"Big Shoulders Stencil Display","Arial Black",Impact,sans-serif;
+  --label:"Barlow Condensed","Arial Narrow",sans-serif;
+  --text:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html{overflow-x:clip}
+body{margin:0;background:var(--wall);color:var(--chalk);font:400 1rem/1.5 var(--text);
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:calc(40px + env(safe-area-inset-bottom,0px));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:980px;margin:0 auto;display:grid;gap:clamp(22px,4vw,34px)}
+h1,h2{font-family:var(--stencil);font-weight:900;text-transform:uppercase;margin:0;line-height:.9;text-wrap:balance}
+h1{font-size:clamp(2.6rem,9vw,4.2rem)}
+h2{font-size:clamp(1.6rem,5vw,2.1rem);margin-bottom:12px}
+.label{font:700 .78rem/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--smoke)}
+button,input{font:inherit}
+.top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:14px;padding-top:22px;border-bottom:3px solid var(--red);padding-bottom:16px}
+.top h1 span{color:var(--uv)}
+.when{display:flex;flex-wrap:wrap;gap:8px}
+.when button{background:transparent;color:var(--chalk);border:2px solid var(--line);padding:9px 13px 7px;font:700 .82rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+.when button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.when button:focus-visible,.btn:focus-visible{outline:3px solid var(--uv);outline-offset:3px}
+.status{min-height:1.2em}
+.status.err{color:#ff8a8a}
+/* headline numbers */
+.big{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.big div{background:var(--wall-2);border-top:4px solid var(--line);padding:14px 14px 12px;display:grid;gap:8px;min-width:0}
+.big div.hot{border-top-color:var(--uv)}
+.big b{font:900 clamp(2.2rem,7vw,3.2rem)/.9 var(--stencil);font-variant-numeric:tabular-nums}
+.big small{color:var(--smoke);font-size:.85rem}
+@media (max-width:640px){.big{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* funnel */
+.funnel{display:grid;gap:10px}
+.step{display:grid;grid-template-columns:minmax(0,9.5rem) 1fr auto;gap:12px;align-items:center}
+.step .name{font:700 .95rem/1.1 var(--label);letter-spacing:.08em;text-transform:uppercase}
+.bar{height:30px;background:var(--wall-2);position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--red);min-width:3px;transition:width .6s ease}
+.step.paid .bar i{background:var(--good)}
+.step.side .bar i{background:var(--kraft)}
+.step .n{font:900 1.6rem/1 var(--stencil);font-variant-numeric:tabular-nums;min-width:3.2rem;text-align:right}
+.step .pct{display:block;font:600 .75rem/1 var(--label);letter-spacing:.1em;color:var(--smoke);text-align:right;margin-top:3px}
+.note{color:var(--smoke);font-size:.9rem;max-width:62ch}
+/* daily chart */
+.chart{background:var(--wall-2);padding:14px 12px 8px}
+.chart svg{display:block;width:100%;height:auto}
+.chart text{fill:var(--smoke);font:600 20px var(--label);letter-spacing:.04em}
+/* lists */
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,4vw,34px)}
+@media (max-width:700px){.cols{grid-template-columns:1fr}}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.list li{position:relative;display:flex;justify-content:space-between;gap:12px;padding:9px 10px 8px;background:var(--wall-2);overflow:hidden;min-width:0}
+.list li::before{content:"";position:absolute;inset:0 auto 0 0;width:var(--w,0%);background:rgba(217,38,44,.22)}
+.list.uv li::before{background:rgba(255,46,136,.18)}
+.list span{position:relative;min-width:0;overflow-wrap:anywhere}
+.list b{position:relative;font-variant-numeric:tabular-nums}
+.empty{color:var(--smoke);font-style:italic;padding:9px 0}
+/* token gate */
+.gate{background:var(--wall-2);border-top:4px solid var(--uv);padding:18px;display:grid;gap:12px;max-width:560px}
+.gate input{width:100%;padding:12px;background:var(--wall);color:var(--chalk);border:2px solid var(--line)}
+.btn{justify-self:start;background:var(--red);color:#fff;border:0;padding:12px 18px 10px;font:700 .9rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;box-shadow:4px 4px 0 var(--uv)}
+.foot{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px}
+.foot a,.linkbtn{color:var(--smoke);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;font:600 .85rem var(--text)}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="label">Mancave Industries</div>
+      <h1>The <span>counter</span></h1>
+    </div>
+    <div class="when" role="group" aria-label="Time period">
+      <button type="button" data-p="today">Today</button>
+      <button type="button" data-p="7" aria-pressed="true">7 days</button>
+      <button type="button" data-p="30">30 days</button>
+      <button type="button" data-p="fest">Festival day</button>
+    </div>
+  </header>
+
+  <p class="status label" id="status" role="status"></p>
+
+  <section class="gate" id="gate" hidden>
+    <h2>Unlock the counter</h2>
+    <p>Paste your GoatCounter read-only key. It stays on this phone only.</p>
+    <input id="tok" type="password" autocomplete="off" spellcheck="false" placeholder="GoatCounter API key">
+    <button class="btn" id="save" type="button">Show the numbers</button>
+  </section>
+
+  <main id="main" class="wrap" hidden>
+    <section aria-label="Summary" class="big">
+      <div><span class="label">Visitors</span><b id="k-vis">–</b><small>people who landed</small></div>
+      <div><span class="label">Buy taps</span><b id="k-buy">–</b><small>went to checkout</small></div>
+      <div class="hot"><span class="label">Paid</span><b id="k-paid">–</b><small>reached the thank-you page</small></div>
+      <div><span class="label">Sale rate</span><b id="k-rate">–</b><small>paid ÷ visitors</small></div>
+    </section>
+
+    <section>
+      <h2>Path to a sale</h2>
+      <div class="funnel" id="funnel"></div>
+      <p class="note" style="margin-top:10px">Counts are unique visitors per step. Paid counts visits to the thank-you page after Stripe, so it can run one or two behind Stripe if someone closes the tab early.</p>
+    </section>
+
+    <section>
+      <h2>Visitors per day</h2>
+      <div class="chart" id="chart"></div>
+    </section>
+
+    <div class="cols">
+      <section><h2>What gets tapped</h2><ul class="list" id="l-buy"></ul></section>
+      <section><h2>What gets opened</h2><ul class="list uv" id="l-open"></ul></section>
+      <section><h2>Where they came from</h2><ul class="list" id="l-ref"></ul></section>
+      <section><h2>Where they are</h2><ul class="list uv" id="l-loc"></ul></section>
+      <section><h2>Device</h2><ul class="list" id="l-size"></ul></section>
+      <section><h2>Pages</h2><ul class="list uv" id="l-page"></ul></section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <a href="https://mancave.goatcounter.com" target="_blank" rel="noopener">Full stats on GoatCounter</a>
+    <button class="linkbtn" id="forget" type="button">Forget the key on this phone</button>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var API='https://mancave.goatcounter.com/api/v0';
+  var KEY='mci-gc-token';
+  var FEST={start:'2026-11-28T00:00:00Z',end:'2026-11-28T23:59:59Z'};
+  var $=function(id){return document.getElementById(id);};
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v);}catch(e){return null;}}
+
+  /* a key passed as #t=... is saved once, then wiped from the address bar */
+  var m=location.hash.match(/t=([a-z0-9]+)/i);
+  if(m){store(KEY,m[1]);history.replaceState(null,'',location.pathname);}
+  var token=store(KEY)||'';
+
+  var period='7';
+  function range(){
+    var now=new Date(),end=new Date(now);end.setUTCHours(23,59,59,0);
+    if(period==='fest')return FEST;
+    var s=new Date(now);s.setUTCHours(0,0,0,0);
+    if(period!=='today')s.setUTCDate(s.getUTCDate()-(+period-1));
+    return {start:s.toISOString().replace('.000',''),end:end.toISOString().replace('.000','')};
+  }
+  function status(t,err){var s=$('status');s.textContent=t||'';s.className='status label'+(err?' err':'');}
+
+  function get(path,params){
+    var q=Object.keys(params).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(params[k]);}).join('&');
+    return fetch(API+path+'?'+q,{headers:{Authorization:'Bearer '+token}}).then(function(r){
+      if(r.status===401||r.status===403){var e=new Error('key');e.key=true;throw e;}
+      if(r.status===429){var e2=new Error('busy');e2.busy=true;throw e2;}
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      return r.json();
+    });
+  }
+  function wait(ms){return new Promise(function(r){setTimeout(r,ms);});}
+
+  function fmt(n){return (n||0).toLocaleString('en-GB');}
+  function li(ul,rows,emptyText){
+    ul.textContent='';
+    if(!rows.length){var e=document.createElement('li');e.className='empty';e.style.background='none';e.textContent=emptyText||'Nothing yet';ul.appendChild(e);return;}
+    var max=Math.max.apply(null,rows.map(function(r){return r[1];}))||1;
+    rows.forEach(function(r){
+      var el=document.createElement('li');el.style.setProperty('--w',Math.round(r[1]/max*100)+'%');
+      var a=document.createElement('span');a.textContent=r[0];
+      var b=document.createElement('b');b.textContent=fmt(r[1]);
+      el.appendChild(a);el.appendChild(b);ul.appendChild(el);
+    });
+  }
+  function nice(s){return s.replace(/^(Buy|Opened|Sound on): ?/,'');}
+  var OPEN_NAMES={stock:'Pull the pin (ManGrenades)',collection:'Lights off (Gallery)',events:'Festival details',about:'About MCI',bts:'Behind the scenes',commissions:'Commissions',delivery:'Delivery & returns'};
+
+  function draw(stats){
+    var box=$('chart');box.textContent='';
+    var days=(stats||[]).map(function(s){return {d:s.day,v:s.daily||0};});
+    if(!days.length){box.textContent='No visits in this period yet.';return;}
+    var W=640,H=300,pl=46,pb=40,pt=14,pr=6;
+    var max=Math.max(1,Math.max.apply(null,days.map(function(x){return x.v;})));
+    var step=Math.pow(10,Math.floor(Math.log10(max)));var top=Math.ceil(max/step)*step;if(top/step<3&&step>1){step/=2;}if(top<4)top=4;
+    var ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.setAttribute('role','img');svg.setAttribute('aria-label','Visitors per day');
+    function el(n,a,t){var e=document.createElementNS(ns,n);for(var k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;svg.appendChild(e);return e;}
+    var ih=H-pt-pb,iw=W-pl-pr;
+    [0,.5,1].forEach(function(f){var y=pt+ih*(1-f);el('line',{x1:pl,x2:W-pr,y1:y,y2:y,stroke:'#2e2a26','stroke-width':1});el('text',{x:pl-8,y:y+7,'text-anchor':'end'},String(Math.round(top*f)));});
+    var bw=iw/days.length,gap=Math.min(6,bw*.25);
+    var every=Math.ceil(days.length/5);
+    days.forEach(function(x,i){
+      var h=ih*(x.v/top),X=pl+i*bw+gap/2,Y=pt+ih-h;
+      var r=el('rect',{x:X,y:Y,width:Math.max(1,bw-gap),height:Math.max(h,x.v?2:0),fill:x.d==='2026-11-28'?'#ff2e88':'#d9262c'});
+      var t=document.createElementNS(ns,'title');t.textContent=x.d+': '+x.v+' visitors';r.appendChild(t);
+      if(i%every===0||i===days.length-1){var dt=new Date(x.d+'T12:00:00Z');el('text',{x:X+(bw-gap)/2,y:H-10,'text-anchor':'middle'},dt.toLocaleDateString('en-GB',{day:'numeric',month:'short'}));}
+    });
+    box.appendChild(svg);
+  }
+
+  function funnel(steps){
+    var f=$('funnel');f.textContent='';var base=steps[0].n||0;
+    steps.forEach(function(s){
+      var row=document.createElement('div');row.className='step'+(s.cls?' '+s.cls:'');
+      var a=document.createElement('span');a.className='name';a.textContent=s.name;
+      var bar=document.createElement('div');bar.className='bar';var i=document.createElement('i');i.style.width=(base?Math.min(100,s.n/base*100):0)+'%';bar.appendChild(i);
+      var n=document.createElement('span');n.className='n';n.textContent=fmt(s.n);
+      var p=document.createElement('span');p.className='pct';p.textContent=base&&s!==steps[0]?Math.round(s.n/base*100)+'%':'';n.appendChild(p);
+      row.appendChild(a);row.appendChild(bar);row.appendChild(n);f.appendChild(row);
+    });
+  }
+
+  var busy=false;
+  function load(){
+    if(!token){$('gate').hidden=false;$('main').hidden=true;status('');return;}
+    if(busy)return;busy=true;
+    $('gate').hidden=true;status('Counting…');
+    var r=range(),out={};
+    get('/stats/total',{start:r.start,end:r.end}).then(function(j){out.total=j;return wait(300);})
+    .then(function(){return get('/stats/hits',{start:r.start,end:r.end,limit:100});}).then(function(j){out.hits=j.hits||[];return wait(300);})
+    .then(function(){return get('/stats/toprefs',{start:r.start,end:r.end,limit:10});}).then(function(j){out.refs=j.stats||[];return wait(300);})
+    .then(function(){return get('/stats/locations',{start:r.start,end:r.end,limit:10});}).then(function(j){out.locs=j.stats||[];return wait(300);})
+    .then(function(){return get('/stats/sizes',{start:r.start,end:r.end,limit:10});}).then(function(j){out.sizes=j.stats||[];})
+    .then(function(){render(out);status('Updated '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}));})
+    .catch(function(e){
+      if(e.key){status('That key was refused. Paste it again.',true);token='';store(KEY,null);$('gate').hidden=false;$('main').hidden=true;}
+      else if(e.busy)status('GoatCounter asked us to slow down. Try again in a few seconds.',true);
+      else status('Couldn’t reach GoatCounter. Check your signal and tap a period to retry.',true);
+    }).then(function(){busy=false;});
+  }
+
+  function render(o){
+    var hits=o.hits,ev=hits.filter(function(h){return h.event;}),pages=hits.filter(function(h){return !h.event;});
+    function c(p){var h=ev.filter(function(x){return x.path===p;})[0];return h?h.count:0;}
+    var visitors=Math.max(0,(o.total.total||0)-(o.total.total_events||0));
+    var buys=ev.filter(function(h){return /^buy-/.test(h.path);});
+    var buyN=buys.reduce(function(a,h){return a+h.count;},0);
+    var paid=pages.filter(function(h){return /^\/thanks/.test(h.path);}).reduce(function(a,h){return a+h.count;},0);
+    $('main').hidden=false;
+    $('k-vis').textContent=fmt(visitors);$('k-buy').textContent=fmt(buyN);$('k-paid').textContent=fmt(paid);
+    $('k-rate').textContent=visitors?(paid/visitors*100).toFixed(paid/visitors<.1?1:0)+'%':'–';
+    funnel([
+      {name:'Landed',n:visitors},
+      {name:'Pulled the pin',n:c('open-stock')},
+      {name:'Tapped Buy',n:buyN},
+      {name:'Paid',n:paid,cls:'paid'},
+      {name:'Lights off',n:c('open-collection'),cls:'side'}
+    ]);
+    draw(o.total.stats);
+    li($('l-buy'),buys.map(function(h){return [nice(h.title||h.path),h.count];}),'No Buy taps yet');
+    var opens=ev.filter(function(h){return /^(open-|sound-|to-gameshed)/.test(h.path);}).map(function(h){
+      var p=h.path,name;
+      if(/^open-/.test(p))name=OPEN_NAMES[p.slice(5)]||p.slice(5);
+      else if(/^sound-/.test(p))name='Sound on: '+p.slice(6);
+      else name='Went to the Game Shed';
+      return [name,h.count];});
+    li($('l-open'),opens.sort(function(a,b){return b[1]-a[1];}),'Nothing opened yet');
+    li($('l-ref'),o.refs.map(function(s){return [s.name||'Direct or QR code',s.count];}));
+    li($('l-loc'),o.locs.map(function(s){return [s.name||'Unknown',s.count];}));
+    li($('l-size'),o.sizes.map(function(s){return [s.name||'Unknown',s.count];}));
+    li($('l-page'),pages.map(function(h){var p=h.path;return [p==='/'?'Shop (home page)':/^\/thanks/.test(p)?'Thank you (paid)':/^\/Gameshed/i.test(p)?'Game Shed':p,h.count];}));
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.when button'),function(b){
+    b.addEventListener('click',function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.when button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+      period=b.getAttribute('data-p');load();
+    });
+  });
+  $('save').addEventListener('click',function(){var v=$('tok').value.trim();if(!v)return;token=v;store(KEY,v);$('tok').value='';load();});
+  $('tok').addEventListener('keydown',function(e){if(e.key==='Enter')$('save').click();});
+  $('forget').addEventListener('click',function(){store(KEY,null);token='';$('main').hidden=true;$('gate').hidden=false;status('Key removed from this phone.');});
+  load();
+})();
+</script>
+</body>
+</html>
