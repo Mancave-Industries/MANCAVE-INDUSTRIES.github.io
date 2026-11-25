@@ -440,6 +440,11 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 .tag:hover,.tag:focus-visible{--tag:var(--uv);color:var(--wall)}
 .card .buy.tag{box-shadow:none;padding:10px 16px 8px 26px;background:var(--tag)}
 .card .buy.tag:hover{background:var(--uv)}
+
+/* held until after the festival: Buy becomes a date tag */
+.tag.held{--tag:#3a342e;color:var(--paper);cursor:default}
+.tag.held:hover{--tag:#3a342e;color:var(--paper)}
+.card .buy.tag.held:hover{background:#3a342e}
 </style>
 </head>
 <body>
@@ -910,6 +915,20 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     d.addEventListener('toggle',function(){
       d.querySelectorAll('video').forEach(function(v){ if(d.open){v.play().catch(function(){});} else {v.muted=true; v.pause();} });
     });
+  });
+})();
+</script>
+<script>
+/* SALES HOLD. Any Buy link inside an item marked data-hold shows a date instead,
+   until OPEN. Change the date, or set HOLD_ALL=true to hold every item. */
+(function(){
+  var OPEN=Date.parse('2026-11-29T09:00:00Z'), HOLD_ALL=false, LABEL='Online from 29 Nov';
+  if(Date.now()>=OPEN)return;
+  var sel=HOLD_ALL?'a.buy':'[data-hold] a.buy';
+  document.querySelectorAll(sel).forEach(function(a){
+    var s=document.createElement('span');s.className=a.className+' held';s.textContent=LABEL;
+    s.setAttribute('title','At the Walton-on-Thames stall on 28 Nov. Online from 29 Nov.');
+    a.replaceWith(s);
   });
 })();
 </script>
