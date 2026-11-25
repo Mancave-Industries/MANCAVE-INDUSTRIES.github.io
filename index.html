@@ -445,6 +445,38 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 .tag.held{--tag:#3a342e;color:var(--paper);cursor:default}
 .tag.held:hover{--tag:#3a342e;color:var(--paper)}
 .card .buy.tag.held:hover{background:#3a342e}
+
+/* ---- catalogue: numbered ManGrenades + small works ---- */
+.mg-intro{display:grid;gap:8px;margin-bottom:14px}
+.mg-lede{font-size:1.15rem;max-width:52ch}
+.mg-count{font:900 1.6rem/1 var(--stencil);color:var(--uv)}
+.hold-note{color:var(--kraft)}
+.mg-tools{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 14px}
+.mg-tools button{background:transparent;color:var(--chalk);border:2px solid #3a342e;padding:8px 12px 6px;font:700 .82rem/1 var(--label);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.mg-tools button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.mg-tools button:focus-visible{outline:3px solid var(--uv);outline-offset:3px}
+.mg-grid,.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:clamp(10px,1.6vw,16px);margin-bottom:clamp(28px,5vw,48px)}
+.sw-grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.mg,.sw{position:relative;display:flex;flex-direction:column;background:var(--paper);color:var(--kraft-ink);min-width:0;box-shadow:0 14px 30px -18px #000}
+.mg img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.sw img{width:100%;aspect-ratio:1;object-fit:cover}
+.mg-row,.sw-row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:10px 10px 4px}
+.mg h3,.sw h3{font-size:1.25rem;line-height:1}
+.sw h3{font-size:1.05rem;line-height:1.05}
+.mg .price,.sw .price{font:900 1.35rem/1 var(--stencil);color:var(--red);flex:none}
+.sw .code{color:#7a6a58;font-size:.68rem;padding:0 10px 10px}
+.mg .tag,.sw .tag{margin:4px 10px 10px auto}
+.mg{padding-bottom:6px}
+.is-sold img{filter:grayscale(1) brightness(.6)}
+.sold-stamp{position:absolute;top:12px;right:-4px;background:var(--wall);color:var(--chalk);padding:6px 10px 4px;transform:rotate(4deg)}
+.mg[hidden]{display:none}
+.newart .stack{display:grid;gap:clamp(18px,3vw,34px);min-width:0}
+.newart .stack .shots img.main[src*="le-001"]{aspect-ratio:4/5;object-fit:cover;width:100%}
+.sw-grid{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.sw-row{flex-direction:column;align-items:flex-start;gap:6px}
+.sw h3{font-size:1rem}
+
+@media (max-width:420px){.mg-grid,.sw-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -527,58 +559,115 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <div class="teaser">
       <img src="assets/uv-shelf.webp" alt="ManGrenades glowing under blacklight on the shed shelf" loading="lazy">
       <img src="assets/p-deluxe.webp" alt="A Deluxe ManGrenade" loading="lazy">
-      <div class="teaser-cta"><p class="from">From <b>£20</b></p></div>
+      <div class="teaser-cta"><p class="from">From <b>£25</b></p></div>
     </div>
-    <details class="stock" id="stock"><summary class="pin-btn"><svg class="gren" viewBox="0 0 64 84" aria-hidden="true"><g class="body"><rect x="23" y="13" width="16" height="10"/><path d="M14 33q0-10 10-10h14q10 0 10 10v31q0 12-17 12T14 64z"/><path class="cut" d="M14 38h34M14 50h34M14 62h34M31 23v53"/><path class="lever" d="M39 15q15 0 15 12v24"/></g><g class="pin"><circle cx="9" cy="18" r="7.5"/><path d="M16.5 18h8"/></g></svg><span class="pin-t"><b class="when-closed">Pull the pin</b><b class="when-open">Pin back in</b><small class="when-closed">See all 7 ManGrenades</small><small class="when-open">Hide the stock</small></span></summary>
-    <div class="tiers">
-      <div class="tier"><div class="label">Standard · 330ml</div><div class="price">£20</div><p>Stencilled and sprayed can, hand-poured wax, cotton wick.</p></div>
-      <div class="tier deluxe"><div class="label">Deluxe</div><div class="price">£30</div><p>Mancavemanmade with extra attention. Big 500ml cans and our standout pieces.</p></div>
-      <div class="tier"><div class="label">Boxed</div><div class="price">+£5</div><p>Stamped kraft gift tube with the grenade stencil.</p></div>
+    <details class="stock" id="stock"><summary class="pin-btn"><svg class="gren" viewBox="0 0 64 84" aria-hidden="true"><g class="body"><rect x="23" y="13" width="16" height="10"/><path d="M14 33q0-10 10-10h14q10 0 10 10v31q0 12-17 12T14 64z"/><path class="cut" d="M14 38h34M14 50h34M14 62h34M31 23v53"/><path class="lever" d="M39 15q15 0 15 12v24"/></g><g class="pin"><circle cx="9" cy="18" r="7.5"/><path d="M16.5 18h8"/></g></svg><span class="pin-t"><b class="when-closed">Pull the pin</b><b class="when-open">Pin back in</b><small class="when-closed">See all 96 ManGrenades</small><small class="when-open">Hide the stock</small></span></summary>
+    <div class="mg-intro">
+      <p class="mg-lede"><span class="mg-count">96</span> ManGrenades. Every one a one-off, numbered on its label. The one in the photo is the one you get.</p>
+      <p class="hold-note label">At the Walton-on-Thames stall on 28 Nov · Buy online from 29 Nov</p>
     </div>
-    <div class="facts label" aria-label="Buying reassurance"><span><b>Made</b>Handmade in Hersham</span><span><b>Pay</b>Secure payment by Stripe</span><span><b>Delivery</b>UK delivery</span><span><b>Collect</b>Collection available</span></div>
-    <div class="sub"><p><a href="#delivery">Delivery &amp; returns</a></p></div>
-    <div class="sub"><h3>Regulars</h3><p>The photo shows the type. Each one is sprayed by hand, so yours will differ.</p></div>
-    <div class="grid">
-      <article class="card"><span class="stamp label">Deluxe</span>
-        <img src="assets/p-deluxe.webp" alt="Tall 500ml Deluxe ManGrenade with white Mancave Industries stencil" loading="lazy">
-        <div class="body"><h3>Black Harp</h3>
-          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/7sY14of4f8kueSY6DY3ks02">Buy now</a></div></div>
-      </article>
-      <article class="card">
-        <img src="assets/p-janedoe.webp" alt="Teal can candle with Mancave Industries grenade stencil beside its kraft tube" loading="lazy">
-        <div class="body"><h3>Jane Doe</h3>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/4gM14o9JVcAKaCI5zU3ks00">Buy now</a></div></div>
-      </article>
-      <article class="card">
-        <img src="assets/p-copilot.webp" alt="Orange can candle with black grenade stencil next to an open kraft tube" loading="lazy">
-        <div class="body"><h3>Co-Pilot</h3>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/6oUeVe7BNgR03ag6DY3ks01">Buy now</a></div></div>
-      </article>
-    </div>
-    <div class="sub"><h3>One-offs</h3><p>The one in the photo is the one you get.</p></div>
-    <div class="grid">
-      <article class="card"><span class="stamp label">Deluxe</span>
-        <img src="assets/p-orange.webp" alt="Orange and black sprayed can candle with Mancave Industries stencil, next to its kraft tube" loading="lazy">
-        <div class="body"><h3>Blast Orange</h3>
-          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/dRm5kE8FRbwGcKQ2nI3ks03">Buy now</a></div></div>
-      </article>
-      <article class="card"><span class="stamp label">Deluxe</span>
-        <img src="assets/p-blackred.webp" alt="Black and red sprayed can candle next to its stamped kraft tube" loading="lazy">
-        <div class="body"><h3>Scorched</h3>
-          <div class="row"><span class="price">£30<small>£35 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/9B6bJ25tF58i128bYi3ks04">Buy now</a></div></div>
-      </article>
-      <article class="card">
-        <img src="assets/p-blue.webp" alt="Blue and rust sprayed can candle with a grenade stencil, shown sitting in its open tube" loading="lazy">
-        <div class="body"><h3>Rust &amp; Sky</h3>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/bJedRacW78ku5iofau3ks05">Buy now</a></div></div>
-      </article>
-      <article class="card">
-        <img src="assets/p-purple.webp" alt="Purple-to-blue fade can candle with a black grenade stencil, beside its kraft tube" loading="lazy">
-        <div class="body"><h3>Night Shift</h3>
-          <div class="row"><span class="price">£20<small>£25 boxed</small></span><a class="buy tag label" href="https://buy.stripe.com/7sYbJ27BN8kuaCIbYi3ks06">Buy now</a></div></div>
-      </article>
-    </div>
-    <div class="facts label"><span><b>Stock</b>42 in the shed</span><span><b>UK post</b>£7.50</span><span><b>Collect</b>free at the market stall</span><span><b>Packed</b>in a stamped kraft tube</span></div>
+    <div class="facts label"><span><b>UK post</b>£7.50</span><span><b>Collect</b>free at the market stall</span><span><b>Gift tube</b>+£5</span><span><b>Pay</b>Secure by Stripe</span></div>
+<!-- CATALOGUE:MG -->
+<div class="mg-tools" role="group" aria-label="Filter by price"><button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="25" aria-pressed="false">&pound;25</button><button type="button" data-f="30" aria-pressed="false">&pound;30</button><button type="button" data-f="35" aria-pressed="false">&pound;35</button><button type="button" data-f="40" aria-pressed="false">&pound;40</button><button type="button" data-f="45" aria-pressed="false">&pound;45</button></div>
+<div class="mg-grid" id="mg-grid">
+<article class="mg" data-price="35" data-code="MNGRND-001"><img src="assets/mg/mg-001.webp" width="480" height="640" alt="ManGrenade No. 001" loading="lazy"><div class="mg-row"><h3>No. 001</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-002"><img src="assets/mg/mg-002.webp" width="480" height="640" alt="ManGrenade No. 002" loading="lazy"><div class="mg-row"><h3>No. 002</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-003"><img src="assets/mg/mg-003.webp" width="480" height="640" alt="ManGrenade No. 003" loading="lazy"><div class="mg-row"><h3>No. 003</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-004"><img src="assets/mg/mg-004.webp" width="480" height="640" alt="ManGrenade No. 004" loading="lazy"><div class="mg-row"><h3>No. 004</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="25" data-code="MNGRND-005"><img src="assets/mg/mg-005.webp" width="480" height="640" alt="ManGrenade No. 005" loading="lazy"><div class="mg-row"><h3>No. 005</h3><span class="price">&pound;25</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-006"><img src="assets/mg/mg-006.webp" width="480" height="640" alt="ManGrenade No. 006" loading="lazy"><div class="mg-row"><h3>No. 006</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-007"><img src="assets/mg/mg-007.webp" width="480" height="640" alt="ManGrenade No. 007" loading="lazy"><div class="mg-row"><h3>No. 007</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-008"><img src="assets/mg/mg-008.webp" width="480" height="640" alt="ManGrenade No. 008" loading="lazy"><div class="mg-row"><h3>No. 008</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-009"><img src="assets/mg/mg-009.webp" width="480" height="640" alt="ManGrenade No. 009" loading="lazy"><div class="mg-row"><h3>No. 009</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0010"><img src="assets/mg/mg-010.webp" width="480" height="640" alt="ManGrenade No. 010" loading="lazy"><div class="mg-row"><h3>No. 010</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0011"><img src="assets/mg/mg-011.webp" width="480" height="640" alt="ManGrenade No. 011" loading="lazy"><div class="mg-row"><h3>No. 011</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0012"><img src="assets/mg/mg-012.webp" width="480" height="640" alt="ManGrenade No. 012" loading="lazy"><div class="mg-row"><h3>No. 012</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0013"><img src="assets/mg/mg-013.webp" width="480" height="640" alt="ManGrenade No. 013" loading="lazy"><div class="mg-row"><h3>No. 013</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0014"><img src="assets/mg/mg-014.webp" width="480" height="640" alt="ManGrenade No. 014" loading="lazy"><div class="mg-row"><h3>No. 014</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0015"><img src="assets/mg/mg-015.webp" width="480" height="640" alt="ManGrenade No. 015" loading="lazy"><div class="mg-row"><h3>No. 015</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0016"><img src="assets/mg/mg-016.webp" width="480" height="640" alt="ManGrenade No. 016" loading="lazy"><div class="mg-row"><h3>No. 016</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0017"><img src="assets/mg/mg-017.webp" width="480" height="640" alt="ManGrenade No. 017" loading="lazy"><div class="mg-row"><h3>No. 017</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0018"><img src="assets/mg/mg-018.webp" width="480" height="640" alt="ManGrenade No. 018" loading="lazy"><div class="mg-row"><h3>No. 018</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0019"><img src="assets/mg/mg-019.webp" width="480" height="640" alt="ManGrenade No. 019" loading="lazy"><div class="mg-row"><h3>No. 019</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0020"><img src="assets/mg/mg-020.webp" width="480" height="640" alt="ManGrenade No. 020" loading="lazy"><div class="mg-row"><h3>No. 020</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0021"><img src="assets/mg/mg-021.webp" width="480" height="640" alt="ManGrenade No. 021" loading="lazy"><div class="mg-row"><h3>No. 021</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0022"><img src="assets/mg/mg-022.webp" width="480" height="640" alt="ManGrenade No. 022" loading="lazy"><div class="mg-row"><h3>No. 022</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0023"><img src="assets/mg/mg-023.webp" width="480" height="640" alt="ManGrenade No. 023" loading="lazy"><div class="mg-row"><h3>No. 023</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="25" data-code="MNGRND-0024"><img src="assets/mg/mg-024.webp" width="480" height="640" alt="ManGrenade No. 024" loading="lazy"><div class="mg-row"><h3>No. 024</h3><span class="price">&pound;25</span></div></article>
+<article class="mg" data-price="25" data-code="MNGRND-0025"><img src="assets/mg/mg-025.webp" width="480" height="640" alt="ManGrenade No. 025" loading="lazy"><div class="mg-row"><h3>No. 025</h3><span class="price">&pound;25</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0026"><img src="assets/mg/mg-026.webp" width="480" height="640" alt="ManGrenade No. 026" loading="lazy"><div class="mg-row"><h3>No. 026</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="25" data-code="MNGRND-0027"><img src="assets/mg/mg-027.webp" width="480" height="640" alt="ManGrenade No. 027" loading="lazy"><div class="mg-row"><h3>No. 027</h3><span class="price">&pound;25</span></div></article>
+<article class="mg" data-price="40" data-code="MNGRND-0028"><img src="assets/mg/mg-028.webp" width="480" height="640" alt="ManGrenade No. 028" loading="lazy"><div class="mg-row"><h3>No. 028</h3><span class="price">&pound;40</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0029"><img src="assets/mg/mg-029.webp" width="480" height="640" alt="ManGrenade No. 029" loading="lazy"><div class="mg-row"><h3>No. 029</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0030"><img src="assets/mg/mg-030.webp" width="480" height="640" alt="ManGrenade No. 030" loading="lazy"><div class="mg-row"><h3>No. 030</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0031"><img src="assets/mg/mg-031.webp" width="480" height="640" alt="ManGrenade No. 031" loading="lazy"><div class="mg-row"><h3>No. 031</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="25" data-code="MNGRND-0032"><img src="assets/mg/mg-032.webp" width="480" height="640" alt="ManGrenade No. 032" loading="lazy"><div class="mg-row"><h3>No. 032</h3><span class="price">&pound;25</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0033"><img src="assets/mg/mg-033.webp" width="480" height="640" alt="ManGrenade No. 033" loading="lazy"><div class="mg-row"><h3>No. 033</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0034"><img src="assets/mg/mg-034.webp" width="480" height="640" alt="ManGrenade No. 034" loading="lazy"><div class="mg-row"><h3>No. 034</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0035"><img src="assets/mg/mg-035.webp" width="480" height="640" alt="ManGrenade No. 035" loading="lazy"><div class="mg-row"><h3>No. 035</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0036"><img src="assets/mg/mg-036.webp" width="480" height="640" alt="ManGrenade No. 036" loading="lazy"><div class="mg-row"><h3>No. 036</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0037"><img src="assets/mg/mg-037.webp" width="480" height="640" alt="ManGrenade No. 037" loading="lazy"><div class="mg-row"><h3>No. 037</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0038"><img src="assets/mg/mg-038.webp" width="480" height="640" alt="ManGrenade No. 038" loading="lazy"><div class="mg-row"><h3>No. 038</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0039"><img src="assets/mg/mg-039.webp" width="480" height="640" alt="ManGrenade No. 039" loading="lazy"><div class="mg-row"><h3>No. 039</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0040"><img src="assets/mg/mg-040.webp" width="480" height="640" alt="ManGrenade No. 040" loading="lazy"><div class="mg-row"><h3>No. 040</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="25" data-code="MNGRND-0041"><img src="assets/mg/mg-041.webp" width="480" height="640" alt="ManGrenade No. 041" loading="lazy"><div class="mg-row"><h3>No. 041</h3><span class="price">&pound;25</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0042"><img src="assets/mg/mg-042.webp" width="480" height="640" alt="ManGrenade No. 042" loading="lazy"><div class="mg-row"><h3>No. 042</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0043"><img src="assets/mg/mg-043.webp" width="480" height="640" alt="ManGrenade No. 043" loading="lazy"><div class="mg-row"><h3>No. 043</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0044"><img src="assets/mg/mg-044.webp" width="480" height="640" alt="ManGrenade No. 044" loading="lazy"><div class="mg-row"><h3>No. 044</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0045"><img src="assets/mg/mg-045.webp" width="480" height="640" alt="ManGrenade No. 045" loading="lazy"><div class="mg-row"><h3>No. 045</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0047"><img src="assets/mg/mg-047.webp" width="480" height="640" alt="ManGrenade No. 047" loading="lazy"><div class="mg-row"><h3>No. 047</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0048"><img src="assets/mg/mg-048.webp" width="480" height="640" alt="ManGrenade No. 048" loading="lazy"><div class="mg-row"><h3>No. 048</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="25" data-code="MNGRND-0049"><img src="assets/mg/mg-049.webp" width="480" height="640" alt="ManGrenade No. 049" loading="lazy"><div class="mg-row"><h3>No. 049</h3><span class="price">&pound;25</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0050"><img src="assets/mg/mg-050.webp" width="480" height="640" alt="ManGrenade No. 050" loading="lazy"><div class="mg-row"><h3>No. 050</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0051"><img src="assets/mg/mg-051.webp" width="480" height="640" alt="ManGrenade No. 051" loading="lazy"><div class="mg-row"><h3>No. 051</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="40" data-code="MNGRND-0051G"><img src="assets/mg/mg-051g.webp" width="480" height="640" alt="ManGrenade No. 051G" loading="lazy"><div class="mg-row"><h3>No. 051G</h3><span class="price">&pound;40</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0052"><img src="assets/mg/mg-052.webp" width="480" height="640" alt="ManGrenade No. 052" loading="lazy"><div class="mg-row"><h3>No. 052</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0053"><img src="assets/mg/mg-053.webp" width="480" height="640" alt="ManGrenade No. 053" loading="lazy"><div class="mg-row"><h3>No. 053</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0054"><img src="assets/mg/mg-054.webp" width="480" height="640" alt="ManGrenade No. 054" loading="lazy"><div class="mg-row"><h3>No. 054</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0055"><img src="assets/mg/mg-055.webp" width="480" height="640" alt="ManGrenade No. 055" loading="lazy"><div class="mg-row"><h3>No. 055</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0056"><img src="assets/mg/mg-056.webp" width="480" height="640" alt="ManGrenade No. 056" loading="lazy"><div class="mg-row"><h3>No. 056</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0057"><img src="assets/mg/mg-057.webp" width="480" height="640" alt="ManGrenade No. 057" loading="lazy"><div class="mg-row"><h3>No. 057</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0058"><img src="assets/mg/mg-058.webp" width="480" height="640" alt="ManGrenade No. 058" loading="lazy"><div class="mg-row"><h3>No. 058</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0059"><img src="assets/mg/mg-059.webp" width="480" height="640" alt="ManGrenade No. 059" loading="lazy"><div class="mg-row"><h3>No. 059</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0060"><img src="assets/mg/mg-060.webp" width="480" height="640" alt="ManGrenade No. 060" loading="lazy"><div class="mg-row"><h3>No. 060</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0062"><img src="assets/mg/mg-062.webp" width="480" height="640" alt="ManGrenade No. 062" loading="lazy"><div class="mg-row"><h3>No. 062</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0063"><img src="assets/mg/mg-063.webp" width="480" height="640" alt="ManGrenade No. 063" loading="lazy"><div class="mg-row"><h3>No. 063</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0064"><img src="assets/mg/mg-064.webp" width="480" height="640" alt="ManGrenade No. 064" loading="lazy"><div class="mg-row"><h3>No. 064</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0065"><img src="assets/mg/mg-065.webp" width="480" height="640" alt="ManGrenade No. 065" loading="lazy"><div class="mg-row"><h3>No. 065</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0066"><img src="assets/mg/mg-066.webp" width="480" height="640" alt="ManGrenade No. 066" loading="lazy"><div class="mg-row"><h3>No. 066</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0067"><img src="assets/mg/mg-067.webp" width="480" height="640" alt="ManGrenade No. 067" loading="lazy"><div class="mg-row"><h3>No. 067</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0068"><img src="assets/mg/mg-068.webp" width="480" height="640" alt="ManGrenade No. 068" loading="lazy"><div class="mg-row"><h3>No. 068</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0069"><img src="assets/mg/mg-069.webp" width="480" height="640" alt="ManGrenade No. 069" loading="lazy"><div class="mg-row"><h3>No. 069</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0070"><img src="assets/mg/mg-070.webp" width="480" height="640" alt="ManGrenade No. 070" loading="lazy"><div class="mg-row"><h3>No. 070</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0071"><img src="assets/mg/mg-071.webp" width="480" height="640" alt="ManGrenade No. 071" loading="lazy"><div class="mg-row"><h3>No. 071</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0072"><img src="assets/mg/mg-072.webp" width="480" height="640" alt="ManGrenade No. 072" loading="lazy"><div class="mg-row"><h3>No. 072</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0073"><img src="assets/mg/mg-073.webp" width="480" height="640" alt="ManGrenade No. 073" loading="lazy"><div class="mg-row"><h3>No. 073</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0074"><img src="assets/mg/mg-074.webp" width="480" height="640" alt="ManGrenade No. 074" loading="lazy"><div class="mg-row"><h3>No. 074</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0088"><img src="assets/mg/mg-088.webp" width="480" height="640" alt="ManGrenade No. 088" loading="lazy"><div class="mg-row"><h3>No. 088</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0089"><img src="assets/mg/mg-089.webp" width="480" height="640" alt="ManGrenade No. 089" loading="lazy"><div class="mg-row"><h3>No. 089</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0090"><img src="assets/mg/mg-090.webp" width="480" height="640" alt="ManGrenade No. 090" loading="lazy"><div class="mg-row"><h3>No. 090</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0091"><img src="assets/mg/mg-091.webp" width="480" height="640" alt="ManGrenade No. 091" loading="lazy"><div class="mg-row"><h3>No. 091</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0092"><img src="assets/mg/mg-092.webp" width="480" height="640" alt="ManGrenade No. 092" loading="lazy"><div class="mg-row"><h3>No. 092</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0093"><img src="assets/mg/mg-093.webp" width="480" height="640" alt="ManGrenade No. 093" loading="lazy"><div class="mg-row"><h3>No. 093</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0094"><img src="assets/mg/mg-094.webp" width="480" height="640" alt="ManGrenade No. 094" loading="lazy"><div class="mg-row"><h3>No. 094</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0095"><img src="assets/mg/mg-095.webp" width="480" height="640" alt="ManGrenade No. 095" loading="lazy"><div class="mg-row"><h3>No. 095</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="25" data-code="MNGRND-0096"><img src="assets/mg/mg-096.webp" width="480" height="640" alt="ManGrenade No. 096" loading="lazy"><div class="mg-row"><h3>No. 096</h3><span class="price">&pound;25</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-0097"><img src="assets/mg/mg-097.webp" width="480" height="640" alt="ManGrenade No. 097" loading="lazy"><div class="mg-row"><h3>No. 097</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-0098"><img src="assets/mg/mg-098.webp" width="480" height="640" alt="ManGrenade No. 098" loading="lazy"><div class="mg-row"><h3>No. 098</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-0099"><img src="assets/mg/mg-099.webp" width="480" height="640" alt="ManGrenade No. 099" loading="lazy"><div class="mg-row"><h3>No. 099</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-00100"><img src="assets/mg/mg-100.webp" width="480" height="640" alt="ManGrenade No. 100" loading="lazy"><div class="mg-row"><h3>No. 100</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-00101"><img src="assets/mg/mg-101.webp" width="480" height="640" alt="ManGrenade No. 101" loading="lazy"><div class="mg-row"><h3>No. 101</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-00102"><img src="assets/mg/mg-102.webp" width="480" height="640" alt="ManGrenade No. 102" loading="lazy"><div class="mg-row"><h3>No. 102</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="25" data-code="MNGRND-00103"><img src="assets/mg/mg-103.webp" width="480" height="640" alt="ManGrenade No. 103" loading="lazy"><div class="mg-row"><h3>No. 103</h3><span class="price">&pound;25</span></div></article>
+<article class="mg" data-price="30" data-code="MNGRND-00104"><img src="assets/mg/mg-104.webp" width="480" height="640" alt="ManGrenade No. 104" loading="lazy"><div class="mg-row"><h3>No. 104</h3><span class="price">&pound;30</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-00105"><img src="assets/mg/mg-105.webp" width="480" height="640" alt="ManGrenade No. 105" loading="lazy"><div class="mg-row"><h3>No. 105</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-00106"><img src="assets/mg/mg-106.webp" width="480" height="640" alt="ManGrenade No. 106" loading="lazy"><div class="mg-row"><h3>No. 106</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-00107"><img src="assets/mg/mg-107.webp" width="480" height="640" alt="ManGrenade No. 107" loading="lazy"><div class="mg-row"><h3>No. 107</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="35" data-code="MNGRND-00108"><img src="assets/mg/mg-108.webp" width="480" height="640" alt="ManGrenade No. 108" loading="lazy"><div class="mg-row"><h3>No. 108</h3><span class="price">&pound;35</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-00109"><img src="assets/mg/mg-109.webp" width="480" height="640" alt="ManGrenade No. 109" loading="lazy"><div class="mg-row"><h3>No. 109</h3><span class="price">&pound;45</span></div></article>
+<article class="mg" data-price="45" data-code="MNGRND-00110"><img src="assets/mg/mg-110.webp" width="480" height="640" alt="ManGrenade No. 110" loading="lazy"><div class="mg-row"><h3>No. 110</h3><span class="price">&pound;45</span></div></article>
+</div>
+<!-- /CATALOGUE:MG -->
     <div class="pack">
       <span class="stamp-hersham" role="img" aria-label="Hand poured in Hersham"></span>
       <div class="pack-shots">
@@ -612,25 +701,31 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 
     <div class="sub"><h3>New on the wall</h3></div>
     <div class="newart">
-      <article class="span">
+      <article class="span" data-hold>
         <div class="shots"><img class="main" src="assets/o-drill.webp" width="1600" height="900" alt="This Is Not A Drill: a giant chrome screwdriver with MAN CAVE on the handle, mounted on a sprayed board" loading="lazy"></div>
-        <div class="cap"><h3>This Is Not A Drill</h3><span class="price">£350</span><span class="label">3D, on board</span><a class="buy tag label" href="https://buy.stripe.com/9B6dRa8FR58i3agbYi3ks07">Buy now</a></div>
+        <div class="cap"><h3>This Is Not A Drill</h3><span class="price">£450</span><span class="label">3D, on board</span><a class="buy tag label" href="https://buy.stripe.com/9B6dRa8FR58i3agbYi3ks07">Buy now</a></div>
       </article>
-      <article>
+      <article data-hold>
         <div class="shots w3">
           <img class="main" src="assets/o-weather-uv.webp" width="900" height="1599" alt="Under the Weather under blacklight: a man walks under a pound-sign umbrella across three panels on OSB" loading="lazy">
           <img src="assets/o-weather-day.webp" width="900" height="1599" alt="Under the Weather in daylight" loading="lazy">
           <img src="assets/o-weather-back.webp" width="1200" height="675" alt="The reverse of Under the Weather: a Now Showing marquee reading ManGrenades, Funky Art, Ferris Bueller's Day Off" loading="lazy">
         </div>
-        <div class="cap"><h3>Under the Weather</h3><span class="price">£250</span><span class="label">Now Showing on the reverse</span><a class="buy tag label" href="https://buy.stripe.com/eVq7sMcW744e5io9Qa3ks08">Buy now</a></div>
+        <div class="cap"><h3>Under the Weather</h3><span class="price">£300</span><span class="label">Now Showing on the reverse</span><a class="buy tag label" href="https://buy.stripe.com/eVq7sMcW744e5io9Qa3ks08">Buy now</a></div>
       </article>
-      <article>
+      <div class="stack">
+      <article data-hold>
         <div class="shots w2">
           <video class="main" src="assets/o-record.mp4" poster="assets/o-record-poster.webp" autoplay muted loop playsinline aria-label="On the Record spinning under blacklight"></video>
           <img src="assets/o-record.webp" width="1200" height="675" alt="On the Record: a vinyl record sprayed with the Mancave Industries seal, glowing under blacklight" loading="lazy">
         </div>
-        <div class="cap"><h3>On the Record</h3><span class="price">£250</span><span class="label">It spins</span><a class="buy tag label" href="https://buy.stripe.com/3cIfZi09l9oyh164vQ3ks09">Buy now</a></div>
+        <div class="cap"><h3>On the Record</h3><span class="price">£350</span><span class="label">It spins</span><a class="buy tag label" href="https://buy.stripe.com/3cIfZi09l9oyh164vQ3ks09">Buy now</a></div>
       </article>
+      <article>
+        <div class="shots"><img class="main" src="assets/sw/le-001.webp" width="487" height="650" alt="Hong Kong Strip: a long framed panel of neon street signs and a night skyline, sprayed over hot pink" loading="lazy"></div>
+        <div class="cap"><h3>Hong Kong Strip</h3><span class="price">£350</span><span class="label">Framed panel</span></div>
+      </article>
+      </div>
     </div>
     <div class="uvset">
       <figure class="wide"><button class="flip" id="flip-trip" type="button" aria-label="Triptych: switch between daylight and blacklight"><img src="assets/o-trip-day.webp" width="1540" height="957" alt="Triptych in daylight: a stencilled portrait over block lettering across three canvases" loading="lazy"><img class="uv" src="assets/o-trip-uv.webp" width="1540" height="957" alt="" loading="lazy"></button><figcaption><h3>Untitled (triptych)</h3><span class="label">Spray paint and stencil on three canvases · Enquire</span></figcaption></figure>
@@ -642,17 +737,65 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
       <figure><img src="assets/art-flag.webp" alt="Mancave Industries Flag: stars and stripes stencilled with repeated Mancave Industries lettering" loading="lazy"><figcaption><h3>Mancave Industries Flag</h3><span class="label">Spray paint and stencil on board · Enquire</span></figcaption></figure>
       <figure><img src="assets/art-greed.webp" alt="Greed: framed mixed-media piece with a masked figure surrounded by banknotes" loading="lazy"><figcaption><h3>Greed</h3><span class="label">Mixed media and resin, framed · Enquire</span></figcaption></figure>
     </div>
-      <div class="sub"><h3>More from the wall</h3></div>
-    <div class="wall">
-      <figure><img src="assets/a-bat-pink.webp" width="900" height="1200" alt="Neon pink caped figure in a green speckled night, under blacklight" loading="lazy"><figcaption><h3>Pink Knight</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
-      <figure><img src="assets/a-bat-pastel.webp" width="900" height="1200" alt="Black caped figure over a pastel spray haze, under blacklight" loading="lazy"><figcaption><h3>Pastel Knight</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
-      <figure><img src="assets/a-trefoil.webp" width="900" height="1200" alt="Trefoil stencil ringed with Mancave Industries lettering, under blacklight" loading="lazy"><figcaption><h3>Trefoil</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
-      <figure><img src="assets/a-brothers.webp" width="900" height="1200" alt="Two stencilled portraits over layered lettering and the seal, under blacklight" loading="lazy"><figcaption><h3>Brothers</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
-      <figure><img src="assets/a-mirror.webp" width="900" height="1200" alt="Block lettering stencilled upright and reflected, under blacklight" loading="lazy"><figcaption><h3>Mirror</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
-      <figure><img src="assets/a-trooper.webp" width="900" height="1200" alt="Trooper helmet over hot orange, crossed with Mancave Industries tape, under blacklight" loading="lazy"><figcaption><h3>Trooper</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
-      <figure><img src="assets/a-collision.webp" width="900" height="1200" alt="Layered stencils, helmet and seal on violet, under blacklight" loading="lazy"><figcaption><h3>Collision</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
-      <figure><img src="assets/a-darkside.webp" width="900" height="1200" alt="Helmeted figure through neon green and pink layers, under blacklight" loading="lazy"><figcaption><h3>Dark Side</h3><span class="label">Canvas · Enquire</span></figcaption></figure>
-    </div>
+      <div class="sub"><h3>Small works</h3><p>Stencil and spray originals, one of each. At the stall on 28 Nov, online from 29 Nov.</p></div>
+<!-- CATALOGUE:ART -->
+<div class="sw-grid">
+<article class="sw" data-code="MCI-ART-001"><img src="assets/sw/mci-art-001.webp" alt="Four-piece Stormtrooper set, MCI-ART-001" loading="lazy"><div class="sw-row"><h3>Four-piece Stormtrooper set</h3><span class="price">&pound;110</span></div><span class="code label">MCI-ART-001</span></article>
+<article class="sw" data-code="MCI-ART-002"><img src="assets/sw/mci-art-002.webp" alt="Small square Stormtrooper, MCI-ART-002" loading="lazy"><div class="sw-row"><h3>Small square Stormtrooper</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-002</span></article>
+<article class="sw" data-code="MCI-ART-003"><img src="assets/sw/mci-art-003.webp" alt="Small square Stormtrooper, MCI-ART-003" loading="lazy"><div class="sw-row"><h3>Small square Stormtrooper</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-003</span></article>
+<article class="sw" data-code="MCI-ART-004"><img src="assets/sw/mci-art-004.webp" alt="Small square Stormtrooper, MCI-ART-004" loading="lazy"><div class="sw-row"><h3>Small square Stormtrooper</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-004</span></article>
+<article class="sw" data-code="MCI-ART-005"><img src="assets/sw/mci-art-005.webp" alt="Small square Stormtrooper, MCI-ART-005" loading="lazy"><div class="sw-row"><h3>Small square Stormtrooper</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-005</span></article>
+<article class="sw" data-code="MCI-ART-006"><img src="assets/sw/mci-art-006.webp" alt="Small square Stormtrooper, MCI-ART-006" loading="lazy"><div class="sw-row"><h3>Small square Stormtrooper</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-006</span></article>
+<article class="sw" data-code="MCI-ART-007"><img src="assets/sw/mci-art-007.webp" alt="Detailed original, MCI-ART-007" loading="lazy"><div class="sw-row"><h3>Detailed original</h3><span class="price">&pound;40</span></div><span class="code label">MCI-ART-007</span></article>
+<article class="sw" data-code="MCI-ART-008"><img src="assets/sw/mci-art-008.webp" alt="Detailed original, MCI-ART-008" loading="lazy"><div class="sw-row"><h3>Detailed original</h3><span class="price">&pound;40</span></div><span class="code label">MCI-ART-008</span></article>
+<article class="sw" data-code="MCI-ART-010"><img src="assets/sw/mci-art-010.webp" alt="Large original, MCI-ART-010" loading="lazy"><div class="sw-row"><h3>Large original</h3><span class="price">&pound;40</span></div><span class="code label">MCI-ART-010</span></article>
+<article class="sw" data-code="MCI-ART-011"><img src="assets/sw/mci-art-011.webp" alt="Original, MCI-ART-011" loading="lazy"><div class="sw-row"><h3>Original</h3><span class="price">&pound;15</span></div><span class="code label">MCI-ART-011</span></article>
+<article class="sw" data-code="MCI-ART-012"><img src="assets/sw/mci-art-012.webp" alt="Small square original, MCI-ART-012" loading="lazy"><div class="sw-row"><h3>Small square original</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-012</span></article>
+<article class="sw" data-code="MCI-ART-013"><img src="assets/sw/mci-art-013.webp" alt="Larger original, MCI-ART-013" loading="lazy"><div class="sw-row"><h3>Larger original</h3><span class="price">&pound;30</span></div><span class="code label">MCI-ART-013</span></article>
+<article class="sw" data-code="MCI-ART-014"><img src="assets/sw/mci-art-014.webp" alt="Original, MCI-ART-014" loading="lazy"><div class="sw-row"><h3>Original</h3><span class="price">&pound;35</span></div><span class="code label">MCI-ART-014</span></article>
+<article class="sw" data-code="MCI-ART-015"><img src="assets/sw/mci-art-015.webp" alt="Large square Oasis canvas, MCI-ART-015" loading="lazy"><div class="sw-row"><h3>Large square Oasis canvas</h3><span class="price">&pound;40</span></div><span class="code label">MCI-ART-015</span></article>
+<article class="sw" data-code="MCI-ART-016"><img src="assets/sw/mci-art-016.webp" alt="Large square Oasis canvas, MCI-ART-016" loading="lazy"><div class="sw-row"><h3>Large square Oasis canvas</h3><span class="price">&pound;40</span></div><span class="code label">MCI-ART-016</span></article>
+<article class="sw" data-code="MCI-ART-017"><img src="assets/sw/mci-art-017.webp" alt="Large square Oasis canvas, MCI-ART-017" loading="lazy"><div class="sw-row"><h3>Large square Oasis canvas</h3><span class="price">&pound;40</span></div><span class="code label">MCI-ART-017</span></article>
+<article class="sw" data-code="MCI-ART-018"><img src="assets/sw/mci-art-018.webp" alt="Large square Oasis canvas, MCI-ART-018" loading="lazy"><div class="sw-row"><h3>Large square Oasis canvas</h3><span class="price">&pound;40</span></div><span class="code label">MCI-ART-018</span></article>
+<article class="sw" data-code="MCI-ART-019"><img src="assets/sw/mci-art-019.webp" alt="Large square Oasis canvas, MCI-ART-019" loading="lazy"><div class="sw-row"><h3>Large square Oasis canvas</h3><span class="price">&pound;40</span></div><span class="code label">MCI-ART-019</span></article>
+<article class="sw" data-code="MCI-ART-020"><img src="assets/sw/mci-art-020.webp" alt="Smaller Oasis artwork, MCI-ART-020" loading="lazy"><div class="sw-row"><h3>Smaller Oasis artwork</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-020</span></article>
+<article class="sw" data-code="MCI-ART-021"><img src="assets/sw/mci-art-021.webp" alt="Three-card triptych, MCI-ART-021" loading="lazy"><div class="sw-row"><h3>Three-card triptych</h3><span class="price">&pound;45</span></div><span class="code label">MCI-ART-021</span></article>
+<article class="sw" data-code="MCI-ART-022"><img src="assets/sw/mci-art-022.webp" alt="Original, MCI-ART-022" loading="lazy"><div class="sw-row"><h3>Original</h3><span class="price">&pound;15</span></div><span class="code label">MCI-ART-022</span></article>
+<article class="sw" data-code="MCI-ART-023"><img src="assets/sw/mci-art-023.webp" alt="Small Hong Kong Strip, MCI-ART-023" loading="lazy"><div class="sw-row"><h3>Small Hong Kong Strip</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-023</span></article>
+<article class="sw" data-code="MCI-ART-024"><img src="assets/sw/mci-art-024.webp" alt="Small Hong Kong Strip, MCI-ART-024" loading="lazy"><div class="sw-row"><h3>Small Hong Kong Strip</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-024</span></article>
+<article class="sw" data-code="MCI-ART-025"><img src="assets/sw/mci-art-025.webp" alt="Hong Kong Strip series, MCI-ART-025" loading="lazy"><div class="sw-row"><h3>Hong Kong Strip series</h3><span class="price">&pound;35</span></div><span class="code label">MCI-ART-025</span></article>
+<article class="sw" data-code="MCI-ART-026"><img src="assets/sw/mci-art-026.webp" alt="Hong Kong Strip series, MCI-ART-026" loading="lazy"><div class="sw-row"><h3>Hong Kong Strip series</h3><span class="price">&pound;35</span></div><span class="code label">MCI-ART-026</span></article>
+<article class="sw" data-code="MCI-ART-027"><img src="assets/sw/mci-art-027.webp" alt="Hong Kong Strip series, MCI-ART-027" loading="lazy"><div class="sw-row"><h3>Hong Kong Strip series</h3><span class="price">&pound;35</span></div><span class="code label">MCI-ART-027</span></article>
+<article class="sw" data-code="MCI-ART-028"><img src="assets/sw/mci-art-028.webp" alt="Hong Kong Strip series, MCI-ART-028" loading="lazy"><div class="sw-row"><h3>Hong Kong Strip series</h3><span class="price">&pound;35</span></div><span class="code label">MCI-ART-028</span></article>
+<article class="sw" data-code="MCI-ART-029"><img src="assets/sw/mci-art-029.webp" alt="Hong Kong Strip series, MCI-ART-029" loading="lazy"><div class="sw-row"><h3>Hong Kong Strip series</h3><span class="price">&pound;35</span></div><span class="code label">MCI-ART-029</span></article>
+<article class="sw" data-code="MCI-ART-030"><img src="assets/sw/mci-art-030.webp" alt="Hong Kong Strip series, MCI-ART-030" loading="lazy"><div class="sw-row"><h3>Hong Kong Strip series</h3><span class="price">&pound;35</span></div><span class="code label">MCI-ART-030</span></article>
+<article class="sw" data-code="MCI-ART-032"><img src="assets/sw/mci-art-032.webp" alt="Square Stormtrooper canvas, MCI-ART-032" loading="lazy"><div class="sw-row"><h3>Square Stormtrooper canvas</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-032</span></article>
+<article class="sw" data-code="MCI-ART-033"><img src="assets/sw/mci-art-033.webp" alt="Square Stormtrooper canvas, MCI-ART-033" loading="lazy"><div class="sw-row"><h3>Square Stormtrooper canvas</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-033</span></article>
+<article class="sw" data-code="MCI-ART-034"><img src="assets/sw/mci-art-034.webp" alt="Larger laminated original, MCI-ART-034" loading="lazy"><div class="sw-row"><h3>Larger laminated original</h3><span class="price">&pound;50</span></div><span class="code label">MCI-ART-034</span></article>
+<article class="sw" data-code="MCI-ART-035"><img src="assets/sw/mci-art-035.webp" alt="Large detailed Stormtrooper, MCI-ART-035" loading="lazy"><div class="sw-row"><h3>Large detailed Stormtrooper</h3><span class="price">&pound;50</span></div><span class="code label">MCI-ART-035</span></article>
+<article class="sw" data-code="MCI-ART-036"><img src="assets/sw/mci-art-036.webp" alt="Large layered original, MCI-ART-036" loading="lazy"><div class="sw-row"><h3>Large layered original</h3><span class="price">&pound;50</span></div><span class="code label">MCI-ART-036</span></article>
+<article class="sw" data-code="MCI-ART-037"><img src="assets/sw/mci-art-037.webp" alt="Large canvas, MCI-ART-037" loading="lazy"><div class="sw-row"><h3>Large canvas</h3><span class="price">&pound;50</span></div><span class="code label">MCI-ART-037</span></article>
+<article class="sw" data-code="MCI-ART-038"><img src="assets/sw/mci-art-038.webp" alt="40×40 cm resin-finished canvas, MCI-ART-038" loading="lazy"><div class="sw-row"><h3>40×40 cm resin-finished canvas</h3><span class="price">&pound;40</span></div><span class="code label">MCI-ART-038</span></article>
+<article class="sw" data-code="MCI-ART-039"><img src="assets/sw/mci-art-039.webp" alt="Joker and Batman, MCI-ART-039" loading="lazy"><div class="sw-row"><h3>Joker and Batman</h3><span class="price">&pound;30</span></div><span class="code label">MCI-ART-039</span></article>
+<article class="sw" data-code="MCI-ART-040"><img src="assets/sw/mci-art-040.webp" alt="Joker and Batman, MCI-ART-040" loading="lazy"><div class="sw-row"><h3>Joker and Batman</h3><span class="price">&pound;30</span></div><span class="code label">MCI-ART-040</span></article>
+<article class="sw" data-code="MCI-ART-041"><img src="assets/sw/mci-art-041.webp" alt="Batman canvas 40×40 cm, MCI-ART-041" loading="lazy"><div class="sw-row"><h3>Batman canvas 40×40 cm</h3><span class="price">&pound;35</span></div><span class="code label">MCI-ART-041</span></article>
+<article class="sw" data-code="MCI-ART-042"><img src="assets/sw/mci-art-042.webp" alt="Batman canvas approx. 40×60 cm, MCI-ART-042" loading="lazy"><div class="sw-row"><h3>Batman canvas approx. 40×60 cm</h3><span class="price">&pound;50</span></div><span class="code label">MCI-ART-042</span></article>
+<article class="sw" data-code="MCI-ART-043"><img src="assets/sw/mci-art-043.webp" alt="Entry-level Joker stencil board, MCI-ART-043" loading="lazy"><div class="sw-row"><h3>Entry-level Joker stencil board</h3><span class="price">&pound;20</span></div><span class="code label">MCI-ART-043</span></article>
+<article class="sw" data-code="MCI-ART-044"><img src="assets/sw/mci-art-044.webp" alt="Entry-level Joker stencil board, MCI-ART-044" loading="lazy"><div class="sw-row"><h3>Entry-level Joker stencil board</h3><span class="price">&pound;20</span></div><span class="code label">MCI-ART-044</span></article>
+<article class="sw" data-code="MCI-ART-045"><img src="assets/sw/mci-art-045.webp" alt="Entry-level Joker stencil board, MCI-ART-045" loading="lazy"><div class="sw-row"><h3>Entry-level Joker stencil board</h3><span class="price">&pound;20</span></div><span class="code label">MCI-ART-045</span></article>
+<article class="sw" data-code="MCI-ART-046"><img src="assets/sw/mci-art-046.webp" alt="Entry-level Joker stencil board, MCI-ART-046" loading="lazy"><div class="sw-row"><h3>Entry-level Joker stencil board</h3><span class="price">&pound;20</span></div><span class="code label">MCI-ART-046</span></article>
+<article class="sw" data-code="MCI-ART-047"><img src="assets/sw/mci-art-047.webp" alt="Entry-level Joker stencil board, MCI-ART-047" loading="lazy"><div class="sw-row"><h3>Entry-level Joker stencil board</h3><span class="price">&pound;20</span></div><span class="code label">MCI-ART-047</span></article>
+<article class="sw" data-code="MCI-ART-048"><img src="assets/sw/mci-art-048.webp" alt="Entry-level Joker stencil board, MCI-ART-048" loading="lazy"><div class="sw-row"><h3>Entry-level Joker stencil board</h3><span class="price">&pound;20</span></div><span class="code label">MCI-ART-048</span></article>
+<article class="sw" data-code="MCI-ART-049"><img src="assets/sw/mci-art-049.webp" alt="Entry-level Joker stencil board, MCI-ART-049" loading="lazy"><div class="sw-row"><h3>Entry-level Joker stencil board</h3><span class="price">&pound;20</span></div><span class="code label">MCI-ART-049</span></article>
+<article class="sw" data-code="MCI-ART-050"><img src="assets/sw/mci-art-050.webp" alt="Entry-level Joker stencil board, MCI-ART-050" loading="lazy"><div class="sw-row"><h3>Entry-level Joker stencil board</h3><span class="price">&pound;20</span></div><span class="code label">MCI-ART-050</span></article>
+<article class="sw" data-code="MCI-ART-051"><img src="assets/sw/mci-art-051.webp" alt="Entry-level Joker stencil board, MCI-ART-051" loading="lazy"><div class="sw-row"><h3>Entry-level Joker stencil board</h3><span class="price">&pound;20</span></div><span class="code label">MCI-ART-051</span></article>
+<article class="sw" data-code="MCI-ART-052"><img src="assets/sw/mci-art-052.webp" alt="Entry-level Joker stencil board, MCI-ART-052" loading="lazy"><div class="sw-row"><h3>Entry-level Joker stencil board</h3><span class="price">&pound;20</span></div><span class="code label">MCI-ART-052</span></article>
+<article class="sw" data-code="MCI-ART-053"><img src="assets/sw/mci-art-053.webp" alt="Small square MTI, MCI-ART-053" loading="lazy"><div class="sw-row"><h3>Small square MTI</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-053</span></article>
+<article class="sw" data-code="MCI-ART-054"><img src="assets/sw/mci-art-054.webp" alt="Original, MCI-ART-054" loading="lazy"><div class="sw-row"><h3>Original</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-054</span></article>
+<article class="sw" data-code="MCI-ART-055"><img src="assets/sw/mci-art-055.webp" alt="Original, MCI-ART-055" loading="lazy"><div class="sw-row"><h3>Original</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-055</span></article>
+<article class="sw" data-code="MCI-ART-056"><img src="assets/sw/mci-art-056.webp" alt="Original, MCI-ART-056" loading="lazy"><div class="sw-row"><h3>Original</h3><span class="price">&pound;25</span></div><span class="code label">MCI-ART-056</span></article>
+</div>
+<!-- /CATALOGUE:ART -->
 </div>
 </div>
     </details>
@@ -915,6 +1058,18 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     d.addEventListener('toggle',function(){
       d.querySelectorAll('video').forEach(function(v){ if(d.open){v.play().catch(function(){});} else {v.muted=true; v.pause();} });
     });
+  });
+})();
+</script>
+<script>
+/* price filter for the numbered ManGrenades */
+(function(){
+  var tools=document.querySelector('.mg-tools');if(!tools)return;
+  var cards=[].slice.call(document.querySelectorAll('#mg-grid .mg'));
+  tools.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;var f=b.getAttribute('data-f');
+    [].forEach.call(tools.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    cards.forEach(function(c){c.hidden=!(f==='all'||c.getAttribute('data-price')===f);});
   });
 })();
 </script>

@@ -1,0 +1,1084 @@
+{
+ "note": "Public catalogue only: code, title, price, status (stall|live|sold). Internal discount/walk-away prices are never stored here.",
+ "mangrenades": [
+  {
+   "code": "MNGRND-001",
+   "no": "001",
+   "price": 35,
+   "img": "assets/mg/mg-001.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-002",
+   "no": "002",
+   "price": 35,
+   "img": "assets/mg/mg-002.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-003",
+   "no": "003",
+   "price": 30,
+   "img": "assets/mg/mg-003.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-004",
+   "no": "004",
+   "price": 35,
+   "img": "assets/mg/mg-004.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-005",
+   "no": "005",
+   "price": 25,
+   "img": "assets/mg/mg-005.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-006",
+   "no": "006",
+   "price": 30,
+   "img": "assets/mg/mg-006.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-007",
+   "no": "007",
+   "price": 35,
+   "img": "assets/mg/mg-007.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-008",
+   "no": "008",
+   "price": 30,
+   "img": "assets/mg/mg-008.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-009",
+   "no": "009",
+   "price": 35,
+   "img": "assets/mg/mg-009.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0010",
+   "no": "010",
+   "price": 35,
+   "img": "assets/mg/mg-010.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0011",
+   "no": "011",
+   "price": 35,
+   "img": "assets/mg/mg-011.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0012",
+   "no": "012",
+   "price": 35,
+   "img": "assets/mg/mg-012.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0013",
+   "no": "013",
+   "price": 30,
+   "img": "assets/mg/mg-013.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0014",
+   "no": "014",
+   "price": 30,
+   "img": "assets/mg/mg-014.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0015",
+   "no": "015",
+   "price": 30,
+   "img": "assets/mg/mg-015.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0016",
+   "no": "016",
+   "price": 35,
+   "img": "assets/mg/mg-016.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0017",
+   "no": "017",
+   "price": 30,
+   "img": "assets/mg/mg-017.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0018",
+   "no": "018",
+   "price": 35,
+   "img": "assets/mg/mg-018.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0019",
+   "no": "019",
+   "price": 30,
+   "img": "assets/mg/mg-019.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0020",
+   "no": "020",
+   "price": 30,
+   "img": "assets/mg/mg-020.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0021",
+   "no": "021",
+   "price": 30,
+   "img": "assets/mg/mg-021.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0022",
+   "no": "022",
+   "price": 35,
+   "img": "assets/mg/mg-022.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0023",
+   "no": "023",
+   "price": 30,
+   "img": "assets/mg/mg-023.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0024",
+   "no": "024",
+   "price": 25,
+   "img": "assets/mg/mg-024.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0025",
+   "no": "025",
+   "price": 25,
+   "img": "assets/mg/mg-025.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0026",
+   "no": "026",
+   "price": 30,
+   "img": "assets/mg/mg-026.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0027",
+   "no": "027",
+   "price": 25,
+   "img": "assets/mg/mg-027.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0028",
+   "no": "028",
+   "price": 40,
+   "img": "assets/mg/mg-028.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0029",
+   "no": "029",
+   "price": 35,
+   "img": "assets/mg/mg-029.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0030",
+   "no": "030",
+   "price": 35,
+   "img": "assets/mg/mg-030.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0031",
+   "no": "031",
+   "price": 30,
+   "img": "assets/mg/mg-031.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0032",
+   "no": "032",
+   "price": 25,
+   "img": "assets/mg/mg-032.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0033",
+   "no": "033",
+   "price": 35,
+   "img": "assets/mg/mg-033.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0034",
+   "no": "034",
+   "price": 30,
+   "img": "assets/mg/mg-034.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0035",
+   "no": "035",
+   "price": 35,
+   "img": "assets/mg/mg-035.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0036",
+   "no": "036",
+   "price": 35,
+   "img": "assets/mg/mg-036.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0037",
+   "no": "037",
+   "price": 35,
+   "img": "assets/mg/mg-037.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0038",
+   "no": "038",
+   "price": 30,
+   "img": "assets/mg/mg-038.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0039",
+   "no": "039",
+   "price": 35,
+   "img": "assets/mg/mg-039.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0040",
+   "no": "040",
+   "price": 35,
+   "img": "assets/mg/mg-040.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0041",
+   "no": "041",
+   "price": 25,
+   "img": "assets/mg/mg-041.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0042",
+   "no": "042",
+   "price": 30,
+   "img": "assets/mg/mg-042.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0043",
+   "no": "043",
+   "price": 30,
+   "img": "assets/mg/mg-043.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0044",
+   "no": "044",
+   "price": 35,
+   "img": "assets/mg/mg-044.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0045",
+   "no": "045",
+   "price": 35,
+   "img": "assets/mg/mg-045.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0047",
+   "no": "047",
+   "price": 35,
+   "img": "assets/mg/mg-047.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0048",
+   "no": "048",
+   "price": 30,
+   "img": "assets/mg/mg-048.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0049",
+   "no": "049",
+   "price": 25,
+   "img": "assets/mg/mg-049.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0050",
+   "no": "050",
+   "price": 45,
+   "img": "assets/mg/mg-050.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0051",
+   "no": "051",
+   "price": 35,
+   "img": "assets/mg/mg-051.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0051G",
+   "no": "051G",
+   "price": 40,
+   "img": "assets/mg/mg-051g.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0052",
+   "no": "052",
+   "price": 45,
+   "img": "assets/mg/mg-052.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0053",
+   "no": "053",
+   "price": 45,
+   "img": "assets/mg/mg-053.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0054",
+   "no": "054",
+   "price": 45,
+   "img": "assets/mg/mg-054.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0055",
+   "no": "055",
+   "price": 45,
+   "img": "assets/mg/mg-055.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0056",
+   "no": "056",
+   "price": 45,
+   "img": "assets/mg/mg-056.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0057",
+   "no": "057",
+   "price": 45,
+   "img": "assets/mg/mg-057.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0058",
+   "no": "058",
+   "price": 45,
+   "img": "assets/mg/mg-058.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0059",
+   "no": "059",
+   "price": 30,
+   "img": "assets/mg/mg-059.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0060",
+   "no": "060",
+   "price": 35,
+   "img": "assets/mg/mg-060.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0062",
+   "no": "062",
+   "price": 35,
+   "img": "assets/mg/mg-062.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0063",
+   "no": "063",
+   "price": 35,
+   "img": "assets/mg/mg-063.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0064",
+   "no": "064",
+   "price": 30,
+   "img": "assets/mg/mg-064.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0065",
+   "no": "065",
+   "price": 30,
+   "img": "assets/mg/mg-065.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0066",
+   "no": "066",
+   "price": 35,
+   "img": "assets/mg/mg-066.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0067",
+   "no": "067",
+   "price": 30,
+   "img": "assets/mg/mg-067.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0068",
+   "no": "068",
+   "price": 35,
+   "img": "assets/mg/mg-068.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0069",
+   "no": "069",
+   "price": 35,
+   "img": "assets/mg/mg-069.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0070",
+   "no": "070",
+   "price": 35,
+   "img": "assets/mg/mg-070.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0071",
+   "no": "071",
+   "price": 35,
+   "img": "assets/mg/mg-071.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0072",
+   "no": "072",
+   "price": 35,
+   "img": "assets/mg/mg-072.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0073",
+   "no": "073",
+   "price": 35,
+   "img": "assets/mg/mg-073.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0074",
+   "no": "074",
+   "price": 35,
+   "img": "assets/mg/mg-074.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0088",
+   "no": "088",
+   "price": 35,
+   "img": "assets/mg/mg-088.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0089",
+   "no": "089",
+   "price": 35,
+   "img": "assets/mg/mg-089.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0090",
+   "no": "090",
+   "price": 45,
+   "img": "assets/mg/mg-090.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0091",
+   "no": "091",
+   "price": 35,
+   "img": "assets/mg/mg-091.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0092",
+   "no": "092",
+   "price": 45,
+   "img": "assets/mg/mg-092.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0093",
+   "no": "093",
+   "price": 35,
+   "img": "assets/mg/mg-093.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0094",
+   "no": "094",
+   "price": 35,
+   "img": "assets/mg/mg-094.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0095",
+   "no": "095",
+   "price": 45,
+   "img": "assets/mg/mg-095.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0096",
+   "no": "096",
+   "price": 25,
+   "img": "assets/mg/mg-096.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0097",
+   "no": "097",
+   "price": 30,
+   "img": "assets/mg/mg-097.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0098",
+   "no": "098",
+   "price": 45,
+   "img": "assets/mg/mg-098.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-0099",
+   "no": "099",
+   "price": 35,
+   "img": "assets/mg/mg-099.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00100",
+   "no": "100",
+   "price": 35,
+   "img": "assets/mg/mg-100.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00101",
+   "no": "101",
+   "price": 30,
+   "img": "assets/mg/mg-101.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00102",
+   "no": "102",
+   "price": 35,
+   "img": "assets/mg/mg-102.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00103",
+   "no": "103",
+   "price": 25,
+   "img": "assets/mg/mg-103.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00104",
+   "no": "104",
+   "price": 30,
+   "img": "assets/mg/mg-104.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00105",
+   "no": "105",
+   "price": 35,
+   "img": "assets/mg/mg-105.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00106",
+   "no": "106",
+   "price": 35,
+   "img": "assets/mg/mg-106.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00107",
+   "no": "107",
+   "price": 45,
+   "img": "assets/mg/mg-107.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00108",
+   "no": "108",
+   "price": 35,
+   "img": "assets/mg/mg-108.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00109",
+   "no": "109",
+   "price": 45,
+   "img": "assets/mg/mg-109.webp",
+   "status": "stall"
+  },
+  {
+   "code": "MNGRND-00110",
+   "no": "110",
+   "price": 45,
+   "img": "assets/mg/mg-110.webp",
+   "status": "stall"
+  }
+ ],
+ "art": [
+  {
+   "code": "MCI-ART-001",
+   "title": "Four-piece Stormtrooper set",
+   "price": 110,
+   "status": "stall",
+   "img": "assets/sw/mci-art-001.webp"
+  },
+  {
+   "code": "MCI-ART-002",
+   "title": "Small square Stormtrooper",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-002.webp"
+  },
+  {
+   "code": "MCI-ART-003",
+   "title": "Small square Stormtrooper",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-003.webp"
+  },
+  {
+   "code": "MCI-ART-004",
+   "title": "Small square Stormtrooper",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-004.webp"
+  },
+  {
+   "code": "MCI-ART-005",
+   "title": "Small square Stormtrooper",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-005.webp"
+  },
+  {
+   "code": "MCI-ART-006",
+   "title": "Small square Stormtrooper",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-006.webp"
+  },
+  {
+   "code": "MCI-ART-007",
+   "title": "Detailed original",
+   "price": 40,
+   "status": "stall",
+   "img": "assets/sw/mci-art-007.webp"
+  },
+  {
+   "code": "MCI-ART-008",
+   "title": "Detailed original",
+   "price": 40,
+   "status": "stall",
+   "img": "assets/sw/mci-art-008.webp"
+  },
+  {
+   "code": "MCI-ART-010",
+   "title": "Large original",
+   "price": 40,
+   "status": "stall",
+   "img": "assets/sw/mci-art-010.webp"
+  },
+  {
+   "code": "MCI-ART-011",
+   "title": "Original",
+   "price": 15,
+   "status": "stall",
+   "img": "assets/sw/mci-art-011.webp"
+  },
+  {
+   "code": "MCI-ART-012",
+   "title": "Small square original",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-012.webp"
+  },
+  {
+   "code": "MCI-ART-013",
+   "title": "Larger original",
+   "price": 30,
+   "status": "stall",
+   "img": "assets/sw/mci-art-013.webp"
+  },
+  {
+   "code": "MCI-ART-014",
+   "title": "Original",
+   "price": 35,
+   "status": "stall",
+   "img": "assets/sw/mci-art-014.webp"
+  },
+  {
+   "code": "MCI-ART-015",
+   "title": "Large square Oasis canvas",
+   "price": 40,
+   "status": "stall",
+   "img": "assets/sw/mci-art-015.webp"
+  },
+  {
+   "code": "MCI-ART-016",
+   "title": "Large square Oasis canvas",
+   "price": 40,
+   "status": "stall",
+   "img": "assets/sw/mci-art-016.webp"
+  },
+  {
+   "code": "MCI-ART-017",
+   "title": "Large square Oasis canvas",
+   "price": 40,
+   "status": "stall",
+   "img": "assets/sw/mci-art-017.webp"
+  },
+  {
+   "code": "MCI-ART-018",
+   "title": "Large square Oasis canvas",
+   "price": 40,
+   "status": "stall",
+   "img": "assets/sw/mci-art-018.webp"
+  },
+  {
+   "code": "MCI-ART-019",
+   "title": "Large square Oasis canvas",
+   "price": 40,
+   "status": "stall",
+   "img": "assets/sw/mci-art-019.webp"
+  },
+  {
+   "code": "MCI-ART-020",
+   "title": "Smaller Oasis artwork",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-020.webp"
+  },
+  {
+   "code": "MCI-ART-021",
+   "title": "Three-card triptych",
+   "price": 45,
+   "status": "stall",
+   "img": "assets/sw/mci-art-021.webp"
+  },
+  {
+   "code": "MCI-ART-022",
+   "title": "Original",
+   "price": 15,
+   "status": "stall",
+   "img": "assets/sw/mci-art-022.webp"
+  },
+  {
+   "code": "MCI-ART-023",
+   "title": "Small Hong Kong Strip",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-023.webp"
+  },
+  {
+   "code": "MCI-ART-024",
+   "title": "Small Hong Kong Strip",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-024.webp"
+  },
+  {
+   "code": "MCI-ART-025",
+   "title": "Hong Kong Strip series",
+   "price": 35,
+   "status": "stall",
+   "img": "assets/sw/mci-art-025.webp"
+  },
+  {
+   "code": "MCI-ART-026",
+   "title": "Hong Kong Strip series",
+   "price": 35,
+   "status": "stall",
+   "img": "assets/sw/mci-art-026.webp"
+  },
+  {
+   "code": "MCI-ART-027",
+   "title": "Hong Kong Strip series",
+   "price": 35,
+   "status": "stall",
+   "img": "assets/sw/mci-art-027.webp"
+  },
+  {
+   "code": "MCI-ART-028",
+   "title": "Hong Kong Strip series",
+   "price": 35,
+   "status": "stall",
+   "img": "assets/sw/mci-art-028.webp"
+  },
+  {
+   "code": "MCI-ART-029",
+   "title": "Hong Kong Strip series",
+   "price": 35,
+   "status": "stall",
+   "img": "assets/sw/mci-art-029.webp"
+  },
+  {
+   "code": "MCI-ART-030",
+   "title": "Hong Kong Strip series",
+   "price": 35,
+   "status": "stall",
+   "img": "assets/sw/mci-art-030.webp"
+  },
+  {
+   "code": "MCI-ART-032",
+   "title": "Square Stormtrooper canvas",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-032.webp"
+  },
+  {
+   "code": "MCI-ART-033",
+   "title": "Square Stormtrooper canvas",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-033.webp"
+  },
+  {
+   "code": "MCI-ART-034",
+   "title": "Larger laminated original",
+   "price": 50,
+   "status": "stall",
+   "img": "assets/sw/mci-art-034.webp"
+  },
+  {
+   "code": "MCI-ART-035",
+   "title": "Large detailed Stormtrooper",
+   "price": 50,
+   "status": "stall",
+   "img": "assets/sw/mci-art-035.webp"
+  },
+  {
+   "code": "MCI-ART-036",
+   "title": "Large layered original",
+   "price": 50,
+   "status": "stall",
+   "img": "assets/sw/mci-art-036.webp"
+  },
+  {
+   "code": "MCI-ART-037",
+   "title": "Large canvas",
+   "price": 50,
+   "status": "stall",
+   "img": "assets/sw/mci-art-037.webp"
+  },
+  {
+   "code": "MCI-ART-038",
+   "title": "40\u00d740 cm resin-finished canvas",
+   "price": 40,
+   "status": "stall",
+   "img": "assets/sw/mci-art-038.webp"
+  },
+  {
+   "code": "MCI-ART-039",
+   "title": "Joker and Batman",
+   "price": 30,
+   "status": "stall",
+   "img": "assets/sw/mci-art-039.webp"
+  },
+  {
+   "code": "MCI-ART-040",
+   "title": "Joker and Batman",
+   "price": 30,
+   "status": "stall",
+   "img": "assets/sw/mci-art-040.webp"
+  },
+  {
+   "code": "MCI-ART-041",
+   "title": "Batman canvas 40\u00d740 cm",
+   "price": 35,
+   "status": "stall",
+   "img": "assets/sw/mci-art-041.webp"
+  },
+  {
+   "code": "MCI-ART-042",
+   "title": "Batman canvas approx. 40\u00d760 cm",
+   "price": 50,
+   "status": "stall",
+   "img": "assets/sw/mci-art-042.webp"
+  },
+  {
+   "code": "MCI-ART-043",
+   "title": "Entry-level Joker stencil board",
+   "price": 20,
+   "status": "stall",
+   "img": "assets/sw/mci-art-043.webp"
+  },
+  {
+   "code": "MCI-ART-044",
+   "title": "Entry-level Joker stencil board",
+   "price": 20,
+   "status": "stall",
+   "img": "assets/sw/mci-art-044.webp"
+  },
+  {
+   "code": "MCI-ART-045",
+   "title": "Entry-level Joker stencil board",
+   "price": 20,
+   "status": "stall",
+   "img": "assets/sw/mci-art-045.webp"
+  },
+  {
+   "code": "MCI-ART-046",
+   "title": "Entry-level Joker stencil board",
+   "price": 20,
+   "status": "stall",
+   "img": "assets/sw/mci-art-046.webp"
+  },
+  {
+   "code": "MCI-ART-047",
+   "title": "Entry-level Joker stencil board",
+   "price": 20,
+   "status": "stall",
+   "img": "assets/sw/mci-art-047.webp"
+  },
+  {
+   "code": "MCI-ART-048",
+   "title": "Entry-level Joker stencil board",
+   "price": 20,
+   "status": "stall",
+   "img": "assets/sw/mci-art-048.webp"
+  },
+  {
+   "code": "MCI-ART-049",
+   "title": "Entry-level Joker stencil board",
+   "price": 20,
+   "status": "stall",
+   "img": "assets/sw/mci-art-049.webp"
+  },
+  {
+   "code": "MCI-ART-050",
+   "title": "Entry-level Joker stencil board",
+   "price": 20,
+   "status": "stall",
+   "img": "assets/sw/mci-art-050.webp"
+  },
+  {
+   "code": "MCI-ART-051",
+   "title": "Entry-level Joker stencil board",
+   "price": 20,
+   "status": "stall",
+   "img": "assets/sw/mci-art-051.webp"
+  },
+  {
+   "code": "MCI-ART-052",
+   "title": "Entry-level Joker stencil board",
+   "price": 20,
+   "status": "stall",
+   "img": "assets/sw/mci-art-052.webp"
+  },
+  {
+   "code": "MCI-ART-053",
+   "title": "Small square MTI",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-053.webp"
+  },
+  {
+   "code": "MCI-ART-054",
+   "title": "Original",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-054.webp"
+  },
+  {
+   "code": "MCI-ART-055",
+   "title": "Original",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-055.webp"
+  },
+  {
+   "code": "MCI-ART-056",
+   "title": "Original",
+   "price": 25,
+   "status": "stall",
+   "img": "assets/sw/mci-art-056.webp"
+  },
+  {
+   "code": "LE-001",
+   "title": "Hong Kong Strip",
+   "price": 350,
+   "status": "stall",
+   "img": "assets/sw/le-001.webp"
+  },
+  {
+   "code": "LE-002",
+   "title": "Under the Weather",
+   "price": 300,
+   "status": "stall",
+   "img": "assets/sw/le-002.webp"
+  },
+  {
+   "code": "LE-003",
+   "title": "Not a Drill",
+   "price": 450,
+   "status": "stall",
+   "img": "assets/sw/le-003.webp"
+  },
+  {
+   "code": "LE-004",
+   "title": "On the Record",
+   "price": 350,
+   "status": "stall"
+  }
+ ]
+}
