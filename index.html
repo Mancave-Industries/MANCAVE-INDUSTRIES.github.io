@@ -477,9 +477,20 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 .sw h3{font-size:1rem}
 
 @media (max-width:420px){.mg-grid,.sw-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* festival banner: shows until the end of 28 Nov */
+.find-us{background:var(--uv);color:var(--wall);padding-block:10px 9px;border-bottom:3px solid var(--wall)}
+.find-us .wrap{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:4px 18px;text-align:center}
+.find-us b{font:900 clamp(1.25rem,3.6vw,1.7rem)/1 var(--stencil);text-transform:uppercase;letter-spacing:.01em}
+.find-us span{font:700 .9rem/1.2 var(--label);letter-spacing:.14em;text-transform:uppercase}
+.find-us .off{background:var(--wall);color:var(--chalk);padding:5px 9px 3px}
 </style>
 </head>
 <body>
+<aside class="find-us" aria-label="Festival stall">
+  <div class="wrap"><b>Come and find us</b><span>Sat 28 Nov · High St, outside the Walton Village</span><span class="off">Present your token for 5% off</span></div>
+</aside>
+<script>(function(){if(Date.now()>Date.parse('2026-11-29T00:00:00Z')){var b=document.querySelector('.find-us');if(b)b.hidden=true;}})();</script>
 <div class="wrap">
   <nav class="nav" aria-label="Main">
     <a class="brand" href="#" aria-label="Mancave Industries home"><span class="seal seal-nav" aria-hidden="true"></span><span class="brand-name">Mancave Industries</span></a>
@@ -508,7 +519,7 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
     <details class="promo-more"><summary class="label">Festival details and posters</summary>
     <div class="event">
       <div class="what">
-        <p class="where">11am to 7pm · High Street &amp; The Heart, Walton-on-Thames KT12 1GH</p>
+        <p class="where">11am to 7pm · High St, outside the Walton Village, Walton-on-Thames KT12 1GH</p>
         <p>Our first stall. Come and see them lit.</p>
         <ul class="expect">
           <li><span class="g" aria-hidden="true"></span><span>Every ManGrenade, lit</span></li>
