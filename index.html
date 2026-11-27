@@ -447,16 +447,16 @@ footer .sign{font:900 clamp(1.6rem,4vw,2.6rem)/.9 var(--stencil);text-transform:
 .card .buy.tag.held:hover{background:#3a342e}
 
 /* festival banner: shows until the end of 28 Nov */
-.find-us{background:var(--uv);color:var(--wall);padding-block:10px 9px;border-bottom:3px solid var(--wall)}
-.find-us .wrap{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:4px 18px;text-align:center}
-.find-us b{font:900 clamp(1.25rem,3.6vw,1.7rem)/1 var(--stencil);text-transform:uppercase;letter-spacing:.01em}
-.find-us span{font:700 .9rem/1.2 var(--label);letter-spacing:.14em;text-transform:uppercase}
-.find-us .off{background:var(--wall);color:var(--chalk);padding:5px 9px 3px}
+.find-us{background:var(--uv);color:var(--wall);padding-block:clamp(22px,4vw,40px);border-bottom:4px solid var(--wall)}
+.find-us .wrap{display:grid;justify-items:center;gap:clamp(10px,1.6vw,16px);text-align:center}
+.find-us b{font:900 clamp(2.6rem,9vw,6rem)/.88 var(--stencil);text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
+.find-us span{font:700 clamp(1.05rem,2.6vw,1.6rem)/1.2 var(--label);letter-spacing:.12em;text-transform:uppercase;text-wrap:balance}
+.find-us .off{background:var(--wall);color:var(--chalk);padding:.45em .7em .3em;font:900 clamp(1.7rem,5.4vw,3.2rem)/1 var(--stencil);letter-spacing:.02em;transform:rotate(-2deg);box-shadow:6px 6px 0 var(--red)}
 </style>
 </head>
 <body>
 <aside class="find-us" aria-label="Festival stall">
-  <div class="wrap"><b>Come and find us</b><span>Sat 28 Nov · High St, outside the Walton Village</span><span class="off">Present your token for 5% off</span></div>
+  <div class="wrap"><b>Come and find us</b><span>Sat 28 Nov · High St, outside the Walton Village</span><span class="off">Present your token for £5 off</span></div>
 </aside>
 <script>(function(){if(Date.now()>Date.parse('2026-11-29T00:00:00Z')){var b=document.querySelector('.find-us');if(b)b.hidden=true;}})();</script>
 <div class="wrap">
